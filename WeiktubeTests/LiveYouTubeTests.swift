@@ -9,6 +9,61 @@ final class LiveYouTubeTests: XCTestCase {
     func testPublicVideoThroughAppLinkPlayerAndMiniPlayer() async throws {
         #if targetEnvironment(simulator)
         try XCTSkipUnless(ProcessInfo.processInfo.environment["WEIKTUBE_LIVE_VIDEO"] == "1", "Separater Online-Prüflauf")
+        try await withAppWindow { app in
+            let id = "aqz-KE-bpKQ"
+            app.open(VideoLink(id: id, startSeconds: 0).url)
+            let player = app.player
+            guard await wait(seconds: 45, until: {
+                player.snapshot.videoID == id && player.snapshot.playing &&
+                    player.snapshot.position > 0.25 && !player.snapshot.advertisement
+            }) else {
+                let status = player.errorMessage ?? "Kein laufendes YouTube-Inhaltsvideo bestätigt"
+                let page = await playbackPageState(in: player.web.webView)
+                XCTFail("\(status). Seite=\(page), WebKit ready=\(player.snapshot.ready), network=\(player.snapshot.networkState), error=\(player.snapshot.mediaErrorCode), autoplayBlocked=\(player.snapshot.autoplayBlocked)")
+                return
+            }
+            let identity = player.snapshot.elementID
+            app.select(.you)
+            XCTAssertTrue(player.isMini)
+            let position = player.snapshot.position
+            let continued = await wait(seconds: 8) { player.snapshot.position > position + 0.3 }
+            XCTAssertTrue(continued, "Wiedergabe im Miniplayer")
+            player.expand()
+            XCTAssertEqual(player.snapshot.elementID, identity)
+            player.pause()
+            let paused = await wait(seconds: 5) { !player.snapshot.playing }
+            XCTAssertTrue(paused)
+            player.seek(15)
+            let sought = await wait(seconds: 6) { abs(player.snapshot.position - 15) < 0.5 && !player.snapshot.playing }
+            XCTAssertTrue(sought, "Spulen im pausierten YouTube-Video")
+        }
+        #else
+        throw XCTSkip("Dieser Online-Test verwendet einen frischen Simulator.")
+        #endif
+    }
+
+    func testPublicHTTPSDirectLinkPlaysPausesAndSeeks() async throws {
+        try XCTSkipUnless(ProcessInfo.processInfo.environment["WEIKTUBE_LIVE_VIDEO"] == "1", "Separater Online-Prüflauf")
+        try await withAppWindow { app in
+            let url = try XCTUnwrap(URL(string: "https://raw.githubusercontent.com/weikiboy-tech/Weiktube-ios/c4bb3ee73bbfc038f7ceacb398e64ffc56bafcd0/WeiktubeTests/player-fixture.mp4"))
+            app.open(url)
+            let player = app.player
+            guard await wait(seconds: 35, until: {
+                player.isNative && player.snapshot.playing && player.snapshot.position > 0.1
+            }) else {
+                XCTFail(player.errorMessage ?? "Keine Wiedergabe vom öffentlichen HTTPS-Direktlink")
+                return
+            }
+            player.pause()
+            let paused = await wait(seconds: 5) { !player.snapshot.playing }
+            XCTAssertTrue(paused)
+            player.seek(3)
+            let sought = await wait(seconds: 6) { abs(player.snapshot.position - 3) < 0.15 && !player.snapshot.playing }
+            XCTAssertTrue(sought)
+        }
+    }
+
+    private func withAppWindow(_ test: (AppModel) async throws -> Void) async throws {
         let app = AppModel()
         let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
         let window = UIWindow(windowScene: scene)
@@ -23,35 +78,7 @@ final class LiveYouTubeTests: XCTestCase {
             app.home.shutdown()
             app.shorts.shutdown()
         }
-        let id = "aqz-KE-bpKQ"
-        app.open(VideoLink(id: id, startSeconds: 0).url)
-        let player = app.player
-        guard await wait(seconds: 45, until: {
-            player.snapshot.videoID == id && player.snapshot.playing &&
-                player.snapshot.position > 0.25 && !player.snapshot.advertisement
-        }) else {
-            let status = player.errorMessage ?? "Kein laufendes YouTube-Inhaltsvideo bestätigt"
-            let page = await playbackPageState(in: player.web.webView)
-            XCTFail("\(status). Seite=\(page), WebKit ready=\(player.snapshot.ready), network=\(player.snapshot.networkState), error=\(player.snapshot.mediaErrorCode), autoplayBlocked=\(player.snapshot.autoplayBlocked)")
-            return
-        }
-        let identity = player.snapshot.elementID
-        app.select(.you)
-        XCTAssertTrue(player.isMini)
-        let position = player.snapshot.position
-        let continued = await wait(seconds: 8) { player.snapshot.position > position + 0.3 }
-        XCTAssertTrue(continued, "Wiedergabe im Miniplayer")
-        player.expand()
-        XCTAssertEqual(player.snapshot.elementID, identity)
-        player.pause()
-        let paused = await wait(seconds: 5) { !player.snapshot.playing }
-        XCTAssertTrue(paused)
-        player.seek(15)
-        let sought = await wait(seconds: 6) { abs(player.snapshot.position - 15) < 0.5 && !player.snapshot.playing }
-        XCTAssertTrue(sought, "Spulen im pausierten YouTube-Video")
-        #else
-        throw XCTSkip("Dieser Online-Test verwendet einen frischen Simulator.")
-        #endif
+        try await test(app)
     }
 
     private func playbackPageState(in view: WKWebView) async -> String {
