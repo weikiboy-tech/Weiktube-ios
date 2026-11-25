@@ -1002,6 +1002,12 @@
 			isa = PBXBuildFile;
 			fileRef = F7B1E7220A4532A2144AE701;
 		};
+		9392F3EF4CA1996B7354EA4B = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = "scripts/archive-for-testflight.sh";
+			sourceTree = SOURCE_ROOT;
+		};
 		946E5F04715E5129EE1552A9 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.swift;
@@ -1172,6 +1178,7 @@
 		A44032292D4F796D7B3768E1 = {
 			isa = PBXGroup;
 			children = (
+				9392F3EF4CA1996B7354EA4B,
 				CD32AF4546317CBF53796642,
 				DE0D7725F7B1BE121B6BC244,
 				C2E74E4888F50B67C6A4E328,

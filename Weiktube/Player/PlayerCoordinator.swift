@@ -287,7 +287,7 @@ final class PlayerCoordinator: ObservableObject {
                 adRecoveryTask=nil
                 web.reload()
             } else {
-                pause()
+                pause(reason: .adRecovery)
                 errorMessage="Werbung wird weiterhin erkannt. Der Player bleibt angehalten. Prüfe die Filter oder öffne die originale Steuerung; ein weiterer automatischer Reload erfolgt nicht."
             }
         }
@@ -343,7 +343,8 @@ final class PlayerCoordinator: ObservableObject {
             else { _ = await web.command("play", elementID: snapshot.elementID) }
         }
     }
-    func pause() {
+    func pause(reason: DiagnosticsStore.PauseReason = .control) {
+        if hasPlayer { DiagnosticsStore.shared.recordPause(reason) }
         playbackIntent += 1
         playRequest?.cancel()
         adRecoveryTask?.cancel();adRecoveryTask=nil;lastContentPlaying=false
@@ -426,6 +427,11 @@ final class PlayerCoordinator: ObservableObject {
             }
         }
     }
+    func supportedHoldRates() async -> [Double] {
+        if isNative { return native.supportedHoldRates }
+        return await web.reportedHoldRates()
+    }
+
     func hold(_ active: Bool) {
         if !active {
             let held = heldGeneration; heldGeneration = nil; holdToken = nil
@@ -439,21 +445,27 @@ final class PlayerCoordinator: ObservableObject {
             feedback = nil
             return
         }
-        guard settings.holdToSpeed, snapshot.ready else { return }
+        guard settings.holdToSpeed, snapshot.ready, snapshot.playing, !snapshot.ended else { return }
         heldGeneration = generation
         let token = UUID(); holdToken = token
-        if isNative { native.hold(rate: settings.holdSpeed); showFeedback("\(settings.holdSpeed.formatted())×", persistent: true) }
+        let rate = settings.holdSpeed
+        if isNative {
+            if native.hold(rate: rate) { showFeedback("\(rate.formatted())×", persistent: true) }
+        }
         else {
             let captured = generation
             Task { [weak self] in
                 guard let self, captured == generation, holdToken == token else { return }
-                let result = await web.command("hold", values: ["rate": settings.holdSpeed], elementID: snapshot.elementID)
+                let element = snapshot.elementID
+                let rates = await web.reportedHoldRates()
+                guard captured == generation, holdToken == token, element == snapshot.elementID, rates.contains(rate) else { return }
+                let result = await web.command("hold", values: ["rate": rate], elementID: element)
                 guard captured == generation else { return }
                 guard holdToken == token else {
                     if holdToken == nil { _ = await web.command("release") }
                     return
                 }
-                if result?["ok"] as? Bool == true { showFeedback("\(settings.holdSpeed.formatted())×", persistent: true) }
+                if result?["ok"] as? Bool == true { showFeedback("\(rate.formatted())×", persistent: true) }
             }
         }
     }

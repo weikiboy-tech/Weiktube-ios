@@ -33,7 +33,7 @@ struct RootView:View {
                 if player.hasPlayer {
                     PlayerPanel(player:player,sponsor:app.sponsor,dislikes:app.dislikes,
                                 logicalSize:CGSize(width:geometry.size.width,height:max(1,expandedHeight-100)),
-                                onActions:{player.pause();app.showActions=true;app.reconcilePlayback()})
+                                onActions:{player.pause(reason: .videoActions);app.showActions=true;app.reconcilePlayback()})
                         .frame(width:panelWidth,height:panelHeight)
                         .offset(x:panelX,y:panelY)
                         .opacity(player.isPiP ? 0:1)

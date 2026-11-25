@@ -6,9 +6,10 @@ struct SettingsScreen:View {
     @ObservedObject var app:AppModel
     @ObservedObject private var settings:AppSettings
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var player: PlayerCoordinator
     @State private var clearHistory=false
     @State private var clearWebsite=false
-    init(app:AppModel){self.app=app;settings=app.settings}
+    init(app:AppModel){self.app=app;settings=app.settings;player=app.player}
     var body:some View {
         Form {
             Section("Erscheinungsbild") {
@@ -21,7 +22,7 @@ struct SettingsScreen:View {
                 Toggle("Doppeltipp zum Spulen",isOn:$settings.doubleTapSeek)
                 Picker("Sprungweite",selection:$settings.seekSeconds){ForEach(AppSettings.seekChoices,id:\.self){Text("\($0) Sekunden").tag($0)}}
                 Toggle("Gedrückt halten für Tempo",isOn:$settings.holdToSpeed)
-                Picker("Temporäre Geschwindigkeit",selection:$settings.holdSpeed){ForEach(AppSettings.holdChoices,id:\.self){Text("\($0.formatted())×").tag($0)}}
+                HoldSpeedMenu(player: player, settings: settings)
                 Text("Helligkeit, Lautstärke und Gedrückthalten gelten im Vollbild. Ziehe den Player im Hochformat nach unten, um ihn zu verkleinern. Pinch vergrößert ausschließlich das Video (1–8×).").font(.footnote).foregroundStyle(.secondary)
             }
             Section("Videoqualität") {
@@ -45,7 +46,7 @@ struct SettingsScreen:View {
                 NavigationLink("In Weiktube öffnen"){LinkHelpScreen()}
             }
             Section("Diagnose und Informationen") {
-                NavigationLink("Lokale Diagnose"){DiagnosticsScreen()}
+                NavigationLink("Lokale Diagnose"){DiagnosticsScreen(home: app.home, network: app.network)}
                 NavigationLink("Datenschutz & Lizenzen"){PrivacyScreen()}
                 NavigationLink("Version & Installation"){InstallationScreen()}
                 NavigationLink("App-Updates"){ReleaseUpdatesScreen(checker:app.releaseChecker,settings:settings)}
@@ -116,5 +117,30 @@ struct BundledTextScreen:View {
     private var content:String {
         guard let url=Bundle.main.url(forResource:name,withExtension:extensionName),let text=try? String(contentsOf:url,encoding:.utf8) else{return "Das Dokument fehlt im App-Bundle. Die vollständigen Hinweise liegen im Quellcode bei."}
         return text
+    }
+}
+
+private struct HoldSpeedMenu: View {
+    @ObservedObject var player: PlayerCoordinator
+    @ObservedObject var settings: AppSettings
+    @State private var choices: [Double] = []
+
+    var body: some View {
+        Menu {
+            ForEach(choices, id: \.self) { rate in
+                Button("\(rate.formatted())×") { settings.holdSpeed = rate }
+            }
+        } label: {
+            LabeledContent("Temporäre Geschwindigkeit", value: "\(settings.holdSpeed.formatted())×")
+        }
+        .disabled(choices.isEmpty)
+        .task(id: "\(player.generation)/\(player.snapshot.elementID)/\(player.snapshot.ready)") {
+            choices = []
+            let available = await player.supportedHoldRates()
+            if !Task.isCancelled { choices = available }
+        }
+        if choices.isEmpty {
+            Text("Öffne ein Video, das unterstützte Geschwindigkeiten meldet.").font(.footnote)
+        }
     }
 }

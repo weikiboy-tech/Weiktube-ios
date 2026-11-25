@@ -240,7 +240,13 @@
     }
     if (name === 'rate') { const rate = Number(args.rate); if (![0.25,0.5,0.75,1,1.25,1.5,1.75,2,2.5,3].includes(rate)) return {ok:false};
       try { active.playbackRate = rate; schedule(); return {ok:Math.abs(active.playbackRate-rate)<0.01,rate:active.playbackRate}; } catch (_) { return {ok:false}; } }
-    if (name === 'hold') { if (savedRate === null) savedRate = active.playbackRate; return command('rate',args); }
+    if (name === 'hold') {
+      if (active.paused || active.ended) return {ok:false};
+      const previous = active.playbackRate;
+      const result = command('rate', args);
+      if (result.ok && savedRate === null) savedRate = previous;
+      return result;
+    }
     if (name === 'zoom') { zoom=Math.min(8,Math.max(1,Number(args.scale)||1));
       zoomX=Number.isFinite(args.x)?Math.min(1,Math.max(0,args.x)):0.5;
       zoomY=Number.isFinite(args.y)?Math.min(1,Math.max(0,args.y)):0.5;

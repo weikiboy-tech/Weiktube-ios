@@ -219,7 +219,10 @@ async function run() {
     check(!controls.style.getPropertyValue('transform') && !f.document.body.style.getPropertyValue('transform') && !video.parentElement.style.getPropertyValue('transform'), 'Zoom leaves controls and webpage unscaled');
     f.command('zoom', {scale: 1, elementID: f.sample().elementID});
     check(!video.style.getPropertyValue('transform') && !video.parentElement.style.getPropertyValue('overflow'), 'Reset removes only bridge-owned zoom and clipping');
-    video.playbackRate = 1.25; f.command('hold', {rate: 2, elementID: f.sample().elementID});
+    video.playbackRate = 1.25;
+    check(!f.command('hold', {rate: 2}).ok && video.playbackRate === 1.25 && video.paused,
+      'Holding a paused video leaves both its speed and transport unchanged');
+    await video.play(); f.command('hold', {rate: 2, elementID: f.sample().elementID});
     check(video.playbackRate === 2, 'Hold applies requested supported playback speed');
     f.activate(); // Duplicate ready/didFinish activation must not erase restoration state.
     video.rect.y = 1000;
@@ -249,7 +252,7 @@ async function run() {
     check(v.style.getPropertyValue('transform').endsWith('scale(8)') && v.style.getPropertyValue('transform-origin') === '0% 100%', 'Zoom and malicious out-of-range anchors clamp to supported media bounds');
     f.command('zoom', {scale: 2, x: NaN, y: Infinity, elementID: f.sample().elementID});
     check(v.style.getPropertyValue('transform-origin') === '50% 50%', 'Non-finite focal coordinates fall back to the video center');
-    v.playbackRate = 1.5; f.command('hold', {rate: 2});
+    await v.play(); v.playbackRate = 1.5; f.command('hold', {rate: 2});
     f.location.search = '?v=lmnopqrstuv'; f.notify();
     check(v.playbackRate === 1.5 && v.style.getPropertyValue('transform') === 'rotate(1deg)' && v.style.getPropertyValue('transform-origin') === '10% 20%', 'Same-element route replacement restores held rate and original media styles');
   }

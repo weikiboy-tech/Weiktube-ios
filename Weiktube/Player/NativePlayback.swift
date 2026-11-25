@@ -130,7 +130,17 @@ final class NativePlayback: NSObject, ObservableObject, AVPictureInPictureContro
         sample()
         return true
     }
-    func hold(rate: Double) { if heldRate == nil { heldRate = baseRate }; _ = setRate(rate) }
+    var supportedHoldRates: [Double] {
+        guard let item = player.currentItem, item.status == .readyToPlay else { return [] }
+        return AppSettings.holdChoices.filter { $0 <= 2 || item.canPlayFastForward }
+    }
+    func hold(rate: Double) -> Bool {
+        guard player.timeControlStatus == .playing, supportedHoldRates.contains(rate) else { return false }
+        let previousRate = heldRate ?? baseRate
+        guard setRate(rate) else { return false }
+        heldRate = previousRate
+        return true
+    }
     func release() { if let heldRate { baseRate = heldRate; if player.rate != 0 { player.rate = heldRate }; self.heldRate = nil } }
     func setZoom(_ scale: Double,anchorX:Double=0.5,anchorY:Double=0.5) {
         guard scale.isFinite,anchorX.isFinite,anchorY.isFinite else { return }

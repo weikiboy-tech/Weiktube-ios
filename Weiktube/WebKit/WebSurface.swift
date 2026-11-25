@@ -4,9 +4,13 @@ import WebKit
 
 struct WebSurface: UIViewRepresentable {
     let session: WebSession
-    func makeUIView(context: Context) -> WKWebView { session.webView }
+    func makeUIView(context: Context) -> WKWebView {
+        DiagnosticsStore.shared.record(.surfaceAttached)
+        return session.webView
+    }
     func updateUIView(_ view: WKWebView, context: Context) { }
     static func dismantleUIView(_ uiView: WKWebView, coordinator: ()) {
+        DiagnosticsStore.shared.record(.surfaceDetached)
         // The session owns the view across navigation and view reconstruction.
     }
 }

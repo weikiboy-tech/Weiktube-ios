@@ -158,6 +158,24 @@ final class WebSession: NSObject, ObservableObject, WKNavigationDelegate {
         } catch { return nil }
     }
 
+    func reportedHoldRates() async -> [Double] {
+        guard role == .player, !destroyed, let url = webView.url, Self.permitsPage(url),
+              snapshot.ready, !snapshot.elementID.isEmpty else { return [] }
+        let document = generation
+        let element = snapshot.elementID
+        let script = """
+            const p = document.getElementById('movie_player');
+            if (!p || typeof p.getAvailablePlaybackRates !== 'function' ||
+                typeof p.getVideoData !== 'function' || p.getVideoData()?.video_id !== expectedID) return [];
+            const rates = p.getAvailablePlaybackRates();
+            return Array.isArray(rates) ? [1.5, 2, 2.5, 3].filter(rate => rates.includes(rate)) : [];
+            """
+        let result = try? await webView.callAsyncJavaScript(script, arguments: ["expectedID": snapshot.videoID],
+                                                            in: nil, contentWorld: .page)
+        guard generation == document, snapshot.elementID == element, let rates = result as? [Double] else { return [] }
+        return AppSettings.holdChoices.filter(rates.contains)
+    }
+
     func back() {
         guard webView.canGoBack else { return }
         if let url = webView.backForwardList.backItem?.url { selectRecoverySource(url) }

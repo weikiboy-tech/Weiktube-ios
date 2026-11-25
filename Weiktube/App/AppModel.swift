@@ -125,7 +125,7 @@ final class AppModel: ObservableObject {
         selectedTab=tab
         if player.hasPlayer && !player.isMini && !player.isPiP { player.minimize() }
         if tab == .shorts {
-            player.pause()
+            player.pause(reason: .shorts)
             if shorts.currentURL == nil && !testing { shorts.load(URL(string:"https://m.youtube.com/shorts")!) }
         }
         reconcilePlayback()
@@ -158,7 +158,7 @@ final class AppModel: ObservableObject {
                 if selectedTab == .shorts { selectedTab = .home }
                 reconcilePlayback()
             case .shorts:
-                if player.hasPlayer { player.minimize();player.pause() }
+                if player.hasPlayer { player.minimize();player.pause(reason: .shorts) }
                 selectedTab = .shorts
                 if shorts.currentURL != route.url { shorts.load(route.url) }
                 reconcilePlayback()
@@ -223,6 +223,14 @@ final class AppModel: ObservableObject {
         UIApplication.shared.isIdleTimerDisabled=inApp && playing
     }
     func sceneChanged(_ phase:ScenePhase) {
+        if scenePhase != phase {
+            switch phase {
+            case .active: DiagnosticsStore.shared.record(.sceneActive)
+            case .inactive: DiagnosticsStore.shared.record(.sceneInactive)
+            case .background: DiagnosticsStore.shared.record(.sceneBackground)
+            @unknown default: break
+            }
+        }
         scenePhase=phase
         updateWakeLock()
         backgroundTask?.cancel()
@@ -231,7 +239,7 @@ final class AppModel: ObservableObject {
             backgroundTask=Task { [weak self] in
                 try? await Task.sleep(for:.milliseconds(350))
                 guard !Task.isCancelled,let self,scenePhase == .background else{return}
-                if !player.isPiP { player.pause() }
+                if !player.isPiP { player.pause(reason: .background) }
                 reconcilePlayback()
                 await history.flush()
             }

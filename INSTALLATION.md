@@ -1,5 +1,12 @@
 # Install and sign Weiktube for iOS
 
+## Auf iPhone oder iPad installieren
+
+Für die Beta ist TestFlight vorgesehen. Sobald der Herausgeber einen signierten Build bereitgestellt hat, installiere **TestFlight** aus dem App Store, öffne die Einladung auf dem Gerät und tippe bei **Weiktube** auf **Installieren**. Weitere Builds erscheinen in derselben App. Den ersten Build für externe Tester prüft Apple. [Apple TestFlight](https://developer.apple.com/testflight/)
+
+Der öffentliche GitHub-Quellstand allein erzeugt keine Einladung. Für den ersten Upload benötigt der Herausgeber Zugriff auf sein Apple-Developer-Team, den App-Store-Connect-Eintrag und die zur App und Share Extension gehörenden App-Group-Profile. Die Schritte für das signierte Archiv stehen unten.
+
+
 The source tree is ready to open in Xcode. It does not contain an Apple team, signing certificate, provisioning profile, Google OAuth client or a pre-signed IPA. The app requires iOS 17 or later. Choose the simulator path for local review without signing, or configure your actual Apple development team for an iPhone/iPad build.
 
 ## Simulator review
@@ -43,6 +50,8 @@ After the simulator tests and device acceptance are satisfactory:
 2. Select the `Weiktube` scheme and a generic iOS device destination in Xcode.
 3. Choose Product → Archive with your real signing configuration. The shared scheme archives **Release**. Both the app and its embedded Share Extension must sign successfully.
 4. In Organizer, validate and distribute using the route your account and profiles support. A device/ad hoc export requires an appropriate distribution profile and registered devices; TestFlight/App Store distribution requires an App Store Connect app and the corresponding program access. Xcode's [Distributing your app for beta testing and releases](https://developer.apple.com/documentation/xcode/distributing-your-app-for-beta-testing-and-releases) describes those supported workflows.
+
+Alternativ erstellt `bash scripts/archive-for-testflight.sh` auf dem eingerichteten Mac das Release-Archiv, prüft App und eingebettete Share Extension und öffnet das Archiv in Xcode. Im Organizer **Distribute App → App Store Connect** wählen. In App Store Connect unter **TestFlight** den verarbeiteten Build einer Testgruppe zuordnen und eine Einladung erzeugen.
 
 The repository does not commit export credentials, select a real team on your behalf, upload a build or promise App Store approval. No automated release publication is configured.
 

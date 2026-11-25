@@ -17,3 +17,5 @@ Weiktube/Resources/Filters/vendor-scriptlets.js -text
 Weiktube/AdBlock/VendorSource/** -text
 LICENSE -text
 *.png binary
+
+*.sh text eol=lf

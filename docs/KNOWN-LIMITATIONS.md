@@ -14,9 +14,8 @@ Diese Punkte sind technisch umsetzbare Restarbeit. Sie werden nicht als unvermei
 
 | Matrix-ID | Stand | Konkreter Rest |
 | --- | --- | --- |
-| GEST-09 | In Entwicklung | Temporäres Tempo und exakte Wiederherstellung sind implementiert. Die Auswahl zeigt feste 1.5/2/2.5/3×-Kandidaten; eine vorab ausschließlich aus bestätigten Engine-Fähigkeiten gebildete Liste fehlt. Ein abgewiesener Tempobefehl darf nicht als Erfolg angezeigt werden. |
-| DIAG-01/02 | In Entwicklung | Begrenzte feste Lifecycle-/Medienereignisse mit ready/network/error-Zuständen sind vorhanden. Der komplette Android-Attachment-/Screen-/Pauseursachenkatalog und ein eigener vollständiger Pause-Ursprungsobserver fehlen. Der Grund einer Website-Pause wird nicht erfunden. |
-| DIAG-04 | In Entwicklung | Home zeigt Fehler/Retry und eine Erklärung der getrennten Sitzungen. Das ausführliche Home-Verbindungs-/Routing-/Autofill-Statuspanel ist noch nicht vollständig umgesetzt. |
+| DIAG-01/02 | In Entwicklung | Begrenzte feste Lifecycle-/Medienereignisse mit ready/network/error-Zuständen sind vorhanden. Szenen, Webansichten und angeforderte App-Pausen werden lokal erfasst. Eine fremde Website-Pause lässt sich anhand eines Media-Events allein nicht eindeutig zuordnen. Der Grund einer Website-Pause wird nicht erfunden. |
+| DIAG-04 | In Entwicklung | Home zeigt Fehler/Retry und eine Erklärung der getrennten Sitzungen. Die Diagnose zeigt Netz- und Ladezustand, Herkunft, Routing, Retry und Browservergleich. Die Anzeige wartet auf praktische Abnahme. |
 
 Weitere begrenzte Abweichungen stehen direkt in den jeweiligen Matrixzeilen. Dazu zählen etwa iOS-Timeline-Maße statt identischer dp-Werte, native Controls als Ersatz für einzelne DOM-Einblendungen und vom Betriebssystem verwaltete Ausrichtungsereignisse statt eines eigenen Android-Sensorfilters. Ein solcher dokumentierter Ersatz ist erst nach praktischer Nutzungsprüfung akzeptiert.
 
