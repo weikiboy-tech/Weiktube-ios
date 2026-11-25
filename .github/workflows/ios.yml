@@ -79,6 +79,7 @@ jobs:
             -resultBundlePath artifacts/Weiktube-Simulator.xcresult \
             -parallel-testing-enabled NO \
             CODE_SIGNING_ALLOWED=NO \
+            -skip-testing:WeiktubeTests/LiveYouTubeTests \
             build test 2>&1 | tee artifacts/xcodebuild-simulator.log
       - name: Run Xcode analysis
         env:
@@ -94,6 +95,24 @@ jobs:
             -resultBundlePath artifacts/Weiktube-Analyze.xcresult \
             CODE_SIGNING_ALLOWED=NO \
             analyze 2>&1 | tee artifacts/xcodebuild-analyze.log
+      - name: Observe live public YouTube playback on iPhone
+        if: matrix.family == 'iPhone' && github.event_name != 'pull_request'
+        continue-on-error: true
+        id: live_video
+        env:
+          DESTINATION: ${{ steps.simulator.outputs.destination }}
+        run: |
+          set -o pipefail
+          xcodebuild test-without-building -project Weiktube.xcodeproj -scheme Weiktube \
+            -destination "$DESTINATION" -derivedDataPath build/DerivedData \
+            -parallel-testing-enabled NO -only-testing:WeiktubeTests/LiveYouTubeTests \
+            -resultBundlePath artifacts/Weiktube-LiveYouTube.xcresult \
+            2>&1 | tee artifacts/live-youtube.log
+      - name: Record live-site outcome separately
+        if: always() && matrix.family == 'iPhone'
+        env:
+          LIVE_RESULT: ${{ steps.live_video.outcome }}
+        run: echo "Live YouTube playback on the simulator — $LIVE_RESULT" >> "$GITHUB_STEP_SUMMARY"
       - name: Package the unsigned simulator app if built
         if: always()
         run: |

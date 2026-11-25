@@ -30,7 +30,10 @@ final class NativePlayback: NSObject, ObservableObject, AVPictureInPictureContro
     private var heldRate: Float?
     private var maximumHeight = 0
 
-    override init() {
+    private let makeItem: (URL) -> AVPlayerItem
+
+    init(makeItem: @escaping (URL) -> AVPlayerItem = { AVPlayerItem(url: $0) }) {
+        self.makeItem = makeItem
         let nativePlayer = AVPlayer()
         player = nativePlayer
         layer = AVPlayerLayer(player: nativePlayer)
@@ -59,7 +62,7 @@ final class NativePlayback: NSObject, ObservableObject, AVPictureInPictureContro
         }
         self.generation = generation
         title = String(url.deletingPathExtension().lastPathComponent.prefix(200))
-        let item = AVPlayerItem(url: url)
+        let item = makeItem(url)
         item.preferredMaximumResolution = preferredResolution
         itemObservation = item.observe(\.status, options: [.new]) { [weak self] _, _ in
             Task { @MainActor [weak self] in self?.sample() }

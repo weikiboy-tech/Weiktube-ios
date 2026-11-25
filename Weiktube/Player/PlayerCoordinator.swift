@@ -7,7 +7,7 @@ import UIKit
 @MainActor
 final class PlayerCoordinator: ObservableObject {
     let web: WebSession
-    let native = NativePlayback()
+    let native: NativePlayback
     let sponsor: SponsorBlockService
     let dislikes: ReturnDislikeService
     let history: HistoryStore
@@ -76,7 +76,8 @@ final class PlayerCoordinator: ObservableObject {
     private var lastContentPlaying=false
 
     init(adBlock: AdBlockService, sponsor: SponsorBlockService, dislikes: ReturnDislikeService,
-         history: HistoryStore, settings: AppSettings) {
+         history: HistoryStore, settings: AppSettings, nativePlayback: NativePlayback? = nil) {
+        self.native = nativePlayback ?? NativePlayback()
         self.sponsor = sponsor; self.dislikes = dislikes; self.history = history; self.settings = settings
         self.adBlock=adBlock
         web = WebSession(role: .player, adBlock: adBlock)

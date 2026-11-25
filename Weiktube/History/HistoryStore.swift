@@ -57,6 +57,7 @@ final class HistoryStore: ObservableObject {
     private let file: AtomicJSONFile<HistoryDocument>?
     private let writer = DispatchQueue(label: "com.weiktube.history.persistence", qos: .utility)
     private var writeSequence: UInt64 = 0
+    private var pendingWrite: DispatchWorkItem?
     private let now: () -> Date
 
     init(fileURL: URL? = nil, enabled: Bool = true, now: @escaping () -> Date = Date.init) {
@@ -173,15 +174,21 @@ final class HistoryStore: ObservableObject {
         writeSequence &+= 1
         let sequence = writeSequence
         let document = HistoryDocument(entries: entries)
-        writer.async { [weak self] in
+        // Each snapshot includes all earlier changes. A running write finishes first
+        // on the serial queue; pending intermediate snapshots can be discarded.
+        pendingWrite?.cancel()
+        let work = DispatchWorkItem { [weak self] in
             let result = Result { try file.write(document) }
             Task { @MainActor [weak self] in
                 guard let self, self.writeSequence == sequence else { return }
+                self.pendingWrite = nil
                 switch result {
                 case .success: self.storageError = nil
                 case .failure: self.storageError = "Verlauf konnte nicht gespeichert werden. Bitte freien Speicher und Gerätesperre prüfen."
                 }
             }
         }
+        pendingWrite = work
+        writer.async(execute: work)
     }
 }

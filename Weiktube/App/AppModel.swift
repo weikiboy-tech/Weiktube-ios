@@ -45,14 +45,14 @@ final class AppModel: ObservableObject {
     private var inbox: SharedLinkInbox?
     private let testing = ProcessInfo.processInfo.arguments.contains("--ui-testing")
 
-    init() {
+    init(nativePlayback: NativePlayback? = nil) {
         let settings=AppSettings(),history=HistoryStore(enabled:settings.saveHistory)
         let adBlock=AdBlockService(),sponsor=SponsorBlockService(),dislikes=ReturnDislikeService()
         self.settings=settings;self.history=history;self.adBlock=adBlock;self.sponsor=sponsor;self.dislikes=dislikes
         account=AccountStore()
         home=WebSession(role:.home,adBlock:adBlock)
         shorts=WebSession(role:.shorts,adBlock:adBlock)
-        player=PlayerCoordinator(adBlock:adBlock,sponsor:sponsor,dislikes:dislikes,history:history,settings:settings)
+        player=PlayerCoordinator(adBlock:adBlock,sponsor:sponsor,dislikes:dislikes,history:history,settings:settings,nativePlayback:nativePlayback)
         ownership=PlaybackOwnership(home:home,shorts:shorts,player:player.web)
         ownership.pauseNative={ [weak player] in player?.native.pause() }
         player.onPresentationChanged={ [weak self] in self?.reconcilePlayback() }

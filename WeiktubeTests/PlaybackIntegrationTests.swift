@@ -36,6 +36,40 @@ final class PlaybackIntegrationTests: XCTestCase {
         XCTAssertEqual(engine.player.rate, 0)
     }
 
+    func testOpenLinkMinimizeChangeTabExpandAndSeekOnTheSamePlayingItem() async throws {
+        let localClip = try clip()
+        let link = try XCTUnwrap(URL(string: "https://media.example.org/player-fixture.mp4"))
+        let engine = NativePlayback { requestedURL in
+            XCTAssertEqual(requestedURL, link)
+            return AVPlayerItem(url: localClip)
+        }
+        let app = AppModel(nativePlayback: engine)
+        defer {
+            app.player.close()
+            engine.shutdown()
+            app.player.web.shutdown()
+            app.home.shutdown()
+            app.shorts.shutdown()
+        }
+        app.open(link)
+        try await eventually { app.player.snapshot.playing && app.player.snapshot.position > 0 }
+        let item = try XCTUnwrap(engine.player.currentItem)
+        app.player.minimize()
+        app.select(.adblock)
+        XCTAssertTrue(app.player.isMini)
+        XCTAssertEqual(app.selectedTab, .adblock)
+        let position = engine.player.currentTime().seconds
+        try await eventually { engine.player.currentTime().seconds > position + 0.1 }
+        app.player.expand()
+        XCTAssertTrue(engine.player.currentItem === item)
+        app.player.pause()
+        app.player.seek(2)
+        try await eventually { !app.player.snapshot.playing && abs(app.player.snapshot.position - 2) < 0.15 }
+        app.player.close()
+        XCTAssertFalse(app.player.hasPlayer)
+        XCTAssertNil(engine.player.currentItem)
+    }
+
     func testWebKitBridgeOperatesOnDecodedInlineVideo() async throws {
         let bridge = try String(contentsOf: XCTUnwrap(Bundle.main.url(forResource: "MediaBridge", withExtension: "js")), encoding: .utf8)
         let config = WKWebViewConfiguration()
