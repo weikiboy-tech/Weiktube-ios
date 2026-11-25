@@ -83,9 +83,9 @@ On iPhone, supported orientations are portrait and both landscapes. On iPad, the
 
 ## CI artifacts and what they mean
 
-`.github/workflows/ios.yml` runs structural/provenance checks, the portable package tests, then build, XCTest, UI tests and analysis on `macos-15`. It discovers an installed iPhone simulator dynamically. It uploads logs and `.xcresult` bundles even on failure, together with a simulator `.app` zip when compilation produced one.
+`.github/workflows/ios.yml` runs structural/provenance checks, the portable package tests, then build, XCTest, UI tests and analysis on `macos-15`. CI selects Xcode 26.2 and matching iPhone and iPad runtimes. The iOS 18.5 simulator in Xcode 16.4 can terminate a WebKit app built for iOS 17 at launch because the Swift WebKit overlay is missing. [WebKit issue 293831](https://bugs.webkit.org/show_bug.cgi?id=293831). It uploads logs and `.xcresult` bundles even on failure, together with a simulator `.app` zip when compilation produced one.
 
-The artifact name includes **`unsignedSimulator`**. That app is for the simulator; it is not an iPhone IPA, and its existence does not mean every test passed. Check the job outcome and result bundle.
+The artifact name includes the device family and **`Simulator`**. That app is for the simulator; it is not an iPhone IPA, and its existence does not mean every test passed. Check the job outcome and result bundle.
 
 Manual workflow dispatch can optionally create an **`unsignedDevice` `.xcarchive`** using a generic iOS destination and `CODE_SIGNING_ALLOWED=NO`. The workflow does not export an IPA, install anything on a device, or publish a release. A signed device distribution still needs your actual team, certificates/profiles, identifiers, App Group entitlement and chosen distribution method. See [INSTALLATION.md](INSTALLATION.md).
 
