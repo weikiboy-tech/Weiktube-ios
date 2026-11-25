@@ -159,7 +159,11 @@ enum WebKitRuleCompiler {
                 rules.append(["trigger": ["url-filter": ".*", "if-domain": ["*" + exception]], "action": ["type": "ignore-previous-rules"]])
                 rules.append(["trigger": ["url-filter": "^https://([a-z0-9-]+\\.)*" + escaped(exception) + "/"], "action": ["type": "ignore-previous-rules"]])
             }
-            rules.append(["trigger": ["url-filter": ".*", "if-top-url": ["^https://([a-z0-9-]+\\.)*youtube\\.com/(signin|login|logout|account|o/oauth|servicelogin)"]], "action": ["type": "ignore-previous-rules"]])
+            // WebKit content filters accept a list of top URLs but no regex alternation.
+            let accountPaths = ["signin", "login", "logout", "account", "o/oauth", "servicelogin"]
+            let accountURLs = accountPaths.map { "^https://([a-z0-9-]+\\.)*youtube\\.com/" + $0 }
+            rules.append(["trigger": ["url-filter": ".*", "if-top-url": accountURLs],
+                          "action": ["type": "ignore-previous-rules"]])
         }
         // WebKit accepts a non-empty list; the disabled rule can never match a valid HTTPS URL.
         if rules.isEmpty { rules = [["trigger": ["url-filter": "^weiktube-disabled-filter:"], "action": ["type": "block"]]] }

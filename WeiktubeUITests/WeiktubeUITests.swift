@@ -4,6 +4,7 @@ import XCTest
 final class WeiktubeUITests: XCTestCase {
     override func setUpWithError() throws { continueAfterFailure = false }
 
+    @MainActor
     private func launchOffline() -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = ["--ui-testing"]
@@ -12,6 +13,7 @@ final class WeiktubeUITests: XCTestCase {
         return app
     }
 
+    @MainActor
     func testNativeTabsRemainAvailableWithoutNetworkOrOAuth() {
         let app = launchOffline()
         for identifier in ["tab.adblock", "tab.subscriptions", "tab.you", "tab.shorts", "tab.home"] {
@@ -23,6 +25,7 @@ final class WeiktubeUITests: XCTestCase {
         }
     }
 
+    @MainActor
     func testMaliciousLinkShowsValidationErrorWithoutOpeningAPlayer() {
         let app = launchOffline()
         app.buttons["Weitere Optionen"].tap()
@@ -39,6 +42,7 @@ final class WeiktubeUITests: XCTestCase {
         XCTAssertTrue(app.buttons["tab.home"].exists)
     }
 
+    @MainActor
     func testSearchSheetAcceptsTextAndCanBeCancelledOffline() {
         let app = launchOffline()
         app.buttons["YouTube durchsuchen"].tap()
