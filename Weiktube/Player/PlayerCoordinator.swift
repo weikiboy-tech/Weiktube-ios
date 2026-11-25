@@ -216,7 +216,15 @@ final class PlayerCoordinator: ObservableObject {
                                         isLive: value.live, isAdvertisement: value.advertisement) {
             executeSponsorSeek(request)
         }
-        guard value.ready, !value.advertisement else { return }
+        guard !value.advertisement else { return }
+        if !value.ready {
+            // iPhone WebKit may preload only metadata until the first play request.
+            if canRequestPlayback, pendingResume == nil || pendingResume == 0 {
+                pendingResume = nil
+                startOnceIfRequested()
+            }
+            return
+        }
         if let seconds = pendingResume {
             // An explicit zero at the beginning needs no seek. Live media cannot promise stored resume.
             if value.live || (seconds == 0 && (!value.seekable || value.position <= 0.35)) {
@@ -319,8 +327,12 @@ final class PlayerCoordinator: ObservableObject {
             if captured==generation,result?["ok"] as? Bool != true {renderedDislikeKey=""}
         }
     }
+    private var canRequestPlayback: Bool {
+        if isNative { return snapshot.ready }
+        return !snapshot.elementID.isEmpty && snapshot.videoID == route?.videoID && !snapshot.advertisement
+    }
     private func startOnceIfRequested() {
-        guard initialPlayPending, pendingResume == nil, snapshot.ready else { return }
+        guard initialPlayPending, pendingResume == nil, canRequestPlayback else { return }
         initialPlayPending = false
         play()
     }
@@ -336,7 +348,7 @@ final class PlayerCoordinator: ObservableObject {
             guard let self else { return }
             let allowed = await beforePlayback?() ?? true
             guard allowed, captured == generation, hasPlayer, intent == playbackIntent, !Task.isCancelled else { return }
-            guard snapshot.ready else{initialPlayPending=true;return}
+            guard canRequestPlayback else { initialPlayPending = true; return }
             if pendingResume != nil {initialPlayPending=true;receive(snapshot);return}
             try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
             try? AVAudioSession.sharedInstance().setActive(true)

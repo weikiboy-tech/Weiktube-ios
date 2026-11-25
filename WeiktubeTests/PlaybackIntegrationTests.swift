@@ -81,9 +81,11 @@ final class PlaybackIntegrationTests: XCTestCase {
         let window = UIWindow(windowScene: scene)
         let controller = UIViewController()
         window.rootViewController = controller
-        window.isHidden = false
+        window.makeKeyAndVisible()
+        controller.view.layoutIfNeeded()
         defer { window.isHidden = true }
         let view = WKWebView(frame: controller.view.bounds, configuration: config)
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         controller.view.addSubview(view)
         let encoded = try Data(contentsOf: clip()).base64EncodedString()
         let html = "<meta name='viewport' content='width=device-width'><video playsinline muted preload='auto' width='250' height='140' src='data:video/mp4;base64,\(encoded)'></video>"
@@ -96,14 +98,13 @@ final class PlaybackIntegrationTests: XCTestCase {
           const video = document.querySelector('video');
           const args = {generation: 1, token: 'fixture'};
           bridge.activate({...args, role: 'player', suspended: false, originalControls: true});
-          async function until(test) {
+          async function until(label, test) {
             const end = Date.now() + 12000;
             while (!test() && Date.now() < end) await new Promise(r => setTimeout(r, 50));
-            if (!test()) throw new Error('Media condition timed out');
+            if (!test()) throw new Error(label + ': ready=' + video.readyState + ', paused=' + video.paused + ', time=' + video.currentTime + ', visible=' + document.visibilityState);
           }
-          await until(() => video.readyState >= 2);
-          await until(() => bridge.command('play', args).ok);
-          await until(() => video.currentTime > 0.05);
+          await until('select playable element', () => bridge.command('play', args).ok);
+          await until('clock advancing', () => video.currentTime > 0.05 && video.readyState >= 2);
           const held = bridge.command('hold', {...args, rate: 2}).ok && video.playbackRate === 2;
           bridge.command('release', args);
           const released = video.playbackRate === 1;
