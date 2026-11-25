@@ -3,6 +3,12 @@
 Stand: 25.11.2026. Android-Referenz: Weiktube **1.3.23**, Commit
 `a7e0a9221e73d3d9c361f614adcb9e027fb70c35`.
 
+## Prüfung mit WebKit im Simulator
+
+Der Test `testLocalFilterScreenActuallyBlocksItsImageAndHidesItsAd` öffnet die lokale Shields-Testseite der App. WKWebView lädt das Kontrollbild, blockiert das zweite Bild und blendet das Testelement per kosmetischer Regel aus. Der Test bestand auf dem iPhone SE und dem iPad mini mit Systemversion 26.2. [Xcode-Protokoll](https://github.com/weikiboy-tech/Weiktube-ios/actions/runs/45614957738/job/139217642069)
+
+## Frühere plattformunabhängige Prüfungen
+
 Die unten als bestanden bezeichneten Prüfungen wurden tatsächlich mit Node.js in
 der Linux-Entwicklungsumgebung ausgeführt. Sie führen den ausgelieferten
 JavaScript-Code aus. Ein lokales DOM-/Medienmodell ersetzt dabei Browser,

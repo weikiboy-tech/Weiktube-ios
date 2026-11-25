@@ -1,8 +1,19 @@
 # Prüfung und Abnahme von Weiktube iOS
 
-Stand: **25. November 2026**. Dieser Stand enthält ausführbaren Produktionscode und tatsächlich ausgeführte portable Tests. **Ein vollständiger iOS-Build und eine praktische iPhone-/iPad-Abnahme sind noch offen.** Ein Linux-Test kann weder Apple-Frameworks typprüfen noch echte YouTube-Wiedergabe nachweisen.
+Stand 25. November 2026. Xcode 26.2 hat das Release-Archiv für iOS mit eingebetteter Share Extension gebaut. Der Build ist unsigniert. [Xcode-Protokoll](https://github.com/weikiboy-tech/Weiktube-ios/actions/runs/45614957738/job/139217642078)
 
-## Tatsächlich ausgeführte Prüfungen
+## Bestätigte Apple-Ausführung
+
+Xcode 26.2 hat Commit `ff2a8dd` für das iPhone SE (3. Generation) und das iPad mini (A17 Pro) mit Systemversion 26.2 gebaut. Auf beiden Simulatoren liefen je **98 App-Tests und 3 UI-Tests** durch. Die 42 Foundation-Tests und die statische Xcode-Analyse bestanden ebenfalls. [iPhone-Protokoll](https://github.com/weikiboy-tech/Weiktube-ios/actions/runs/45614957738/job/139217642114) · [iPad-Protokoll](https://github.com/weikiboy-tech/Weiktube-ios/actions/runs/45614957738/job/139217642069)
+
+- AVPlayer und WKWebView spielten eine fünf Sekunden lange H.264-Datei ab. Beide Tests prüften Pause, temporäres Abspieltempo und den Sprung auf drei Sekunden.
+- Der Direktlink-Test minimierte den laufenden Player, wechselte den Tab, öffnete die Großansicht mit derselben Medieninstanz und bestätigte den Sprung auf zwei Sekunden im pausierten Zustand.
+- WKWebView wechselte zwischen zwei H.264-/AAC-Videos im Shorts-Layout. Das vorherige Video pausierte, die gewählte Stummschaltung blieb erhalten und der Seek betraf das neue Video.
+- Auf der lokalen Shields-Testseite lud das Kontrollbild. WebKit blockierte das gesperrte Bild und blendete das Testelement aus.
+
+Die Testvideos für die lokale Suite sind im XCTest-Bundle enthalten. Der Online-Lauf öffnet zusätzlich echte öffentliche URLs mit dem Standardplayer der App. Der öffentliche HTTPS-Direktlink bestand: Die App lud das Video über das Netz, spielte es ab, pausierte und spulte auf drei Sekunden. Beim öffentlichen YouTube-Link zeigte die Website eine Besucherbestätigung; innerhalb von 45 Sekunden lief dort kein Inhaltsvideo. [Beide Online-Ergebnisse](https://github.com/weikiboy-tech/Weiktube-ios/actions/runs/45614957738/job/139217642114)
+
+## Portable Prüfungen des importierten Quellstands
 
 | Prüfung | Ergebnis | Geltungsbereich |
 | --- | --- | --- |
@@ -22,22 +33,21 @@ Die vollständigen XCTest-Meldungen stehen in [swift-tests.txt](docs/validation/
 
 SwiftPM hat im ausgeführten Lauf trotz angefordertem `--xunit-output` keine XML-Datei erzeugt. Deshalb wird keine solche Datei als Testbeleg ausgegeben. Das Textprotokoll ist der maßgebliche Nachweis.
 
-## Geschrieben, aber hier nicht ausgeführt
+## Simulator und externe Dienste
 
-Die XCTest-Dateien für `AppSettings`, `HistoryStore`, Account-/PKCE-/Payloadregeln, SponsorBlock, RYD, ReleaseChecker sowie die Security-/WKContentRuleList-Prüfung sind im Xcode-Testtarget enthalten. Die drei UI-Tests prüfen native Tabnavigation, die Suchmaske und die Ablehnung eines gefährlichen Links im Offline-Testmodus. Diese Quellen sind **kein behaupteter Testpass**.
+Die XCTest-Dateien für `AppSettings`, `HistoryStore`, Account-/PKCE-/Payloadregeln, SponsorBlock, RYD, ReleaseChecker sowie die Security-/WKContentRuleList-Prüfung sind im Xcode-Testtarget enthalten. Die UI-Tests prüfen Tabnavigation, Suche und Linkvalidierung.
 
 Auch die Produktionsintegration zwischen Wiederherstellungsspeicher, App-Lifecycle, tatsächlicher Mediendatei und Audio-Besitz ist noch nicht durch einen App-Test belegt. Die 41 portablen Tests prüfen die angegebenen Core-Komponenten, nicht `PlayerCoordinator` oder `AppModel`.
 
 Folgende Ergebnisse liegen nicht vor:
 
-- macOS-/Xcode-Kompilierung, Linkerprüfung, Simulatorstart oder Simulator-XCTest/XCUITest;
 - signierte Installation auf iPhone/iPad, gestartete Share Extension oder bestätigter App Intent;
 - Live-YouTube-Wiedergabe, hörbare Shorts, echtes PiP, Rotation oder visuelle Animationsprüfung;
 - echte Google-Systemanmeldung, Zugriff auf private Kontodaten oder ausgeführte Konto-Schreibaktionen;
 - reale WebKit-AdBlock-Wirkung, längere Wiedergabe, Speicher-/Energie-/Frame-Messungen;
-- IPA, TestFlight-Upload, App-Store-Abnahme oder erfolgreich gelaufene GitHub Actions.
+- IPA, TestFlight-Upload, App-Store-Abnahme oder App-Store-Verteilung.
 
-Die Arbeitsumgebung hat keinen macOS-Runner mit Xcode. Die macOS-CI ist vorbereitet. Das inzwischen vorhandene leere Zielrepository ist öffentlich; der ausdrücklich privat gewünschte Entwicklungsstand wurde dort noch nicht hochgeladen. Daher wurde kein CI-Lauf gestartet. Details stehen in [REPOSITORY-STATUS.md](docs/REPOSITORY-STATUS.md).
+Die macOS-Runner bauen und prüfen den öffentlichen Quellstand. [Buildhistorie](https://github.com/weikiboy-tech/Weiktube-ios/actions/workflows/ios.yml)
 
 ## Reproduzierbare lokale Prüfungen
 

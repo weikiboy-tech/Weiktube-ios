@@ -2,7 +2,7 @@
 
 ## 0.1.0-dev — 2026-11-25
 
-Erster eigenständiger nativer iOS-/iPadOS-Quellstand von Weiktube. **Entwicklungsstand ohne bestätigten Xcode-Build, ohne signierte IPA und ohne Gerätefreigabe.** Android 1.3.23 / Commit `a7e0a9221e73d3d9c361f614adcb9e027fb70c35` ist die Funktionsreferenz.
+Erster eigenständiger nativer iOS-/iPadOS-Quellstand von Weiktube. Aktuelle Build- und Simulatorergebnisse stehen in [TESTING.md](TESTING.md). Android 1.3.23 / Commit `a7e0a9221e73d3d9c361f614adcb9e027fb70c35` ist die Funktionsreferenz.
 
 ### Hinzugefügt
 
@@ -34,6 +34,6 @@ Erster eigenständiger nativer iOS-/iPadOS-Quellstand von Weiktube. **Entwicklun
 
 ### Tatsächliche Prüfung und offene Freigabe
 
-41 portable Foundation-XCTest-Fälle bestanden mit 0 Fehlern; 68 JavaScript-Medien-Assertions, Filter-Fixtures und Projektstruktur wurden geprüft. Die ausführlichen Belege und der noch ausstehende Mac-/Simulator-/Gerätetest stehen in [TESTING.md](TESTING.md). Es gibt keine behaupteten FPS-/RAM-Werte, keine Live-AdBlock-Garantie und keinen behaupteten CI-Pass.
+41 portable Foundation-XCTest-Fälle bestanden mit 0 Fehlern; 68 JavaScript-Medien-Assertions, Filter-Fixtures und Projektstruktur wurden geprüft. Die ausführlichen Belege und jüngeren Apple-Prüfläufe stehen in [TESTING.md](TESTING.md). Es gibt keine behaupteten FPS-/RAM-Werte, keine Live-AdBlock-Garantie und keinen behaupteten CI-Pass.
 
 Noch umzusetzende oder unbestätigte Paritätsdetails sowie echte Apple-/Google-Grenzen stehen in [FEATURE-PARITY.md](docs/FEATURE-PARITY.md) und [KNOWN-LIMITATIONS.md](docs/KNOWN-LIMITATIONS.md). Dieser Eintrag ist kein öffentliches GitHub-Release.

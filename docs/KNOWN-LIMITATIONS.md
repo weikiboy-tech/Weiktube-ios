@@ -1,12 +1,12 @@
 # Bekannte Grenzen und offene Abnahme
 
-Stand: 25. November 2026. **Die iOS-App ist noch nicht vollständig gebaut und praktisch abgenommen.** Produktionscode, portable Core-Tests, JavaScript-Fixtures und echte App-Ausführung sind unterschiedliche Nachweisstufen. Die [Feature-Paritätsmatrix](FEATURE-PARITY.md) enthält jede der 163 Android-Funktions-IDs; dieses Dokument fasst die wesentlichen offenen Punkte zusammen.
+Stand: 25. November 2026. Xcode 26.2 hat das Release-Archiv für iOS mit eingebetteter Share Extension gebaut. Der Build ist unsigniert. [Xcode-Protokoll](https://github.com/weikiboy-tech/Weiktube-ios/actions/runs/45607195125/job/139181072997) Produktionscode, portable Core-Tests, JavaScript-Fixtures und echte App-Ausführung sind unterschiedliche Nachweisstufen. Die [Feature-Paritätsmatrix](FEATURE-PARITY.md) enthält jede der 163 Android-Funktions-IDs; dieses Dokument fasst die wesentlichen offenen Punkte zusammen.
 
 ## 1. Was tatsächlich geprüft wurde
 
 41 Foundation-XCTest-Fälle sind mit Swift 6.4.3 auf Linux bestanden: Linkrouter, Präsentationszustand, atomische Dateien, gemeinsame Inbox, Wiedergabe-Wiederherstellungsspeicher und Release-Metadaten. Das portable Package umfasst sechs Produktionsdateien. Die MediaBridge-Verhaltenstests und Filter-/Vendor-Fixtures wurden mit Node ausgeführt. Weitere Xcode-XCTest- und UI-Testdateien liegen als Quellcode vor.
 
-**Nicht ausgeführt:** vollständiges Xcode-Build/Linking, App-/Extension-Signierung, iOS-Simulator, echtes iPhone/iPad, installierte Share Extension, App-Intent-Handoff, Live-YouTube, hörbare Shorts, System-PiP, Google-OAuth-Ende-zu-Ende, reale Data-API-Kontoaktionen und WebKit-Filterwirkung. Auch der lokale Shields-Testbildschirm ist noch nicht in iOS gelaufen. Ein Swift-Syntaxparse ist kein Apple-SDK-Typecheck. Details und Befehle stehen in [TESTING.md](../TESTING.md) und [ADBLOCK-VALIDATION.md](ADBLOCK-VALIDATION.md).
+**Nicht ausgeführt:** App-/Extension-Signierung, echtes iPhone/iPad, installierte Share Extension, App-Intent-Handoff, Live-YouTube, hörbare Shorts, System-PiP, Google-OAuth-Ende-zu-Ende, reale Data-API-Kontoaktionen und WebKit-Filterwirkung. Auch der lokale Shields-Testbildschirm ist noch nicht in iOS gelaufen. Ein Swift-Syntaxparse ist kein Apple-SDK-Typecheck. Details und Befehle stehen in [TESTING.md](../TESTING.md) und [ADBLOCK-VALIDATION.md](ADBLOCK-VALIDATION.md).
 
 ## 2. Noch nicht vollständig implementierte Android-Parität
 
@@ -45,7 +45,7 @@ Der lokale Shields-Test verwendet synthetische lokale Ressourcen und synthetisch
 
 ### Communitydienste und API-Konto
 
-SponsorBlock-/RYD-Reducer, Parser, Caches, Requestgrenzen und native Oberflächen sind vorhanden. Ihre zusätzlichen XCTest-Fälle wurden ohne Apple-SDK nicht ausgeführt. Echtzeitverhalten, serverseitige Antworten, Retry-After, Opt-out während Netzwerkwechsel und Cachekonkurrenz benötigen weiter gezielte Tests. Kein Dienst erhält Kontotokens oder Website-Cookies. SponsorBlock-Vorschläge können unvollständig/falsch sein; RYD-Werte sind ausdrücklich Schätzungen.
+SponsorBlock-/RYD-Reducer, Parser, Caches, Requestgrenzen und native Oberflächen sind vorhanden. Die zugehörigen XCTest-Fälle liefen auf iPhone- und iPad-Simulatoren. Die Protokolle stehen in [TESTING.md](../TESTING.md). Echtzeitverhalten, serverseitige Antworten, Retry-After, Opt-out während Netzwerkwechsel und Cachekonkurrenz benötigen weiter gezielte Tests. Kein Dienst erhält Kontotokens oder Website-Cookies. SponsorBlock-Vorschläge können unvollständig/falsch sein; RYD-Werte sind ausdrücklich Schätzungen.
 
 Kontologik, PKCE-/Payloadtests und echte API-Endpunkte sind vorhanden. Reale Read-/Write-Abläufe wurden nicht im Nutzerkonto ausgeführt. Ein Datenmodell oder eine erfolgreiche Unit-Test-Payload ist kein Nachweis, dass Google-Consent, Projektquota, private Videos und sämtliche Kontoaktionen aktuell auf dem Gerät funktionieren.
 

@@ -91,4 +91,4 @@ Manual workflow dispatch can optionally create an **`unsignedDevice` `.xcarchive
 
 ## Remaining verification boundary
 
-A Linux Swift/package check cannot build Apple frameworks or run an iOS simulator. Until a real Xcode run succeeds, app compilation and Apple runtime tests remain unverified. Native Google account actions additionally need a configured client and user consent. Website login, third-party service behavior, uninterrupted YouTube playback, PiP and orientation/audio gestures need physical-device acceptance. A structural check or unsigned archive does not satisfy those gates.
+The device Release build archives the app and verifies the embedded share extension. See [TESTING.md](TESTING.md) for simulator results. Native Google account actions additionally need a configured client and user consent. Website login, third-party service behavior, uninterrupted YouTube playback, PiP and orientation/audio gestures need physical-device acceptance. A structural check or unsigned archive does not satisfy those gates.

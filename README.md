@@ -2,7 +2,7 @@
 
 Native Swift-/SwiftUI-Umsetzung von **Weiktube Android 1.3.23** für **iOS und iPadOS 17+**. Die originale YouTube-Oberfläche bleibt in behaltenen WKWebViews; Navigation, Kontoansichten, Verlauf, Einstellungen, Playerergänzungen und Dienste sind native Module. Öffentliche direkte HTTPS-Videos verwenden einen separaten AVPlayer-Pfad.
 
-**Stand: Quellcode vorhanden und Teilbereiche automatisiert geprüft; vollständiger iOS-Build und Geräteabnahme stehen aus.** Dies ist noch keine vollständig abgenommene Portierung und kein fertig signiertes Installationspaket. [FEATURE-PARITY.md](docs/FEATURE-PARITY.md) erfasst alle **163 vorhandenen Android-Funktions-IDs** sowie die iOS-Ergänzungen mit konkreten Dateien, Tests, Abweichungen und Status. Fehlende Funktionen werden dort ausdrücklich ausgewiesen.
+Xcode 26.2 hat das Release-Archiv für iOS mit eingebetteter Share Extension gebaut. Der Build ist unsigniert. [Xcode-Protokoll](https://github.com/weikiboy-tech/Weiktube-ios/actions/runs/45607195125/job/139181072997) Dies ist noch keine vollständig abgenommene Portierung und kein fertig signiertes Installationspaket. [FEATURE-PARITY.md](docs/FEATURE-PARITY.md) erfasst alle **163 vorhandenen Android-Funktions-IDs** sowie die iOS-Ergänzungen mit konkreten Dateien, Tests, Abweichungen und Status. Fehlende Funktionen werden dort ausdrücklich ausgewiesen.
 
 ## Was im Quellcode enthalten ist
 
@@ -21,13 +21,13 @@ Die Aufzählung beschreibt vorhandene Implementierung. Welche Teilfunktion volls
 
 | Prüfung | Tatsächliches Ergebnis | Was damit nicht belegt ist |
 | --- | --- | --- |
-| SwiftPM, Swift 6.4.3 auf Linux | **41 XCTest-Fälle bestanden, 0 Fehler**: Router 9, Präsentationszustand 9, SharedLinkInbox 7, AtomicJSONFile 3, PlaybackRestoration 5, ReleaseMetadata 8 | App-/Extension-Target, SwiftUI, UIKit, AVFoundation, WebKit, Keychain und OAuth |
-| `MediaBridgeTests.cjs`, Node 24.22.3 | **68 Verhaltensprüfungen bestanden** mit echter Bridge in VM-/DOM-/Medien-Fixture | Live-YouTube, echte WKWebView, Ton auf Hardware, Mini-Animation und System-PiP |
+| SwiftPM auf dem macOS-Runner | **42 XCTest-Fälle bestanden, 0 Fehler**: Router 9, Präsentationszustand 10, SharedLinkInbox 7, AtomicJSONFile 3, PlaybackRestoration 5, ReleaseMetadata 8 | App-/Extension-Target, SwiftUI, UIKit, AVFoundation, WebKit, Keychain und OAuth |
+| `MediaBridgeTests.cjs`, Node 22 in CI | **70 Verhaltensprüfungen bestanden** mit echter Bridge in VM-/DOM-/Medien-Fixture | Live-YouTube, echte WKWebView, Ton auf Hardware, Mini-Animation und System-PiP |
 | `FilterRuntimeTests.cjs` | **Bestanden**: echte gebündelte Scriptlets/Runtime, sichere Gegenfälle, Originalsignatur/Manipulation | Effektive Werbefilterung in iOS oder auf Live-YouTube |
 | `vendor-adblock.mjs --check` | **Bestanden**: gepinnte Quellinputs und reproduzierbares Bundle | Vollständiger App-Build oder aktuelle Website-Kompatibilität |
 | Swift-Syntaxprüfung | Quellen geparst; kein Apple-SDK verwendet | Apple-API-Typprüfung, Verfügbarkeit, Linker, Signierung |
-| Weitere XCTest-/UI-Testdateien | Geschrieben, nicht ausgeführt | Keine bestandenen Xcode-Tests behauptet |
-| Xcode / Simulator / iPhone / iPad | **Nicht ausgeführt** | Keine Build-, Installations-, PiP-, OAuth- oder Geräteabnahme |
+| Simulator-XCTest und UI-Tests | Laufprotokolle je Gerät und Commit in [TESTING.md](TESTING.md) | Live-Dienste werden getrennt geprüft |
+| Gerätebuild | Release-Archiv und eingebettete Share Extension erfolgreich gebaut | Signierte Installation und Hardwareabnahme offen |
 
 Testbefehle, Testumfang und noch nötige Abläufe: [TESTING.md](TESTING.md). Filterbelege: [ADBLOCK-VALIDATION.md](docs/ADBLOCK-VALIDATION.md). Das portable Package listet seine sechs tatsächlich kompilierten Produktionsdateien ausdrücklich in `Package.swift` auf.
 
