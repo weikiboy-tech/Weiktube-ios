@@ -110,6 +110,21 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
+  device-release-build:
+    needs: source-checks
+    runs-on: macos-15
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the iPhone OS Release build and embedded extension
+        run: |
+          xcodebuild -quiet -project Weiktube.xcodeproj -scheme Weiktube -configuration Release \
+            -destination 'generic/platform=iOS' -archivePath build/Weiktube.xcarchive \
+            CODE_SIGNING_ALLOWED=NO archive
+          app=build/Weiktube.xcarchive/Products/Applications/Weiktube.app
+          test -x "$app/Weiktube"
+          test -x "$app/PlugIns/ShareExtension.appex/ShareExtension"
+
   unsigned-device-archive:
     if: github.event_name == 'workflow_dispatch' && inputs.unsigned_device_archive
     needs: simulator

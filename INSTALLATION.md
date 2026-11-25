@@ -2,7 +2,9 @@
 
 ## Auf iPhone oder iPad installieren
 
-Für die Beta ist TestFlight vorgesehen. Sobald der Herausgeber einen signierten Build bereitgestellt hat, installiere **TestFlight** aus dem App Store, öffne die Einladung auf dem Gerät und tippe bei **Weiktube** auf **Installieren**. Weitere Builds erscheinen in derselben App. Den ersten Build für externe Tester prüft Apple. [Apple TestFlight](https://developer.apple.com/testflight/)
+**Private IPA für den Freundeskreis.** Registriere die vorgesehenen iPhones im Apple-Developer-Team. Richte auf dem Mac die Signierung für App und Share Extension ein (siehe unten) und starte `bash scripts/archive-for-testflight.sh --friends`. Xcode exportiert die signierte Datei lokal unter `build/Weiktube-…-private/Weiktube.ipa`. Schicke die IPA direkt an die vorgesehenen Personen. Sie können sie über Apple Configurator auf den registrierten Geräten installieren. [Apple-Anleitung für registrierte Geräte](https://developer.apple.com/documentation/xcode/distributing-apps-to-your-development-devices)
+
+**Private Einladung per E-Mail.** Sobald der Herausgeber einen signierten Build bereitgestellt hat, installiere **TestFlight** aus dem App Store, öffne die Einladung auf dem Gerät und tippe bei **Weiktube** auf **Installieren**. Weitere Builds erscheinen in derselben App. Den ersten Build für externe Tester prüft Apple. [Apple TestFlight](https://developer.apple.com/testflight/)
 
 Der öffentliche GitHub-Quellstand allein erzeugt keine Einladung. Für den ersten Upload benötigt der Herausgeber Zugriff auf sein Apple-Developer-Team, den App-Store-Connect-Eintrag und die zur App und Share Extension gehörenden App-Group-Profile. Die Schritte für das signierte Archiv stehen unten.
 
