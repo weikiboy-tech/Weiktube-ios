@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import SwiftUI
+import WebKit
 import XCTest
 @testable import Weiktube
 
@@ -30,7 +31,8 @@ final class LiveYouTubeTests: XCTestCase {
                 player.snapshot.position > 0.25 && !player.snapshot.advertisement
         }) else {
             let status = player.errorMessage ?? "Kein laufendes YouTube-Inhaltsvideo bestätigt"
-            XCTFail("\(status). WebKit ready=\(player.snapshot.ready), network=\(player.snapshot.networkState), error=\(player.snapshot.mediaErrorCode), autoplayBlocked=\(player.snapshot.autoplayBlocked)")
+            let page = await playbackPageState(in: player.web.webView)
+            XCTFail("\(status). Seite=\(page), WebKit ready=\(player.snapshot.ready), network=\(player.snapshot.networkState), error=\(player.snapshot.mediaErrorCode), autoplayBlocked=\(player.snapshot.autoplayBlocked)")
             return
         }
         let identity = player.snapshot.elementID
@@ -50,6 +52,22 @@ final class LiveYouTubeTests: XCTestCase {
         #else
         throw XCTSkip("Dieser Online-Test verwendet einen frischen Simulator.")
         #endif
+    }
+
+    private func playbackPageState(in view: WKWebView) async -> String {
+        // Return a fixed category. Page text, URLs and account data stay in WebKit.
+        let script = """
+          const body = document.body?.innerText || '';
+          if (location.hostname === 'consent.youtube.com' || location.hostname === 'consent.google.com') return 'consent';
+          if (/not a bot|kein roboter|kein bot|unusual traffic/i.test(body)) return 'visitor verification';
+          if (/age.restricted|confirm your age|alter bestätigen/i.test(body)) return 'age restricted';
+          if (document.querySelector('.ad-showing,.ad-interrupting')) return 'advertisement';
+          if (document.querySelector('.ytp-error,.ytp-error-content-wrap,yt-playability-error-supported-renderers')) return 'player error';
+          const video = document.querySelector('video');
+          if (video) return video.error ? 'video error' : video.paused ? 'video paused' : 'video present';
+          return location.pathname === '/watch' ? 'watch page without video' : 'other page without video';
+          """
+        return (try? await view.callAsyncJavaScript(script, arguments: [:], in: nil, contentWorld: .defaultClient)) as? String ?? "unavailable"
     }
 
     private func wait(seconds: TimeInterval, until condition: () -> Bool) async -> Bool {

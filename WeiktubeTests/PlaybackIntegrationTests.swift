@@ -90,8 +90,7 @@ final class PlaybackIntegrationTests: XCTestCase {
           const seek = await bridge.command('seek', {...args, seconds: 3});
           return held && released && video.paused && seek.ok && Math.abs(video.currentTime - 3) < 0.15;
           """
-        let result = try await evaluateClip(script: script)
-        XCTAssertEqual(result as? Bool, true)
+        try await evaluateClip(script: script)
     }
 
     func testShortsSwitchPausesPreviousVideoPreservesMuteAndSeeksCurrentVideo() async throws {
@@ -119,11 +118,10 @@ final class PlaybackIntegrationTests: XCTestCase {
           const seek = await bridge.command('seek', {...args, seconds:3});
           return seek.ok && next.paused && Math.abs(next.currentTime - 3) < 0.15 && first.paused;
           """
-        let result = try await evaluateClip(script: script, twoShorts: true)
-        XCTAssertEqual(result as? Bool, true)
+        try await evaluateClip(script: script, twoShorts: true)
     }
 
-    private func evaluateClip(script: String, twoShorts: Bool = false) async throws -> Any? {
+    private func evaluateClip(script: String, twoShorts: Bool = false, file: StaticString = #filePath, line: UInt = #line) async throws {
         let bridge = try String(contentsOf: XCTUnwrap(Bundle.main.url(forResource: "MediaBridge", withExtension: "js")), encoding: .utf8)
         let config = WKWebViewConfiguration()
         config.websiteDataStore = .nonPersistent()
@@ -149,7 +147,14 @@ final class PlaybackIntegrationTests: XCTestCase {
         view.loadHTMLString(html, baseURL: URL(string: "https://m.youtube.com/\(route)"))
         await fulfillment(of: [delegate.finished], timeout: 20)
         defer { withExtendedLifetime(delegate) {} }
-        return try await view.callAsyncJavaScript(script, arguments: [:], in: nil, contentWorld: .defaultClient)
+        let diagnosticScript = """
+          try {
+            const passed = await (async () => { \(script) })();
+            return passed ? 'passed' : 'unexpected playback state';
+          } catch (error) { return String(error); }
+          """
+        let result = try await view.callAsyncJavaScript(diagnosticScript, arguments: [:], in: nil, contentWorld: .defaultClient)
+        XCTAssertEqual(result as? String, "passed", file: file, line: line)
     }
 }
 
