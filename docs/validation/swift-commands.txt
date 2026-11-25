@@ -1,0 +1,8 @@
+Foundation package command (placeholders replace local paths):
+<TOOLCHAIN>/usr/bin/swift test --build-system native --package-path <PROJECT> --scratch-path <QA>/swift-build --cache-path <QA>/swift-cache --config-path <QA>/swift-config --security-path <QA>/swift-security --swift-sdks-path <QA>/swift-sdks --manifest-cache local --disable-netrc --jobs 4
+
+Syntax command applied separately to every listed Swift source:
+swiftc -frontend -parse -swift-version 5 <PROJECT>/<relative-source-path>
+
+TMPDIR and CLANG_MODULE_CACHE_PATH were set to writable scratch directories.
+The SwiftPM native engine was used because the default Swift Build engine failed to preserve the writable temporary directory in this sandbox.

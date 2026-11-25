@@ -1,0 +1,148 @@
+name: iOS build and tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      unsigned_device_archive:
+        description: Build an unsigned device xcarchive (not installable; no IPA export)
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify deterministic project and complete source membership
+        run: |
+          python3 scripts/generate-project.py --check
+          python3 scripts/validate-project.py
+      - name: Exercise media lifecycle, bundled filtering and pinned vendor provenance
+        run: |
+          node WeiktubeTests/MediaBridgeTests.cjs
+          node WeiktubeTests/FilterRuntimeTests.cjs
+          node Weiktube/AdBlock/VendorSource/vendor-adblock.mjs --check
+
+  simulator:
+    runs-on: macos-15
+    needs: source-checks
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record available Apple toolchain
+        run: |
+          mkdir -p artifacts
+          xcodebuild -version | tee artifacts/xcode-version.txt
+          xcodebuild -showsdks | tee artifacts/apple-sdks.txt
+          plutil -lint Weiktube.xcodeproj/project.pbxproj Weiktube/Info.plist ShareExtension/Info.plist
+          python3 scripts/validate-project.py
+      - name: Run Foundation-only Swift package tests
+        run: |
+          set -o pipefail
+          swift test --parallel 2>&1 | tee artifacts/swift-package-tests.log
+      - name: Select an installed iPhone simulator dynamically
+        id: simulator
+        run: python3 scripts/select-simulator.py
+      - name: Boot selected simulator
+        env:
+          SIMULATOR_ID: ${{ steps.simulator.outputs.simulator_id }}
+        run: |
+          xcrun simctl boot "$SIMULATOR_ID" 2>/dev/null || true
+          xcrun simctl bootstatus "$SIMULATOR_ID" -b
+      - name: Build app and extension; run XCTest and offline UI tests
+        env:
+          DESTINATION: ${{ steps.simulator.outputs.destination }}
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Weiktube.xcodeproj \
+            -scheme Weiktube \
+            -configuration Debug \
+            -destination "$DESTINATION" \
+            -destination-timeout 120 \
+            -derivedDataPath build/DerivedData \
+            -resultBundlePath artifacts/Weiktube-Simulator.xcresult \
+            -parallel-testing-enabled NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build test 2>&1 | tee artifacts/xcodebuild-simulator.log
+      - name: Run Xcode analysis
+        env:
+          DESTINATION: ${{ steps.simulator.outputs.destination }}
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project Weiktube.xcodeproj \
+            -scheme Weiktube \
+            -configuration Debug \
+            -destination "$DESTINATION" \
+            -derivedDataPath build/DerivedData \
+            -resultBundlePath artifacts/Weiktube-Analyze.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            analyze 2>&1 | tee artifacts/xcodebuild-analyze.log
+      - name: Package the unsigned simulator app if built
+        if: always()
+        run: |
+          app_path="build/DerivedData/Build/Products/Debug-iphonesimulator/Weiktube.app"
+          if [ -d "$app_path" ]; then
+            ditto -c -k --sequesterRsrc --keepParent "$app_path" artifacts/Weiktube-unsignedSimulator.app.zip
+          fi
+      - name: Upload unsignedSimulator app and observed test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Weiktube-unsignedSimulator-${{ github.sha }}
+          path: artifacts/
+          retention-days: 14
+          if-no-files-found: warn
+
+  unsigned-device-archive:
+    if: github.event_name == 'workflow_dispatch' && inputs.unsigned_device_archive
+    needs: simulator
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build an unsigned archive for generic iOS
+        run: |
+          mkdir -p artifacts
+          set -o pipefail
+          xcodebuild \
+            -project Weiktube.xcodeproj \
+            -scheme Weiktube \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build/ArchiveDerivedData \
+            -archivePath artifacts/Weiktube-unsignedDevice.xcarchive \
+            -resultBundlePath artifacts/Weiktube-UnsignedDevice.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY='' \
+            archive 2>&1 | tee artifacts/xcodebuild-unsigned-device.log
+      - name: Package archive without claiming an installable IPA
+        if: success()
+        run: |
+          ditto -c -k --sequesterRsrc --keepParent artifacts/Weiktube-unsignedDevice.xcarchive artifacts/Weiktube-unsignedDevice.xcarchive.zip
+          rm -rf artifacts/Weiktube-unsignedDevice.xcarchive
+      - name: Upload unsignedDevice archive and build results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Weiktube-unsignedDevice-${{ github.sha }}
+          path: artifacts/
+          retention-days: 14
+          if-no-files-found: warn

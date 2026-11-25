@@ -1,0 +1,19 @@
+// Public defaults. Account login remains unavailable until a real iOS OAuth client is configured.
+IPHONEOS_DEPLOYMENT_TARGET = 17.0
+SWIFT_VERSION = 5.0
+SWIFT_STRICT_CONCURRENCY = complete
+CLANG_ENABLE_MODULES = YES
+CLANG_ENABLE_OBJC_ARC = YES
+ENABLE_USER_SCRIPT_SANDBOXING = YES
+MARKETING_VERSION = 0.1.0
+CURRENT_PROJECT_VERSION = 1
+DEVELOPMENT_TEAM =
+CODE_SIGN_STYLE = Automatic
+CODE_SIGNING_ALLOWED[sdk=iphonesimulator*] = NO
+WEIKTUBE_BUNDLE_ID = com.weiktube.ios
+WEIKTUBE_APP_GROUP = group.com.weiktube.ios
+GOOGLE_OAUTH_CLIENT_ID =
+GOOGLE_OAUTH_REDIRECT_URI =
+GOOGLE_REVERSED_CLIENT_ID =
+// This file is intentionally untracked. It may contain local signing/account identifiers.
+#include? "Local.xcconfig"

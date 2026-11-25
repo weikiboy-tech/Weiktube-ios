@@ -1,0 +1,12 @@
+// Copy to Config/Local.xcconfig. That filename is ignored by git.
+// Use your actual Apple development team and registered identifiers; no team is supplied by this project.
+// DEVELOPMENT_TEAM = your actual 10-character team identifier
+// WEIKTUBE_BUNDLE_ID = your registered app bundle identifier
+// WEIKTUBE_APP_GROUP = your registered group identifier shared by app and extension
+
+// Optional native Google login: create a real iOS OAuth client for WEIKTUBE_BUNDLE_ID.
+// Enter all three together. Public client identifiers are configuration, not client secrets.
+// GOOGLE_OAUTH_CLIENT_ID = your actual iOS client ID ending in .apps.googleusercontent.com
+// GOOGLE_REVERSED_CLIENT_ID = that client's reverse-DNS URL scheme
+// GOOGLE_OAUTH_REDIRECT_URI = the same reverse-DNS scheme followed by :/oauthredirect
+// Do not add an OAuth client secret, access token, refresh token, cookie, or signing certificate here.

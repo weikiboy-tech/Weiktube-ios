@@ -1,0 +1,19 @@
+# Source and project files use deterministic LF on every checkout.
+*.swift text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.pbxproj text eol=lf
+*.xcconfig text eol=lf
+
+# Signatures and pinned provenance hashes cover the original bytes, including CRLF.
+Weiktube/Resources/Filters/rules.json -text
+Weiktube/Resources/Filters/rules.sig -text
+Weiktube/Resources/Filters/update-public-key.txt -text
+Weiktube/Resources/Filters/vendor-scriptlets.js -text
+Weiktube/AdBlock/VendorSource/** -text
+LICENSE -text
+*.png binary

@@ -1,0 +1,29 @@
+Weiktube iOS local validation
+UTC: 2026-11-25T10:42:28.217471+00:00
+Environment: Linux; v24.22.3
+No live YouTube, network browser, Apple SDK, simulator or physical device used.
+
+Command: node WeiktubeTests/FilterRuntimeTests.cjs
+Exit code: 0
+Pinned upstream hashes and reproducible scriptlet output verified.
+PASS adblock: pinned upstream hooks; initial globals; real JSON/fetch/XHR filtering and metadata/credentials preservation; DRM/foreign/CDN exclusions; 10 SPA/ad-card/player transitions; muted pause guard, no seek/play; honest counters; idempotence; YouTube embed support, rejected foreign origins/config failure; private bounded telemetry. No device tests performed.
+
+
+Command: node Weiktube/AdBlock/VendorSource/vendor-adblock.mjs --check
+Exit code: 0
+Pinned upstream hashes and reproducible scriptlet output verified.
+
+
+Command: node --check Weiktube/Resources/Filters/filter-runtime-ios.js
+Exit code: 0
+
+
+
+SHA-256 of actual tested source inputs:
+a2e4078af07af8f26345acf02d4356d00c8ee7cb31c19e9ecbd5409c360846d8  Weiktube/Resources/Filters/filter-runtime-ios.js
+ef1ba88fd4ad0ee9e59ecde8fce918f92ed81e55c58311bfb01e50b4864ee13d  Weiktube/Resources/Filters/vendor-scriptlets.js
+7ad38f300329de241d9ce8eed4dea619eaf72afcbc4e6f41785ee20fb59c2780  Weiktube/Resources/Filters/rules.json
+cee1b5b4f8398d842e3c02fb3bdc1340b09c6ee448225eb3da409d6219d76d01  Weiktube/Resources/Filters/rules.sig
+7cac249b63d0e820dd0e2801129d37c461290e60cf5136467d6aeb2190044490  Weiktube/Resources/Filters/update-public-key.txt
+57202f461dafa5567e65366c2c8d20b02cf817c33862a345d2e74e78004c2f99  WeiktubeTests/FilterRuntimeTests.cjs
+cd7d3e0420220e2bc4ac12985c95b31aef7befad0466335c4e824faba3fb566e  Weiktube/AdBlock/VendorSource/vendor-adblock.mjs

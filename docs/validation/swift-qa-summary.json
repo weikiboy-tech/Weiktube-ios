@@ -1,0 +1,80 @@
+{
+  "exported_at_utc": "2026-11-25T10:59:02.488963+00:00",
+  "compiler": "Swift version 6.4.3 (swift-6.4.3-RELEASE)\nTarget: x86_64-unknown-linux-gnu",
+  "official_install_page": "https://www.swift.org/install/linux/debian/13/",
+  "official_download": "https://download.swift.org/swift-6.4.3-release/debian13/swift-6.4.3-RELEASE/swift-6.4.3-RELEASE-debian13.tar.gz",
+  "release_signature": {
+    "verified": true,
+    "key_name": "Swift 6.x Release Signing Key",
+    "fingerprint": "52BB7E3DE28A71BE22EC05FFEF80A866B47A981F",
+    "key_source": "https://www.swift.org/keys/all-keys.asc"
+  },
+  "foundation_xctest": {
+    "executed": 41,
+    "passed": 41,
+    "failed": 0,
+    "suites": {
+      "AtomicJSONFileTests": 3,
+      "PlaybackRestorationTests": 5,
+      "PlayerPresentationTests": 9,
+      "ReleaseMetadataTests": 8,
+      "SharedLinkInboxTests": 7,
+      "YouTubeLinkRouterTests": 9
+    },
+    "targets": [
+      {
+        "type": "target",
+        "name": "WeiktubeCore",
+        "sources": [
+          "Weiktube/Core/PlayerPresentationState.swift",
+          "Weiktube/Core/ReleaseMetadata.swift",
+          "Weiktube/Navigation/YouTubeLinkRouter.swift",
+          "Weiktube/Persistence/AtomicJSONFile.swift",
+          "Weiktube/Persistence/SharedLinkInbox.swift",
+          "Weiktube/Persistence/PlaybackRestorationStore.swift"
+        ]
+      },
+      {
+        "type": "testTarget",
+        "name": "WeiktubeCoreTests",
+        "sources": [
+          "WeiktubeTests/YouTubeLinkRouterTests.swift",
+          "WeiktubeTests/PlayerPresentationTests.swift",
+          "WeiktubeTests/SharedLinkInboxTests.swift",
+          "WeiktubeTests/AtomicJSONFileTests.swift",
+          "WeiktubeTests/PlaybackRestorationTests.swift",
+          "WeiktubeTests/ReleaseMetadataTests.swift"
+        ]
+      }
+    ],
+    "log": "swift-tests.txt",
+    "results": "swift-test-results.json"
+  },
+  "swift_syntax": {
+    "files_checked": 69,
+    "passed": 69,
+    "failed": 0,
+    "includes_package_manifest": true,
+    "command": "swiftc -frontend -parse -swift-version 5",
+    "results": "swift-parse-results.json"
+  },
+  "apple_sdk_test_sources_not_executed": {
+    "WeiktubeTests/AccountPolicyTests.swift": 16,
+    "WeiktubeTests/AdBlockTests.swift": 4,
+    "WeiktubeTests/AppSettingsTests.swift": 5,
+    "WeiktubeTests/HistoryStoreTests.swift": 11,
+    "WeiktubeTests/ReleaseCheckerTests.swift": 5,
+    "WeiktubeTests/ReturnDislikeTests.swift": 3,
+    "WeiktubeTests/SponsorBlockTests.swift": 7,
+    "WeiktubeUITests/WeiktubeUITests.swift": 3
+  },
+  "apple_sdk_tests_authored_not_executed": 54,
+  "source_hashes": "source-hashes.json",
+  "limitations": [
+    "Syntax parsing does not import, type-check, or link Apple frameworks.",
+    "The iOS application, Share Extension and Apple-only XCTest/UI test sources have not been built or executed with Xcode in this Linux environment.",
+    "No simulator or physical-device playback, PiP, gesture, rotation, Keychain, OAuth, signed-in YouTube API, or Share Extension end-to-end verification was performed.",
+    "The SwiftPM output includes expected unhandled-file warnings for files outside the explicitly selected Foundation target, and a native-engine deprecation warning.",
+    "A prior SwiftPM --xunit-output request did not emit XML. Structured results here are derived from the actual XCTest text output; no XML result is claimed."
+  ]
+}

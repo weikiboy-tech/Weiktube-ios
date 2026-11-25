@@ -1,0 +1,493 @@
+{
+  "compiler": "Swift 6.4.3 (swift-6.4.3-RELEASE)",
+  "checked_at_utc": "2026-11-25T10:58:55.540262+00:00",
+  "mode": "swiftc -frontend -parse -swift-version 5",
+  "count": 69,
+  "passed": 69,
+  "failed": 0,
+  "results": [
+    {
+      "file": "Package.swift",
+      "sha256": "1988c4ee52934e3a9aafe911413fd5f3fcf05d0cda3955f3ff2c3047dfd5cf9b",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "ShareExtension/ShareViewController.swift",
+      "sha256": "9dd32b068110f1c84063f67fcc66d2144592c777a92549505891dd00d6b83c1b",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Account/AccountPolicy.swift",
+      "sha256": "489ff826635f93a655be6c1bbc9cf4099d94c8aadd2f3566d314860b8c338d8f",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Account/AccountScreen.swift",
+      "sha256": "7b5f0a7bdf54c4792f38933ab665ade625f51501e44995a9dbcd74ac5ba5da62",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Account/AccountScreenLease.swift",
+      "sha256": "19a7055345bb55f83c4b7a9c95c65fab3902e27b7f9ec34ad6b4d02408be890f",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Account/AccountStore.swift",
+      "sha256": "f5277c4163059f4ef55d290c0655f35d0b0269633a565bae7d9ff49fb14beb79",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Account/AccountThumbnailLoader.swift",
+      "sha256": "db8bd8e56a6e83c9e16f3f585dbaf7c64508472a46a26d1a70c0891386cb2182",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Account/GoogleOAuthService.swift",
+      "sha256": "b9f1f9405ff7ee7f1bf3aa516a6f883d334b405eeb8367b06f44d5508a445a3e",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Account/VideoActionsSheet.swift",
+      "sha256": "416a5db506922dbbb633c2ffa4eefad2a67eb68d035e4a2c8078545a6e09eb5a",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/AdBlock/AdBlockScreen.swift",
+      "sha256": "a69ad10fce772c77167f5bc43df481b33c453aa9032e7a8205b65510527fbbf7",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/AdBlock/AdBlockService.swift",
+      "sha256": "42b3603d48f011869c751d2892ad5472ffef65097b3d7dab5362eaae671c1cf5",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/AdBlock/FilterPackage.swift",
+      "sha256": "dfc009ce79fba969a29be43a4e22bdcb7b393be3b71b0c7ad11b87e11bcb60eb",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/AdBlock/PublicServiceTransport.swift",
+      "sha256": "912247fc2ef0165b1cae64f0852eaf89893ca1e0af7e5a6d9f76087d511c7b61",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/AdBlock/ShieldSelfTestScreen.swift",
+      "sha256": "29a2578e86b907d433e8e14a6660c6f7f787886cdd06ef2efc14b417ffe3aaf2",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/App/AppModel.swift",
+      "sha256": "9ae0624483e5a5bdbca9709fd5fb443423f5bb00b8b8638a333ec21935d9a149",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/App/RootView.swift",
+      "sha256": "de0c060e90dc32cc5b63ba45017659097397248f5e184c4a5828dc0e877e531f",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/App/WeiktubeApp.swift",
+      "sha256": "b32e157288caca34188b6d99d0e88435ff2770f27ad108b0f551b645c17d30c9",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/App/WeiktubeTheme.swift",
+      "sha256": "48c454d8f2f6962faa7a5246fe1efcd0733d3e616e55ebad463a87f1bc898704",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/AppIntents/OpenWeiktubeIntent.swift",
+      "sha256": "bd44ac2f3c4786d8b423ea2362596f8b99044fcf4b1b0f47e76752f4ac69b26b",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Core/PlayerPresentationState.swift",
+      "sha256": "f5dc15ce76a0dabe7312a22103c7d9b4757d200fb6acf295dde0514cdda78365",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Core/ReleaseMetadata.swift",
+      "sha256": "4a89b2301ef34d941d2915231a9ca7ebb9137f3ba9a723bda91713e8329926ea",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Diagnostics/DiagnosticsScreen.swift",
+      "sha256": "eb067a3febbe71498f8a3a24f52dc0017673317176e4486cd40d130ea0998209",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Diagnostics/DiagnosticsStore.swift",
+      "sha256": "ac8a3441f2fd051175fc7eb1f91f52bfa596875b9c007d235ac9de877333f6c9",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/History/HistoryScreen.swift",
+      "sha256": "8971a8d509539ec92baa5621ce3c93c958b0ac020f9aaddfb04ad9a4c5cb0ee2",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/History/HistoryStore.swift",
+      "sha256": "85e843be8cb7228a82d67a4d11f42c50a1f2199a013a16bf3069904c2f17ca17",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Home/ShieldBrowserScreen.swift",
+      "sha256": "0e12880ba9a4f6b94c51f4e01233f524e93dfae5c94920faa18e9be3a650643d",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Navigation/YouTubeLinkRouter.swift",
+      "sha256": "ad85bb6d896fdf71fc4702fc6aa0827b6013d41cd86d5899ac2a8152b2a1e9a6",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Networking/NetworkMonitor.swift",
+      "sha256": "b8d75f5b042bbf0d66b5f24283d196c4e30237fae337cea4b12340e68e9c32dd",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Networking/YouTubeAPI.swift",
+      "sha256": "49460efbed89a54d31d82cd3cdc3a6433c9f83884d32b04df064934a56fb52f8",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Networking/YouTubeHTTPTransport.swift",
+      "sha256": "0a260c2870a04b1aca80c3234b4af01399aa37e413da874a5f9f18e5748784fe",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Networking/YouTubeModels.swift",
+      "sha256": "b07ba74eb54300094337b98fd3b0e0f3c1a2a13a15659badeb5e0ff125fd5120",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Persistence/AtomicJSONFile.swift",
+      "sha256": "2371da7c5741dae2f1bc741f6f73b383578366ded92d49ac0baf91c16612020c",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Persistence/PlaybackRestorationStore.swift",
+      "sha256": "b6c6d171d85b4c4b7d93098382c43804e9bb5bab65cbfe250d17096753539886",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Persistence/SharedLinkInbox.swift",
+      "sha256": "2a6999ad1eac2c5d2d2bae22c966543e4e123c05d0ec393acc65b3a904365b8e",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Player/NativePlayback.swift",
+      "sha256": "c5f68992c8f2d33fbc48e3d18d7e5a8a42d014b7302515f032eea9edb275628d",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Player/PlaybackOwnership.swift",
+      "sha256": "bfdad3359efa2823ed1f9b7a68bdd06a60d5d3109bbb791e95558fdee6a2ac3a",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Player/PlaybackSurface.swift",
+      "sha256": "c15fbf4abd332943f5a9e6e703aa868b6cb46a8fb22cde40bca2ed9f79b40cc4",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Player/PlayerCoordinator.swift",
+      "sha256": "19380ff3504adb3475809adb9e6a0c7cc568b847d0e96bd33d3b4cd63c9ab1ef",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Player/PlayerPanel.swift",
+      "sha256": "406fc7eb75681184d0248a2fb6a7b5d479d5d9ff43774ef80ae9a52289318739",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Player/SeekTimeline.swift",
+      "sha256": "03186a467d251e1dfb3dbe02e85ad0cbd8dfcd9e822bf0def88c39fa6166f295",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Playlists/PlaylistsScreen.swift",
+      "sha256": "db7a955ba4ab395e8af11974b3459b4bfe576a1053e0bc69f37d6eef5f8ae63d",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/ReturnYouTubeDislike/ReturnDislikeService.swift",
+      "sha256": "b0b2a08149636efde08427ecebd0300364c2392d6bf97c42a79d8ab64d6df8a6",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/ReturnYouTubeDislike/ReturnDislikeSettingsScreen.swift",
+      "sha256": "14687be5a4f17989d112d4050ade0ce9a45353abf52af79ad24ebfa2d9aacab9",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Settings/AppSettings.swift",
+      "sha256": "5487670112d6f66c964a487d314804144872103d721cc31766b07d192a85e8de",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Settings/ReleaseChecker.swift",
+      "sha256": "e86c7ed433baf490d742916e1ab1322e138e1568fb4bb71509b989d52491d2d3",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Settings/ReleaseUpdatesScreen.swift",
+      "sha256": "68ba836dbc24601786e4d58b01f1ba743369d49fe3c95025038f4586823da7ae",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Settings/SettingsScreen.swift",
+      "sha256": "52297c45bb719c6f64e956a382a129c62fc2a2de76acd796bc147d857d10b49a",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Shorts/ShortsScreen.swift",
+      "sha256": "0d060ea6e0700c7d226340d9f91f5141830b8b3a039493079fe869419ae454c8",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/SponsorBlock/SponsorBlockModels.swift",
+      "sha256": "0fe9215db1c286e8666ec1c5dbd62e548cacdc72cf4d7389a924dfaeac910cfc",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/SponsorBlock/SponsorBlockService.swift",
+      "sha256": "032711f65ce9caa23974be6436e19217d93a78c3f59dafe1f2d2858b81ddba17",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/SponsorBlock/SponsorBlockSettingsScreen.swift",
+      "sha256": "25420cdf0fe744dcf73f20297e8e2465f907844a046f9406adfa6a278add6238",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/Subscriptions/SubscriptionsScreen.swift",
+      "sha256": "a5f9c34fdc93585868687451bcbd536c1b5b19bbca20f479de6f21916209f869",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/WebKit/MediaSnapshot.swift",
+      "sha256": "31c45c3d77c48f9f800741801d0fe71020a0d6233a0059062847d086450910a9",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/WebKit/WebSession.swift",
+      "sha256": "77faec4afc40d87a75acbdd9f52ca33791dbf9dcaf2e65c80172d24dbedab759",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "Weiktube/WebKit/WebSurface.swift",
+      "sha256": "08cf9024881324ce111c201ddd40cfe5261b1e8726ebb4bb4405cc4433d77396",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/AccountPolicyTests.swift",
+      "sha256": "f32e2b7b37a94e8f5c782e3733551dc7cb07cd5ad15c8ce38d671b82e1780798",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/AdBlockTests.swift",
+      "sha256": "5da84d707f9a9b70f3c82dc5824a44c2d6cf92551fde6373a01abc1d8fe74545",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/AppSettingsTests.swift",
+      "sha256": "dc559faa548f37553afb3d7c6f7a06454f0c464feaf3f72cd8382303db9d4030",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/AtomicJSONFileTests.swift",
+      "sha256": "91cdc150984fab74d5bc6506e1f8c05446a30be1c8b157d8a11c13156f8f95bc",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/HistoryStoreTests.swift",
+      "sha256": "beba9f464ca4f91505a079a929fd3a2049d1d7be88b0a8a2c887d330fead0d9e",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/PlaybackRestorationTests.swift",
+      "sha256": "ca0c77e7ca85cde8121ff564b590766a039082e1ca82a398646d8938c0b48cf7",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/PlayerPresentationTests.swift",
+      "sha256": "71a76cec87aba51f3cc5357145bb6e01a0b251deb6eb72ef50d1f7793c9655b5",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/ReleaseCheckerTests.swift",
+      "sha256": "55af3ff971d9ff78b076a2014dd112c1ee81fa5235e8b6aa24277494ca0ffa89",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/ReleaseMetadataTests.swift",
+      "sha256": "0c203cc9522619726b51d9345738acfcd70ac6f1ba56bda41e61fde72ccb7473",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/ReturnDislikeTests.swift",
+      "sha256": "1ebedbf9e9e6b06c7925e82cb178fa6845c40598873ea5064d18dcb59ddd4194",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/SharedLinkInboxTests.swift",
+      "sha256": "582eb4c7243a04b0f3c200742e5f142e9d9287ad4ecd21bbc2ae8debe8e953f9",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/SponsorBlockTests.swift",
+      "sha256": "42c9a5c39e4258a303d04e6e30b753c25a223be1e2d8ef8800268cbed8885dee",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeTests/YouTubeLinkRouterTests.swift",
+      "sha256": "9166e96e5a467b34273cb3205e52602da94383c4db394d927aaecb393778cd05",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "file": "WeiktubeUITests/WeiktubeUITests.swift",
+      "sha256": "df970f744465b9b0c346538c47c9d720e9ca9d9cda5ac93edae08196bcf569d3",
+      "unchanged_during_check": true,
+      "exit_code": 0,
+      "diagnostics": ""
+    }
+  ]
+}

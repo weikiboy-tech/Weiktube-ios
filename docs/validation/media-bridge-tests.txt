@@ -1,0 +1,18 @@
+Weiktube iOS local validation
+UTC: 2026-11-25T10:42:27.918529+00:00
+Environment: Linux; v24.22.3
+No live YouTube, network browser, Apple SDK, simulator or physical device used.
+
+Command: node WeiktubeTests/MediaBridgeTests.cjs
+Exit code: 0
+PASS MediaBridge: 68 behavioral assertions. Real bundled JavaScript exercised in Node DOM/media fixtures; no live YouTube, WebKit, simulator or device claim.
+
+
+Command: node --check Weiktube/Resources/MediaBridge.js
+Exit code: 0
+
+
+
+SHA-256 of actual tested source inputs:
+cb495e98e73f868d10394f3f1e532c97e43af3554526513385749c14befe6392  Weiktube/Resources/MediaBridge.js
+8402df0835880fdafe3caf1aa7b3a6d82344dbf5503d43a3b4e85123956b42ca  WeiktubeTests/MediaBridgeTests.cjs

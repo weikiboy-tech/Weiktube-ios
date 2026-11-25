@@ -1,0 +1,257 @@
+{
+  "compiler": "Swift 6.4.3 (swift-6.4.3-RELEASE)",
+  "checked_at_utc": "2026-11-25T10:46:32.749414+00:00",
+  "process_exit_code": 0,
+  "tests_executed": 41,
+  "passed": 41,
+  "failed": 0,
+  "source_files_changed_during_check": [],
+  "targets": [
+    {
+      "type": "target",
+      "name": "WeiktubeCore",
+      "sources": [
+        "Weiktube/Core/PlayerPresentationState.swift",
+        "Weiktube/Core/ReleaseMetadata.swift",
+        "Weiktube/Navigation/YouTubeLinkRouter.swift",
+        "Weiktube/Persistence/AtomicJSONFile.swift",
+        "Weiktube/Persistence/SharedLinkInbox.swift",
+        "Weiktube/Persistence/PlaybackRestorationStore.swift"
+      ]
+    },
+    {
+      "type": "testTarget",
+      "name": "WeiktubeCoreTests",
+      "sources": [
+        "WeiktubeTests/YouTubeLinkRouterTests.swift",
+        "WeiktubeTests/PlayerPresentationTests.swift",
+        "WeiktubeTests/SharedLinkInboxTests.swift",
+        "WeiktubeTests/AtomicJSONFileTests.swift",
+        "WeiktubeTests/PlaybackRestorationTests.swift",
+        "WeiktubeTests/ReleaseMetadataTests.swift"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "Package.swift": "1988c4ee52934e3a9aafe911413fd5f3fcf05d0cda3955f3ff2c3047dfd5cf9b",
+    "Weiktube/Core/PlayerPresentationState.swift": "f5dc15ce76a0dabe7312a22103c7d9b4757d200fb6acf295dde0514cdda78365",
+    "Weiktube/Core/ReleaseMetadata.swift": "4a89b2301ef34d941d2915231a9ca7ebb9137f3ba9a723bda91713e8329926ea",
+    "Weiktube/Navigation/YouTubeLinkRouter.swift": "ad85bb6d896fdf71fc4702fc6aa0827b6013d41cd86d5899ac2a8152b2a1e9a6",
+    "Weiktube/Persistence/AtomicJSONFile.swift": "2371da7c5741dae2f1bc741f6f73b383578366ded92d49ac0baf91c16612020c",
+    "Weiktube/Persistence/PlaybackRestorationStore.swift": "b6c6d171d85b4c4b7d93098382c43804e9bb5bab65cbfe250d17096753539886",
+    "Weiktube/Persistence/SharedLinkInbox.swift": "2a6999ad1eac2c5d2d2bae22c966543e4e123c05d0ec393acc65b3a904365b8e",
+    "WeiktubeTests/AtomicJSONFileTests.swift": "91cdc150984fab74d5bc6506e1f8c05446a30be1c8b157d8a11c13156f8f95bc",
+    "WeiktubeTests/PlaybackRestorationTests.swift": "ca0c77e7ca85cde8121ff564b590766a039082e1ca82a398646d8938c0b48cf7",
+    "WeiktubeTests/PlayerPresentationTests.swift": "71a76cec87aba51f3cc5357145bb6e01a0b251deb6eb72ef50d1f7793c9655b5",
+    "WeiktubeTests/ReleaseMetadataTests.swift": "0c203cc9522619726b51d9345738acfcd70ac6f1ba56bda41e61fde72ccb7473",
+    "WeiktubeTests/SharedLinkInboxTests.swift": "582eb4c7243a04b0f3c200742e5f142e9d9287ad4ecd21bbc2ae8debe8e953f9",
+    "WeiktubeTests/YouTubeLinkRouterTests.swift": "9166e96e5a467b34273cb3205e52602da94383c4db394d927aaecb393778cd05"
+  },
+  "cases": [
+    {
+      "suite": "AtomicJSONFileTests",
+      "test": "testAtomicReplacementAndRestartRead",
+      "status": "passed"
+    },
+    {
+      "suite": "AtomicJSONFileTests",
+      "test": "testOversizeWriteCannotClobberPreviouslySavedData",
+      "status": "passed"
+    },
+    {
+      "suite": "AtomicJSONFileTests",
+      "test": "testReadRejectsOversizeFileBeforeDecoding",
+      "status": "passed"
+    },
+    {
+      "suite": "PlaybackRestorationTests",
+      "test": "testDisabledHistoryAndExplicitCloseDeleteRestoration",
+      "status": "passed"
+    },
+    {
+      "suite": "PlaybackRestorationTests",
+      "test": "testOnlyExplicitSafePlayerRoutesAndFinitePositionsCanPersist",
+      "status": "passed"
+    },
+    {
+      "suite": "PlaybackRestorationTests",
+      "test": "testPeriodicWritesAreThrottledAndForcedPauseSaveKeepsLatestSample",
+      "status": "passed"
+    },
+    {
+      "suite": "PlaybackRestorationTests",
+      "test": "testRestartRestoresValidatedIdentityAndPositionSeparatelyFromOriginalTimestamp",
+      "status": "passed"
+    },
+    {
+      "suite": "PlaybackRestorationTests",
+      "test": "testStaleAndFutureSnapshotsCannotReopenOldPlayback",
+      "status": "passed"
+    },
+    {
+      "suite": "PlayerPresentationTests",
+      "test": "testConfirmedPictureInPictureRestoresMiniWithoutExpanding",
+      "status": "passed"
+    },
+    {
+      "suite": "PlayerPresentationTests",
+      "test": "testDifferentSelectionResetsPreviousSourcesExitLatch",
+      "status": "passed"
+    },
+    {
+      "suite": "PlayerPresentationTests",
+      "test": "testInvertedAndUnknownSensorValuesDoNotChangePresentationOrLatch",
+      "status": "passed"
+    },
+    {
+      "suite": "PlayerPresentationTests",
+      "test": "testManualFullscreenExitRemainsLatchedUntilPostureChanges",
+      "status": "passed"
+    },
+    {
+      "suite": "PlayerPresentationTests",
+      "test": "testManualFullscreenInPortraitWaitsForRealPostureChange",
+      "status": "passed"
+    },
+    {
+      "suite": "PlayerPresentationTests",
+      "test": "testOneSourceSurvivesExpandedMiniAndFullscreenTransitions",
+      "status": "passed"
+    },
+    {
+      "suite": "PlayerPresentationTests",
+      "test": "testPictureInPictureDismissalDoesNotInventPlaybackAndLateEventsCannotReopen",
+      "status": "passed"
+    },
+    {
+      "suite": "PlayerPresentationTests",
+      "test": "testPictureInPicturePreservesManualFullscreenAndExitLatch",
+      "status": "passed"
+    },
+    {
+      "suite": "PlayerPresentationTests",
+      "test": "testZoomClampingHandlesNonFiniteInput",
+      "status": "passed"
+    },
+    {
+      "suite": "ReleaseMetadataTests",
+      "test": "testCanonicalRepositoryCaseIsAcceptedWithoutRelaxingTagOrAssetIdentity",
+      "status": "passed"
+    },
+    {
+      "suite": "ReleaseMetadataTests",
+      "test": "testForeignAssetsCredentialsDraftsAndPrereleasesAreRejected",
+      "status": "passed"
+    },
+    {
+      "suite": "ReleaseMetadataTests",
+      "test": "testMalformedAndAmbiguousVersionStringsAreRejected",
+      "status": "passed"
+    },
+    {
+      "suite": "ReleaseMetadataTests",
+      "test": "testOfficialReleaseMetadataRetainsOnlyValidatedPublicURLs",
+      "status": "passed"
+    },
+    {
+      "suite": "ReleaseMetadataTests",
+      "test": "testOversizeMetadataFailsBeforeJSONDecoding",
+      "status": "passed"
+    },
+    {
+      "suite": "ReleaseMetadataTests",
+      "test": "testReleaseURLPolicyRejectsEncodedSeparatorsAndMismatchedTag",
+      "status": "passed"
+    },
+    {
+      "suite": "ReleaseMetadataTests",
+      "test": "testSemanticVersionOrdersNumericComponentsAndPrereleases",
+      "status": "passed"
+    },
+    {
+      "suite": "ReleaseMetadataTests",
+      "test": "testVersionPrefixAndBuildMetadataDoNotInventAnUpdate",
+      "status": "passed"
+    },
+    {
+      "suite": "SharedLinkInboxTests",
+      "test": "testAcknowledgingKnownItemsDoesNotLoseAnInterveningExtensionDelivery",
+      "status": "passed"
+    },
+    {
+      "suite": "SharedLinkInboxTests",
+      "test": "testConcurrentAppAndExtensionWritersDoNotLoseEitherDelivery",
+      "status": "passed"
+    },
+    {
+      "suite": "SharedLinkInboxTests",
+      "test": "testExtensionDeliveryIsCanonicalAndDeduplicatedAcrossInstances",
+      "status": "passed"
+    },
+    {
+      "suite": "SharedLinkInboxTests",
+      "test": "testMalformedDiskDataIsReportedAndNotSilentlyOverwritten",
+      "status": "passed"
+    },
+    {
+      "suite": "SharedLinkInboxTests",
+      "test": "testQueueBoundAndExpiry",
+      "status": "passed"
+    },
+    {
+      "suite": "SharedLinkInboxTests",
+      "test": "testUnacknowledgedLinkSurvivesAppRestart",
+      "status": "passed"
+    },
+    {
+      "suite": "SharedLinkInboxTests",
+      "test": "testUnsafeInputCannotEnterTheQueue",
+      "status": "passed"
+    },
+    {
+      "suite": "YouTubeLinkRouterTests",
+      "test": "testBrowseRoutesStaySeparateFromNormalPlayback",
+      "status": "passed"
+    },
+    {
+      "suite": "YouTubeLinkRouterTests",
+      "test": "testDirectMediaRejectsPrivateAddressesCredentialsAndProtectedHosts",
+      "status": "passed"
+    },
+    {
+      "suite": "YouTubeLinkRouterTests",
+      "test": "testDirectPublicMediaAcceptsHTTPSFilesWithoutProtectedStreamExtraction",
+      "status": "passed"
+    },
+    {
+      "suite": "YouTubeLinkRouterTests",
+      "test": "testMalformedAndUnsafeYouTubeEntriesAreRejected",
+      "status": "passed"
+    },
+    {
+      "suite": "YouTubeLinkRouterTests",
+      "test": "testShareTextExtractsOnlyAnAllowedPublicRoute",
+      "status": "passed"
+    },
+    {
+      "suite": "YouTubeLinkRouterTests",
+      "test": "testSupportedVideoHostsAndPathsPreserveIdentity",
+      "status": "passed"
+    },
+    {
+      "suite": "YouTubeLinkRouterTests",
+      "test": "testTimestampOverflowAndMalformedValues",
+      "status": "passed"
+    },
+    {
+      "suite": "YouTubeLinkRouterTests",
+      "test": "testTimestampsExplicitZeroAndPlaylistContext",
+      "status": "passed"
+    },
+    {
+      "suite": "YouTubeLinkRouterTests",
+      "test": "testWeiktubeWrapperRoundTripAndRecursiveWrapperRejected",
+      "status": "passed"
+    }
+  ]
+}

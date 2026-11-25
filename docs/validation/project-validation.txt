@@ -1,0 +1,15 @@
+Observed project checks; structure only, not an Xcode build.
+$ python3 scripts/generate-project.py --check
+Checked deterministic Xcode project: {"ShareExtension": 4, "Weiktube": 53, "WeiktubeTests": 13, "WeiktubeUITests": 1}
+exit_code=0
+
+$ python3 scripts/validate-project.py
+Project structural validation passed: 4 targets, complete source membership, resource folder, scheme, OAuth preparation and app groups.
+This checks project structure only; it does not compile Swift, sign a build, run a simulator or validate device behavior.
+exit_code=0
+
+828eb6a1bb173d06a3c8d5809e2da083b7a6140cd908d8c37ab3b242fd9bf490  Weiktube.xcodeproj/project.pbxproj
+0169ada1d587609913892030256603ff5f458241609aa8c1da2a9f86af7a8876  Weiktube.xcodeproj/xcshareddata/xcschemes/Weiktube.xcscheme
+d09d48cb23e4a184e0ab39dd951c331dbdbff96da129ed92437823871916d18c  scripts/generate-project.py
+2bb4e51595e9d53c36bbb32eefab9ebbaf7e536c6986ab3b77f008d0db554802  scripts/validate-project.py
+6b1684e63f114414edb1b8b40efeef889776f9ef570892e9416df68b4fdd5714  .github/workflows/ios.yml

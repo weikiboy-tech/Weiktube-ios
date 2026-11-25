@@ -1,0 +1,209 @@
+warning: 'weiktube-ios': found 9 file(s) which are unhandled; explicitly declare them as resources or exclude from the target
+    <PROJECT>/WeiktubeTests/SponsorBlockTests.swift
+    <PROJECT>/WeiktubeTests/ReturnDislikeTests.swift
+    <PROJECT>/WeiktubeTests/AppSettingsTests.swift
+    <PROJECT>/WeiktubeTests/AccountPolicyTests.swift
+    <PROJECT>/WeiktubeTests/HistoryStoreTests.swift
+    <PROJECT>/WeiktubeTests/MediaBridgeTests.cjs
+    <PROJECT>/WeiktubeTests/ReleaseCheckerTests.swift
+    <PROJECT>/WeiktubeTests/AdBlockTests.swift
+    <PROJECT>/WeiktubeTests/FilterRuntimeTests.cjs
+warning: 'weiktube-ios': found 64 file(s) which are unhandled; explicitly declare them as resources or exclude from the target
+    <PROJECT>/Weiktube/Networking/YouTubeAPI.swift
+    <PROJECT>/Weiktube/Shorts/ShortsScreen.swift
+    <PROJECT>/Weiktube/Networking/YouTubeModels.swift
+    <PROJECT>/Weiktube/Account/AccountScreenLease.swift
+    <PROJECT>/Weiktube/Networking/YouTubeHTTPTransport.swift
+    <PROJECT>/Weiktube/Player/SeekTimeline.swift
+    <PROJECT>/Weiktube/Assets.xcassets
+    <PROJECT>/Weiktube/Account/AccountThumbnailLoader.swift
+    <PROJECT>/Weiktube/Resources/Filters/PROVENANCE.md
+    <PROJECT>/Weiktube/Resources/Filters/rules.json
+    <PROJECT>/Weiktube/AdBlock/AdBlockService.swift
+    <PROJECT>/Weiktube/Diagnostics/DiagnosticsScreen.swift
+    <PROJECT>/Weiktube/Diagnostics/DiagnosticsStore.swift
+    <PROJECT>/Weiktube/App/AppModel.swift
+    <PROJECT>/Weiktube/History/HistoryScreen.swift
+    <PROJECT>/Weiktube/ReturnYouTubeDislike/ReturnDislikeSettingsScreen.swift
+    <PROJECT>/Weiktube/Playlists/PlaylistsScreen.swift
+    <PROJECT>/Weiktube/AdBlock/ShieldSelfTestScreen.swift
+    <PROJECT>/Weiktube/Account/VideoActionsSheet.swift
+    <PROJECT>/Weiktube/AdBlock/VendorSource/adguard-scriptlets-source-v2.5.1.tar.gz
+    <PROJECT>/Weiktube/Player/PlaybackSurface.swift
+    <PROJECT>/Weiktube/PrivacyInfo.xcprivacy
+    <PROJECT>/Weiktube/Resources/Filters/vendor-scriptlets.js
+    <PROJECT>/Weiktube/Subscriptions/SubscriptionsScreen.swift
+    <PROJECT>/Weiktube/Player/NativePlayback.swift
+    <PROJECT>/Weiktube/Player/PlayerPanel.swift
+    <PROJECT>/Weiktube/SponsorBlock/SponsorBlockService.swift
+    <PROJECT>/Weiktube/AdBlock/FilterPackage.swift
+    <PROJECT>/Weiktube/SponsorBlock/SponsorBlockSettingsScreen.swift
+    <PROJECT>/Weiktube/AppIntents/OpenWeiktubeIntent.swift
+    <PROJECT>/Weiktube/Account/AccountScreen.swift
+    <PROJECT>/Weiktube/Weiktube.entitlements
+    <PROJECT>/Weiktube/Resources/Filters/filter-runtime-ios.js
+    <PROJECT>/Weiktube/Account/AccountStore.swift
+    <PROJECT>/Weiktube/App/RootView.swift
+    <PROJECT>/Weiktube/AdBlock/VendorSource/adguard-package.json
+    <PROJECT>/Weiktube/History/HistoryStore.swift
+    <PROJECT>/Weiktube/ReturnYouTubeDislike/ReturnDislikeService.swift
+    <PROJECT>/Weiktube/App/WeiktubeTheme.swift
+    <PROJECT>/Weiktube/Networking/NetworkMonitor.swift
+    <PROJECT>/Weiktube/Settings/ReleaseChecker.swift
+    <PROJECT>/Weiktube/Settings/AppSettings.swift
+    <PROJECT>/Weiktube/AdBlock/VendorSource/vendor-adblock.mjs
+    <PROJECT>/Weiktube/Home/ShieldBrowserScreen.swift
+    <PROJECT>/Weiktube/Resources/Filters/ADGUARD-LICENSE.txt
+    <PROJECT>/Weiktube/AdBlock/AdBlockScreen.swift
+    <PROJECT>/Weiktube/Resources/Filters/rules.sig
+    <PROJECT>/Weiktube/Account/AccountPolicy.swift
+    <PROJECT>/Weiktube/Player/PlaybackOwnership.swift
+    <PROJECT>/Weiktube/Resources/Filters/update-public-key.txt
+    <PROJECT>/Weiktube/SponsorBlock/SponsorBlockModels.swift
+    <PROJECT>/Weiktube/Account/GoogleOAuthService.swift
+    <PROJECT>/Weiktube/AdBlock/VendorSource/adguard-scriptlets-2.5.1.tgz
+    <PROJECT>/Weiktube/Info.plist
+    <PROJECT>/Weiktube/WebKit/WebSession.swift
+    <PROJECT>/Weiktube/Player/PlayerCoordinator.swift
+    <PROJECT>/Weiktube/AdBlock/VendorSource/adguard-scriptlets-2.5.1.mjs
+    <PROJECT>/Weiktube/Resources/MediaBridge.js
+    <PROJECT>/Weiktube/WebKit/WebSurface.swift
+    <PROJECT>/Weiktube/Settings/SettingsScreen.swift
+    <PROJECT>/Weiktube/AdBlock/PublicServiceTransport.swift
+    <PROJECT>/Weiktube/App/WeiktubeApp.swift
+    <PROJECT>/Weiktube/WebKit/MediaSnapshot.swift
+    <PROJECT>/Weiktube/Settings/ReleaseUpdatesScreen.swift
+[0/1] Planning build
+Building for debugging...
+[0/4] Write sources
+[2/4] Write swift-version-498130164ABAFA05.txt
+[4/6] Compiling WeiktubeCore ReleaseMetadata.swift
+[5/6] Emitting module WeiktubeCore
+[6/14] Wrapping AST for WeiktubeCore for debugging
+[8/16] Emitting module WeiktubeCoreTests
+[9/16] Compiling WeiktubeCoreTests ReleaseMetadataTests.swift
+[10/17] <QA>/swift-build/x86_64-unknown-linux-gnu/debug/WeiktubeCorePackageDiscoveredTests.derived/all-discovered-tests.swift
+[11/18] Write sources
+[12/18] Wrapping AST for WeiktubeCoreTests for debugging
+[14/21] Compiling WeiktubeCorePackageDiscoveredTests all-discovered-tests.swift
+[15/21] Emitting module WeiktubeCorePackageDiscoveredTests
+[16/21] Compiling WeiktubeCorePackageDiscoveredTests WeiktubeCoreTests.swift
+[17/22] <QA>/swift-build/x86_64-unknown-linux-gnu/debug/WeiktubeCorePackageTests.derived/runner.swift
+[18/23] Write sources
+[19/23] Wrapping AST for WeiktubeCorePackageDiscoveredTests for debugging
+[21/25] Compiling WeiktubeCorePackageTests runner.swift
+[22/25] Emitting module WeiktubeCorePackageTests
+[23/25] Write Objects.LinkFileList
+[24/25] Linking WeiktubeCorePackageTests.xctest
+Build complete! (3.15s)
+Test Suite 'All tests' started at 2026-11-25 11:46:32.081
+Test Suite 'debug.xctest' started at 2026-11-25 11:46:32.096
+Test Suite 'AtomicJSONFileTests' started at 2026-11-25 11:46:32.096
+Test Case 'AtomicJSONFileTests.testAtomicReplacementAndRestartRead' started at 2026-11-25 11:46:32.096
+Test Case 'AtomicJSONFileTests.testAtomicReplacementAndRestartRead' passed (0.006 seconds)
+Test Case 'AtomicJSONFileTests.testOversizeWriteCannotClobberPreviouslySavedData' started at 2026-11-25 11:46:32.102
+Test Case 'AtomicJSONFileTests.testOversizeWriteCannotClobberPreviouslySavedData' passed (0.104 seconds)
+Test Case 'AtomicJSONFileTests.testReadRejectsOversizeFileBeforeDecoding' started at 2026-11-25 11:46:32.206
+Test Case 'AtomicJSONFileTests.testReadRejectsOversizeFileBeforeDecoding' passed (0.003 seconds)
+Test Suite 'AtomicJSONFileTests' passed at 2026-11-25 11:46:32.208
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.113 (0.113) seconds
+Test Suite 'PlaybackRestorationTests' started at 2026-11-25 11:46:32.208
+Test Case 'PlaybackRestorationTests.testDisabledHistoryAndExplicitCloseDeleteRestoration' started at 2026-11-25 11:46:32.208
+Test Case 'PlaybackRestorationTests.testDisabledHistoryAndExplicitCloseDeleteRestoration' passed (0.009 seconds)
+Test Case 'PlaybackRestorationTests.testOnlyExplicitSafePlayerRoutesAndFinitePositionsCanPersist' started at 2026-11-25 11:46:32.217
+Test Case 'PlaybackRestorationTests.testOnlyExplicitSafePlayerRoutesAndFinitePositionsCanPersist' passed (0.004 seconds)
+Test Case 'PlaybackRestorationTests.testPeriodicWritesAreThrottledAndForcedPauseSaveKeepsLatestSample' started at 2026-11-25 11:46:32.221
+Test Case 'PlaybackRestorationTests.testPeriodicWritesAreThrottledAndForcedPauseSaveKeepsLatestSample' passed (0.004 seconds)
+Test Case 'PlaybackRestorationTests.testRestartRestoresValidatedIdentityAndPositionSeparatelyFromOriginalTimestamp' started at 2026-11-25 11:46:32.225
+Test Case 'PlaybackRestorationTests.testRestartRestoresValidatedIdentityAndPositionSeparatelyFromOriginalTimestamp' passed (0.003 seconds)
+Test Case 'PlaybackRestorationTests.testStaleAndFutureSnapshotsCannotReopenOldPlayback' started at 2026-11-25 11:46:32.229
+Test Case 'PlaybackRestorationTests.testStaleAndFutureSnapshotsCannotReopenOldPlayback' passed (0.006 seconds)
+Test Suite 'PlaybackRestorationTests' passed at 2026-11-25 11:46:32.234
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.026 (0.026) seconds
+Test Suite 'PlayerPresentationTests' started at 2026-11-25 11:46:32.235
+Test Case 'PlayerPresentationTests.testConfirmedPictureInPictureRestoresMiniWithoutExpanding' started at 2026-11-25 11:46:32.235
+Test Case 'PlayerPresentationTests.testConfirmedPictureInPictureRestoresMiniWithoutExpanding' passed (0.0 seconds)
+Test Case 'PlayerPresentationTests.testDifferentSelectionResetsPreviousSourcesExitLatch' started at 2026-11-25 11:46:32.235
+Test Case 'PlayerPresentationTests.testDifferentSelectionResetsPreviousSourcesExitLatch' passed (0.0 seconds)
+Test Case 'PlayerPresentationTests.testInvertedAndUnknownSensorValuesDoNotChangePresentationOrLatch' started at 2026-11-25 11:46:32.235
+Test Case 'PlayerPresentationTests.testInvertedAndUnknownSensorValuesDoNotChangePresentationOrLatch' passed (0.0 seconds)
+Test Case 'PlayerPresentationTests.testManualFullscreenExitRemainsLatchedUntilPostureChanges' started at 2026-11-25 11:46:32.235
+Test Case 'PlayerPresentationTests.testManualFullscreenExitRemainsLatchedUntilPostureChanges' passed (0.0 seconds)
+Test Case 'PlayerPresentationTests.testManualFullscreenInPortraitWaitsForRealPostureChange' started at 2026-11-25 11:46:32.236
+Test Case 'PlayerPresentationTests.testManualFullscreenInPortraitWaitsForRealPostureChange' passed (0.101 seconds)
+Test Case 'PlayerPresentationTests.testOneSourceSurvivesExpandedMiniAndFullscreenTransitions' started at 2026-11-25 11:46:32.336
+Test Case 'PlayerPresentationTests.testOneSourceSurvivesExpandedMiniAndFullscreenTransitions' passed (0.0 seconds)
+Test Case 'PlayerPresentationTests.testPictureInPictureDismissalDoesNotInventPlaybackAndLateEventsCannotReopen' started at 2026-11-25 11:46:32.337
+Test Case 'PlayerPresentationTests.testPictureInPictureDismissalDoesNotInventPlaybackAndLateEventsCannotReopen' passed (0.0 seconds)
+Test Case 'PlayerPresentationTests.testPictureInPicturePreservesManualFullscreenAndExitLatch' started at 2026-11-25 11:46:32.337
+Test Case 'PlayerPresentationTests.testPictureInPicturePreservesManualFullscreenAndExitLatch' passed (0.0 seconds)
+Test Case 'PlayerPresentationTests.testZoomClampingHandlesNonFiniteInput' started at 2026-11-25 11:46:32.337
+Test Case 'PlayerPresentationTests.testZoomClampingHandlesNonFiniteInput' passed (0.0 seconds)
+Test Suite 'PlayerPresentationTests' passed at 2026-11-25 11:46:32.337
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.103 (0.103) seconds
+Test Suite 'ReleaseMetadataTests' started at 2026-11-25 11:46:32.338
+Test Case 'ReleaseMetadataTests.testCanonicalRepositoryCaseIsAcceptedWithoutRelaxingTagOrAssetIdentity' started at 2026-11-25 11:46:32.338
+Test Case 'ReleaseMetadataTests.testCanonicalRepositoryCaseIsAcceptedWithoutRelaxingTagOrAssetIdentity' passed (0.004 seconds)
+Test Case 'ReleaseMetadataTests.testForeignAssetsCredentialsDraftsAndPrereleasesAreRejected' started at 2026-11-25 11:46:32.342
+Test Case 'ReleaseMetadataTests.testForeignAssetsCredentialsDraftsAndPrereleasesAreRejected' passed (0.003 seconds)
+Test Case 'ReleaseMetadataTests.testMalformedAndAmbiguousVersionStringsAreRejected' started at 2026-11-25 11:46:32.345
+Test Case 'ReleaseMetadataTests.testMalformedAndAmbiguousVersionStringsAreRejected' passed (0.0 seconds)
+Test Case 'ReleaseMetadataTests.testOfficialReleaseMetadataRetainsOnlyValidatedPublicURLs' started at 2026-11-25 11:46:32.345
+Test Case 'ReleaseMetadataTests.testOfficialReleaseMetadataRetainsOnlyValidatedPublicURLs' passed (0.001 seconds)
+Test Case 'ReleaseMetadataTests.testOversizeMetadataFailsBeforeJSONDecoding' started at 2026-11-25 11:46:32.346
+Test Case 'ReleaseMetadataTests.testOversizeMetadataFailsBeforeJSONDecoding' passed (0.0 seconds)
+Test Case 'ReleaseMetadataTests.testReleaseURLPolicyRejectsEncodedSeparatorsAndMismatchedTag' started at 2026-11-25 11:46:32.346
+Test Case 'ReleaseMetadataTests.testReleaseURLPolicyRejectsEncodedSeparatorsAndMismatchedTag' passed (0.0 seconds)
+Test Case 'ReleaseMetadataTests.testSemanticVersionOrdersNumericComponentsAndPrereleases' started at 2026-11-25 11:46:32.347
+Test Case 'ReleaseMetadataTests.testSemanticVersionOrdersNumericComponentsAndPrereleases' passed (0.001 seconds)
+Test Case 'ReleaseMetadataTests.testVersionPrefixAndBuildMetadataDoNotInventAnUpdate' started at 2026-11-25 11:46:32.347
+Test Case 'ReleaseMetadataTests.testVersionPrefixAndBuildMetadataDoNotInventAnUpdate' passed (0.0 seconds)
+Test Suite 'ReleaseMetadataTests' passed at 2026-11-25 11:46:32.348
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.01 (0.01) seconds
+Test Suite 'SharedLinkInboxTests' started at 2026-11-25 11:46:32.348
+Test Case 'SharedLinkInboxTests.testAcknowledgingKnownItemsDoesNotLoseAnInterveningExtensionDelivery' started at 2026-11-25 11:46:32.348
+Test Case 'SharedLinkInboxTests.testAcknowledgingKnownItemsDoesNotLoseAnInterveningExtensionDelivery' passed (0.016 seconds)
+Test Case 'SharedLinkInboxTests.testConcurrentAppAndExtensionWritersDoNotLoseEitherDelivery' started at 2026-11-25 11:46:32.363
+Test Case 'SharedLinkInboxTests.testConcurrentAppAndExtensionWritersDoNotLoseEitherDelivery' passed (0.027 seconds)
+Test Case 'SharedLinkInboxTests.testExtensionDeliveryIsCanonicalAndDeduplicatedAcrossInstances' started at 2026-11-25 11:46:32.390
+Test Case 'SharedLinkInboxTests.testExtensionDeliveryIsCanonicalAndDeduplicatedAcrossInstances' passed (0.009 seconds)
+Test Case 'SharedLinkInboxTests.testMalformedDiskDataIsReportedAndNotSilentlyOverwritten' started at 2026-11-25 11:46:32.400
+Test Case 'SharedLinkInboxTests.testMalformedDiskDataIsReportedAndNotSilentlyOverwritten' passed (0.004 seconds)
+Test Case 'SharedLinkInboxTests.testQueueBoundAndExpiry' started at 2026-11-25 11:46:32.404
+Test Case 'SharedLinkInboxTests.testQueueBoundAndExpiry' passed (0warning: '--build-system native' has been deprecated and will be removed in a future release; please report an issue at https://github.com/swiftlang/swift-package-manager/issues if you are unable to adopt the default build system.
+.082 seconds)
+Test Case 'SharedLinkInboxTests.testUnacknowledgedLinkSurvivesAppRestart' started at 2026-11-25 11:46:32.486
+Test Case 'SharedLinkInboxTests.testUnacknowledgedLinkSurvivesAppRestart' passed (0.011 seconds)
+Test Case 'SharedLinkInboxTests.testUnsafeInputCannotEnterTheQueue' started at 2026-11-25 11:46:32.497
+Test Case 'SharedLinkInboxTests.testUnsafeInputCannotEnterTheQueue' passed (0.104 seconds)
+Test Suite 'SharedLinkInboxTests' passed at 2026-11-25 11:46:32.601
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.253 (0.253) seconds
+Test Suite 'YouTubeLinkRouterTests' started at 2026-11-25 11:46:32.601
+Test Case 'YouTubeLinkRouterTests.testBrowseRoutesStaySeparateFromNormalPlayback' started at 2026-11-25 11:46:32.601
+Test Case 'YouTubeLinkRouterTests.testBrowseRoutesStaySeparateFromNormalPlayback' passed (0.001 seconds)
+Test Case 'YouTubeLinkRouterTests.testDirectMediaRejectsPrivateAddressesCredentialsAndProtectedHosts' started at 2026-11-25 11:46:32.602
+Test Case 'YouTubeLinkRouterTests.testDirectMediaRejectsPrivateAddressesCredentialsAndProtectedHosts' passed (0.002 seconds)
+Test Case 'YouTubeLinkRouterTests.testDirectPublicMediaAcceptsHTTPSFilesWithoutProtectedStreamExtraction' started at 2026-11-25 11:46:32.604
+Test Case 'YouTubeLinkRouterTests.testDirectPublicMediaAcceptsHTTPSFilesWithoutProtectedStreamExtraction' passed (0.001 seconds)
+Test Case 'YouTubeLinkRouterTests.testMalformedAndUnsafeYouTubeEntriesAreRejected' started at 2026-11-25 11:46:32.605
+Test Case 'YouTubeLinkRouterTests.testMalformedAndUnsafeYouTubeEntriesAreRejected' passed (0.001 seconds)
+Test Case 'YouTubeLinkRouterTests.testShareTextExtractsOnlyAnAllowedPublicRoute' started at 2026-11-25 11:46:32.606
+Test Case 'YouTubeLinkRouterTests.testShareTextExtractsOnlyAnAllowedPublicRoute' passed (0.001 seconds)
+Test Case 'YouTubeLinkRouterTests.testSupportedVideoHostsAndPathsPreserveIdentity' started at 2026-11-25 11:46:32.607
+Test Case 'YouTubeLinkRouterTests.testSupportedVideoHostsAndPathsPreserveIdentity' passed (0.001 seconds)
+Test Case 'YouTubeLinkRouterTests.testTimestampOverflowAndMalformedValues' started at 2026-11-25 11:46:32.608
+Test Case 'YouTubeLinkRouterTests.testTimestampOverflowAndMalformedValues' passed (0.001 seconds)
+Test Case 'YouTubeLinkRouterTests.testTimestampsExplicitZeroAndPlaylistContext' started at 2026-11-25 11:46:32.609
+Test Case 'YouTubeLinkRouterTests.testTimestampsExplicitZeroAndPlaylistContext' passed (0.001 seconds)
+Test Case 'YouTubeLinkRouterTests.testWeiktubeWrapperRoundTripAndRecursiveWrapperRejected' started at 2026-11-25 11:46:32.610
+Test Case 'YouTubeLinkRouterTests.testWeiktubeWrapperRoundTripAndRecursiveWrapperRejected' passed (0.101 seconds)
+Test Suite 'YouTubeLinkRouterTests' passed at 2026-11-25 11:46:32.711
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.11 (0.11) seconds
+Test Suite 'debug.xctest' passed at 2026-11-25 11:46:32.711
+	 Executed 41 tests, with 0 failures (0 unexpected) in 0.614 (0.614) seconds
+Test Suite 'All tests' passed at 2026-11-25 11:46:32.711
+	 Executed 41 tests, with 0 failures (0 unexpected) in 0.614 (0.614) seconds
+◇ Test run started.
+↳ Testing Library Version: 6.4.3 (ba0861fb203553c)
+↳ Target Platform: x86_64-unknown-linux-gnu
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

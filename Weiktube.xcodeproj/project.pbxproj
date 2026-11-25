@@ -1,0 +1,1875 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+		01989AC34F1DE6E2147BE815 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/PlayerPresentationTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		0402004B6044628DD6531AB6 = {
+			isa = PBXBuildFile;
+			fileRef = 53A1B32424FFD13F3E5D7122;
+		};
+		044FCE4575FC61659F41364F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Player/PlayerPanel.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		07A92C460110DCE5635B09E5 = {
+			isa = PBXGroup;
+			children = (
+				AAADFE48B38D860DFBDF3E0C,
+				AFA3D31C3310BCC1F40844A4,
+				159332D707C43ECBCF24A0B9,
+				6CA145E110041AD9582BA8A8,
+				45F439F0AA5D73370178F401,
+				3689BAFF0F0B60801AF5E4B4,
+				1E6EE86BE57052074304164A,
+			);
+			sourceTree = "<group>";
+			name = Account;
+		};
+		07AC4C375853D922FB126A44 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/App/AppModel.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		084E126073713F83D9DFBA83 = {
+			isa = PBXBuildFile;
+			fileRef = FE0CB5323D2566B5FFA6A0AD;
+		};
+		0878A12784ABACE4E058BAB9 = {
+			isa = PBXGroup;
+			children = (
+				E2DB17EE5B6C0AC75FC53944,
+			);
+			sourceTree = "<group>";
+			name = Subscriptions;
+		};
+		0915445C627ED5EF4B84C207 = {
+			isa = PBXBuildFile;
+			fileRef = 09691884E6A17E6880E99874;
+		};
+		09691884E6A17E6880E99874 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder.assetcatalog;
+			path = Weiktube/Assets.xcassets;
+			sourceTree = SOURCE_ROOT;
+		};
+		0992786E541C7EA3BBAD4DC2 = {
+			isa = PBXBuildFile;
+			fileRef = CF858814AF423BEDD6FABB3B;
+		};
+		0A6FBAE83F44EF1BBF196FD6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/SponsorBlock/SponsorBlockModels.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		0B73A690F48606D1B412E209 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 884C1590D6177BFCD92C60F6;
+			buildPhases = (
+				C408C25D9F2989FFEC4C9206,
+				6F68CEC29DB80FE4A657B0B3,
+				B8819D8DDA8C86186260741C,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE31A2EB08AF775A6BCC578A,
+			);
+			name = WeiktubeTests;
+			productName = WeiktubeTests;
+			productReference = 6B996F526C19A2D80A5506D9;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0CAEF2B6D7379994426D8748 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E581A5F251E682E95FE9BD9 = {
+			isa = PBXFileReference;
+			explicitFileType = "wrapper.app-extension";
+			includeInIndex = 0;
+			path = ShareExtension.appex;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0E64AD9A37013D385F9FA62C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.javascript;
+			path = WeiktubeTests/FilterRuntimeTests.cjs;
+			sourceTree = SOURCE_ROOT;
+		};
+		0EEC9292E1D83A712E6EDE22 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.javascript;
+			path = WeiktubeTests/MediaBridgeTests.cjs;
+			sourceTree = SOURCE_ROOT;
+		};
+		0F6E9E9F66D3A21078389F4B = {
+			isa = PBXBuildFile;
+			fileRef = 510AF2DB777F61522E2E1A28;
+		};
+		100024A4560BE23C6CFF2984 = {
+			isa = PBXBuildFile;
+			fileRef = 159332D707C43ECBCF24A0B9;
+		};
+		1122220A030A6015144FE6AB = {
+			isa = PBXBuildFile;
+			fileRef = 07AC4C375853D922FB126A44;
+		};
+		1284C18B1E3A7D447C2C8696 = {
+			isa = PBXBuildFile;
+			fileRef = 503078599EAF2A53B4DB80C0;
+		};
+		131BC7A265EBE23F3F59E12B = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = Weiktube.app;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		159332D707C43ECBCF24A0B9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Account/AccountScreenLease.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		16527856847DEDC53FAC77C7 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E298D0BE5F06E927A58A30A,
+				600CE8AB16FCDD8D094145C5,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16C41EAA8F4ED1E9212C2528 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Persistence/AtomicJSONFile.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		178D7C8F23C9D47F05D9E422 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/SponsorBlockTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		1827ED6B449C6654ABF34300 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/AdBlock/ShieldSelfTestScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		1846B7BB9C0080CB7B6849D0 = {
+			isa = PBXGroup;
+			children = (
+				D962E1BDBED93437C5A94770,
+				D1D85E05C3E4BF2BF0BF6E06,
+				755C1BE821371D1882321B7F,
+				F1AB737524FC99A24D9B9C52,
+			);
+			sourceTree = "<group>";
+			name = Settings;
+		};
+		1A852115C354905DCAA675E7 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 655B2535EB9D2EF39761B6EB;
+			buildPhases = (
+				43711A5E973EDA724D0CD35A,
+				439D0DA27E7F49E3DD956DF4,
+				D7E10EAD1D0D9AF2E2FD30ED,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				994730CAD22EC6E2C4148805,
+			);
+			name = WeiktubeUITests;
+			productName = WeiktubeUITests;
+			productReference = AFAB96C88410DBF6292BB2F7;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		1B0E547FCB1FD6AC0BE5ED62 = {
+			isa = PBXBuildFile;
+			fileRef = F1AB737524FC99A24D9B9C52;
+		};
+		1C71E36CC60D406F49AF1F29 = {
+			isa = PBXBuildFile;
+			fileRef = 1827ED6B449C6654ABF34300;
+		};
+		1E6EE86BE57052074304164A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Account/VideoActionsSheet.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		1ED47459373CDB2649A18FB4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = net.daringfireball.markdown;
+			path = INSTALLATION.md;
+			sourceTree = SOURCE_ROOT;
+		};
+		1F04993028E0D4790EA8F188 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/AdBlockTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		1F4D3226D6F444CE75ABAE88 = {
+			isa = PBXGroup;
+			children = (
+				75F222FAED080FF5D2708EAC,
+			);
+			sourceTree = "<group>";
+			name = AppIntents;
+		};
+		1F726B4415C08C31FDFDB537 = {
+			isa = PBXBuildFile;
+			fileRef = 2F28593450ADDB552DA4E592;
+		};
+		20041CD23BFA27A939BF4390 = {
+			isa = PBXGroup;
+			children = (
+				946E5F04715E5129EE1552A9,
+			);
+			sourceTree = "<group>";
+			name = Shorts;
+		};
+		2370B5EE67B7416792F839D8 = {
+			isa = PBXBuildFile;
+			fileRef = 9898B36CE8B1E02FA870074E;
+		};
+		24397956097607B4D8EB55E5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = ShareExtension;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WEIKTUBE_BUNDLE_ID).share";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		25BC844E99E3820968D412D4 = {
+			isa = PBXBuildFile;
+			fileRef = 4A25B68CBA69BD9468504E03;
+		};
+		27E621C6BC85602D31E21562 = {
+			isa = PBXBuildFile;
+			fileRef = 45F439F0AA5D73370178F401;
+		};
+		282E1F7116E77CC673B488ED = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Player/SeekTimeline.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		2843FF8DEDB96103CCA37238 = {
+			isa = PBXBuildFile;
+			fileRef = 64AAB29B889BC298CAA4132C;
+		};
+		2A4B6FFE75D93F719C53F25E = {
+			isa = PBXGroup;
+			children = (
+				E562B77BB726D447820F802F,
+			);
+			sourceTree = "<group>";
+			name = Home;
+		};
+		2A4D1D0ABE72A21F27909A9B = {
+			isa = PBXFileReference;
+			lastKnownFileType = net.daringfireball.markdown;
+			path = BUILD.md;
+			sourceTree = SOURCE_ROOT;
+		};
+		2AC7CC52DEDC184DE6A64C7A = {
+			isa = PBXBuildFile;
+			fileRef = 6D988942492CB5E11E9AE910;
+		};
+		2C70F8F31D80636063D3491A = {
+			isa = PBXGroup;
+			children = (
+				CD5D7AA6D0DE6F11093177FE,
+			);
+			sourceTree = "<group>";
+			name = Playlists;
+		};
+		2D0A9B5F7281653785C76A31 = {
+			isa = PBXBuildFile;
+			fileRef = 40703BB6BD0C94AE4C5DFEF7;
+		};
+		2D9CC07172F53E7FEF39CFD0 = {
+			isa = PBXBuildFile;
+			fileRef = A25BD3989E26189A2F504E06;
+		};
+		2E6EB900207356AA926A69EC = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1E57C28FAED53AA695BAFE;
+			proxyType = 1;
+			remoteGlobalIDString = B04F2B8A4E23E4ABC945F6AB;
+			remoteInfo = ShareExtension;
+		};
+		2F28593450ADDB552DA4E592 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Persistence/PlaybackRestorationStore.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		3041848C28DE814BD7F618B0 = {
+			isa = PBXGroup;
+			children = (
+				CC4795D709E5239D2B2A57B1,
+			);
+			sourceTree = "<group>";
+			name = WeiktubeUITests;
+		};
+		32B5D69FE041AD787AB2D969 = {
+			isa = PBXBuildFile;
+			fileRef = 7AFFD3BC862ACACC9BE97FC4;
+		};
+		3398B0D255678C8ADADF3C8B = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Package.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		34824C99F1CEA60D509D105D = {
+			isa = PBXBuildFile;
+			fileRef = C2A8007AEADA0F86CA579929;
+		};
+		35AF3D0DEEF205075344708C = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xcconfig;
+			path = Config/Base.xcconfig;
+			sourceTree = SOURCE_ROOT;
+		};
+		35D2661200FD76F29302C02E = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24397956097607B4D8EB55E5,
+				CF17348D1C12E972EE7ADB2D,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3689BAFF0F0B60801AF5E4B4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Account/GoogleOAuthService.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		377C6A6F60365FD2BE2FD5C5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xcconfig;
+			path = Config/Release.xcconfig;
+			sourceTree = SOURCE_ROOT;
+		};
+		3E298D0BE5F06E927A58A30A = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = Weiktube;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WEIKTUBE_BUNDLE_ID)";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "$(DERIVED_FILE_DIR)/Weiktube-Info.plist";
+				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
+				CODE_SIGN_ENTITLEMENTS = Weiktube/Weiktube.entitlements;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				SKIP_INSTALL = NO;
+			};
+			name = Debug;
+		};
+		3EEFEAF92562DE3AB6CAB373 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.yaml;
+			path = .github/workflows/ios.yml;
+			sourceTree = SOURCE_ROOT;
+		};
+		3F3D7467E2BA18A8A2415D15 = {
+			isa = PBXBuildFile;
+			fileRef = F0ECC6FB8982DFCEED00128D;
+		};
+		3FECC2EC03A344AAF0A4A993 = {
+			isa = PBXBuildFile;
+			fileRef = CA9E1AC0B4FF49AD16D05825;
+		};
+		40703BB6BD0C94AE4C5DFEF7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/AdBlock/PublicServiceTransport.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		412034197D2CE20EEEA05DDA = {
+			isa = PBXGroup;
+			children = (
+				D3F2E57E7E50A4F90A558166,
+				EA63784B91AA067D8435F03F,
+			);
+			sourceTree = "<group>";
+			name = History;
+		};
+		42F035D5D5F2103CE14B7CF4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/HistoryStoreTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		4365913C4A83B005A0D469F1 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				SDKROOT = iphoneos;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+			};
+			name = Release;
+			baseConfigurationReference = 377C6A6F60365FD2BE2FD5C5;
+		};
+		43711A5E973EDA724D0CD35A = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E012FE2E0CA97A5057003E5B,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		439D0DA27E7F49E3DD956DF4 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45F439F0AA5D73370178F401 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Account/AccountThumbnailLoader.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		499A2234370F354233D3FCC8 = {
+			isa = PBXBuildFile;
+			fileRef = AAADFE48B38D860DFBDF3E0C;
+		};
+		4A25B68CBA69BD9468504E03 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Persistence/SharedLinkInbox.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		4A4F2D785C0D811D83C8B918 = {
+			isa = PBXBuildFile;
+			fileRef = B44A91DA17868C2EE5FDAEC0;
+		};
+		4A9DDECBCC08930269A4168C = {
+			isa = PBXBuildFile;
+			fileRef = BEFFC379AB9D22E12B01EC01;
+		};
+		4EACEAB882D728E8260479D3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/ReturnDislikeTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		503078599EAF2A53B4DB80C0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/ReleaseCheckerTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		510AF2DB777F61522E2E1A28 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.javascript;
+			path = Weiktube/Resources/MediaBridge.js;
+			sourceTree = SOURCE_ROOT;
+		};
+		52F4412859ED8C14C506FEF5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			path = ShareExtension/Info.plist;
+			sourceTree = SOURCE_ROOT;
+		};
+		53A1B32424FFD13F3E5D7122 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/AtomicJSONFileTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		558054BA6F00D48D577039A2 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Networking/YouTubeAPI.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		581735095D183CF6BDF769D4 = {
+			isa = PBXBuildFile;
+			fileRef = 044FCE4575FC61659F41364F;
+		};
+		58997C6D0D88C8154669F90B = {
+			isa = PBXGroup;
+			children = (
+				F3A964BE60E74AC5FFC4C306,
+				1F04993028E0D4790EA8F188,
+				75840A8AF585DC8097AD7F8E,
+				53A1B32424FFD13F3E5D7122,
+				0E64AD9A37013D385F9FA62C,
+				42F035D5D5F2103CE14B7CF4,
+				0EEC9292E1D83A712E6EDE22,
+				C806A862C78001D9C72F87B4,
+				01989AC34F1DE6E2147BE815,
+				503078599EAF2A53B4DB80C0,
+				DF6F182E5FA1F5C10EF1006E,
+				4EACEAB882D728E8260479D3,
+				F7B1E7220A4532A2144AE701,
+				178D7C8F23C9D47F05D9E422,
+				7AFFD3BC862ACACC9BE97FC4,
+			);
+			sourceTree = "<group>";
+			name = WeiktubeTests;
+		};
+		5A1E57C28FAED53AA695BAFE = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				LastSwiftUpdateCheck = 1600;
+				TargetAttributes = {
+					DA002081807298519FD0C2C5 = {
+						CreatedOnToolsVersion = 16.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					B04F2B8A4E23E4ABC945F6AB = {
+						CreatedOnToolsVersion = 16.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					0B73A690F48606D1B412E209 = {
+						CreatedOnToolsVersion = 16.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DA002081807298519FD0C2C5;
+					};
+					1A852115C354905DCAA675E7 = {
+						CreatedOnToolsVersion = 16.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DA002081807298519FD0C2C5;
+					};
+				};
+			};
+			buildConfigurationList = EA4B1DC92DF01C657FCF3D01;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = de;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				de,
+				en,
+				Base,
+			);
+			mainGroup = A86532467A0B5E816ECC7743;
+			productRefGroup = 5AF45081E6F3D1FB0E80198E;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA002081807298519FD0C2C5,
+				B04F2B8A4E23E4ABC945F6AB,
+				0B73A690F48606D1B412E209,
+				1A852115C354905DCAA675E7,
+			);
+		};
+		5AF45081E6F3D1FB0E80198E = {
+			isa = PBXGroup;
+			children = (
+				131BC7A265EBE23F3F59E12B,
+				0E581A5F251E682E95FE9BD9,
+				6B996F526C19A2D80A5506D9,
+				AFAB96C88410DBF6292BB2F7,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B7BEA185406AE417379A65B = {
+			isa = PBXGroup;
+			children = (
+				07A92C460110DCE5635B09E5,
+				8563FC0E433A55DE4647783C,
+				8013A839C704B3CA83B7C479,
+				1F4D3226D6F444CE75ABAE88,
+				9C614ED0D900B9105D4E2A2B,
+				5DBA05EB35CD651B79736C1E,
+				412034197D2CE20EEEA05DDA,
+				2A4B6FFE75D93F719C53F25E,
+				6720CF177D19DF2141BD6B7E,
+				BE67CD97919FA9DBF3AE61E5,
+				F48E2A5F4D63FF9819C0A835,
+				A25035F4F4B6986D46D1706B,
+				2C70F8F31D80636063D3491A,
+				6FEC2671C086EAAF7BB38747,
+				EBE1DDE0E2EC74CB520CCF9F,
+				1846B7BB9C0080CB7B6849D0,
+				20041CD23BFA27A939BF4390,
+				B037ABADC1ED4BF4E8DE5BE3,
+				0878A12784ABACE4E058BAB9,
+				E1A01440FD6FB34EFDF56B33,
+				09691884E6A17E6880E99874,
+				A9CB3CD8B1FF2989C2369C31,
+				D17CBCE09402A9722CED5828,
+				73EC4B9C0DC896E47D64A2E4,
+			);
+			sourceTree = "<group>";
+			name = Weiktube;
+		};
+		5C16D594F53284B9DE1456E5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = "scripts/validate-project.py";
+			sourceTree = SOURCE_ROOT;
+		};
+		5C3ABA19161D5279161DF9C7 = {
+			isa = PBXBuildFile;
+			fileRef = FED09F05415C428B30874FE9;
+		};
+		5DBA05EB35CD651B79736C1E = {
+			isa = PBXGroup;
+			children = (
+				64AAB29B889BC298CAA4132C,
+				A8D9D8C12FE863EFAD542C47,
+			);
+			sourceTree = "<group>";
+			name = Diagnostics;
+		};
+		5EA5C81A69492B48A81558E3 = {
+			isa = PBXBuildFile;
+			fileRef = 6F0D7C92DE4C782E63F86507;
+		};
+		5F08F6B5BB1B50F8E3C6E3E4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/App/WeiktubeTheme.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		5F15638C0FA7603C929D142E = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = WeiktubeUITests;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WEIKTUBE_BUNDLE_ID).uitests";
+				GENERATE_INFOPLIST_FILE = YES;
+				TEST_TARGET_NAME = Weiktube;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5FCFACD6F88E0B2A693E494D = {
+			isa = PBXBuildFile;
+			fileRef = D49722A0A60037BC82CA1A9C;
+		};
+		600CE8AB16FCDD8D094145C5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = Weiktube;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WEIKTUBE_BUNDLE_ID)";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "$(DERIVED_FILE_DIR)/Weiktube-Info.plist";
+				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
+				CODE_SIGN_ENTITLEMENTS = Weiktube/Weiktube.entitlements;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				SKIP_INSTALL = NO;
+			};
+			name = Release;
+		};
+		606D079EBA910A7B75F11387 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = WeiktubeTests;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WEIKTUBE_BUNDLE_ID).tests";
+				GENERATE_INFOPLIST_FILE = YES;
+				TEST_TARGET_NAME = Weiktube;
+				SKIP_INSTALL = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weiktube.app/Weiktube";
+			};
+			name = Release;
+		};
+		60A535F1F9B530AD781A306E = {
+			isa = PBXBuildFile;
+			fileRef = E2DB17EE5B6C0AC75FC53944;
+		};
+		638049D49CE05B386DE3411A = {
+			isa = PBXBuildFile;
+			fileRef = D962E1BDBED93437C5A94770;
+		};
+		6402697DA76D7985BFB31E0A = {
+			isa = PBXBuildFile;
+			fileRef = E562B77BB726D447820F802F;
+		};
+		64AAB29B889BC298CAA4132C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Diagnostics/DiagnosticsScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		655B2535EB9D2EF39761B6EB = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB7E5B1C4FBA56DBFD3820F5,
+				5F15638C0FA7603C929D142E,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6720CF177D19DF2141BD6B7E = {
+			isa = PBXGroup;
+			children = (
+				D49722A0A60037BC82CA1A9C,
+			);
+			sourceTree = "<group>";
+			name = Navigation;
+		};
+		6744C828A29AB6F350E1CC55 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1E57C28FAED53AA695BAFE;
+			proxyType = 1;
+			remoteGlobalIDString = DA002081807298519FD0C2C5;
+			remoteInfo = Weiktube;
+		};
+		69B5D0AD332FF9A2D45B2548 = {
+			isa = PBXBuildFile;
+			fileRef = 768983DAEE3123ADA68789BB;
+		};
+		69D86696C50083D465E53BA6 = {
+			isa = PBXBuildFile;
+			fileRef = D17CBCE09402A9722CED5828;
+		};
+		6AE0B96DBD73EE568B8C6879 = {
+			isa = PBXBuildFile;
+			fileRef = C806A862C78001D9C72F87B4;
+		};
+		6B2A8D6026C69054B8FC8F21 = {
+			isa = PBXBuildFile;
+			fileRef = EA63784B91AA067D8435F03F;
+		};
+		6B2C2DCB5C39B20F66A54486 = {
+			isa = PBXBuildFile;
+			fileRef = 4EACEAB882D728E8260479D3;
+		};
+		6B996F526C19A2D80A5506D9 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = WeiktubeTests.xctest;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6BB38BEBF9DBC164126925F5 = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E74F589F13D9B302EDE2855A,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CA145E110041AD9582BA8A8 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Account/AccountStore.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		6CA19327CB9AD1184B194A65 = {
+			isa = PBXBuildFile;
+			fileRef = 0A6FBAE83F44EF1BBF196FD6;
+		};
+		6D988942492CB5E11E9AE910 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Player/PlaybackSurface.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		6F0D7C92DE4C782E63F86507 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Networking/NetworkMonitor.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		6F68CEC29DB80FE4A657B0B3 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FEC2671C086EAAF7BB38747 = {
+			isa = PBXGroup;
+			children = (
+				9689C2D21E8B4CBE462E9097,
+				510AF2DB777F61522E2E1A28,
+			);
+			sourceTree = "<group>";
+			name = Resources;
+		};
+		71F005E0BC16BCB05AB69ACA = {
+			isa = PBXBuildFile;
+			fileRef = D49722A0A60037BC82CA1A9C;
+		};
+		73EC4B9C0DC896E47D64A2E4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.entitlements;
+			path = Weiktube/Weiktube.entitlements;
+			sourceTree = SOURCE_ROOT;
+		};
+		73EFF01090179DCB99AF1475 = {
+			isa = PBXBuildFile;
+			fileRef = 75840A8AF585DC8097AD7F8E;
+		};
+		755C1BE821371D1882321B7F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Settings/ReleaseUpdatesScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		75840A8AF585DC8097AD7F8E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/AppSettingsTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		75F222FAED080FF5D2708EAC = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/AppIntents/OpenWeiktubeIntent.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		76270A1280B61A514BF3B109 = {
+			isa = PBXBuildFile;
+			fileRef = AFA3D31C3310BCC1F40844A4;
+		};
+		768983DAEE3123ADA68789BB = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/ReturnYouTubeDislike/ReturnDislikeSettingsScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		7858A8D0C52BEE1987D8CCF6 = {
+			isa = PBXBuildFile;
+			fileRef = 9689C2D21E8B4CBE462E9097;
+		};
+		78741E8F0F3079DECE593467 = {
+			isa = PBXBuildFile;
+			fileRef = 1E6EE86BE57052074304164A;
+		};
+		79DFE9F67CBDF795A17593E2 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xcconfig;
+			path = Config/Local.example.xcconfig;
+			sourceTree = SOURCE_ROOT;
+		};
+		7AD9AFD0359B513FBB692D4D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Core/ReleaseMetadata.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		7AFFD3BC862ACACC9BE97FC4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/YouTubeLinkRouterTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		8011B1589B71CC6544C2C1F0 = {
+			isa = PBXBuildFile;
+			fileRef = D3F2E57E7E50A4F90A558166;
+		};
+		8013A839C704B3CA83B7C479 = {
+			isa = PBXGroup;
+			children = (
+				07AC4C375853D922FB126A44,
+				A25BD3989E26189A2F504E06,
+				B4E152C3592EF0718F131331,
+				5F08F6B5BB1B50F8E3C6E3E4,
+			);
+			sourceTree = "<group>";
+			name = App;
+		};
+		829066727679FD931316B036 = {
+			isa = PBXBuildFile;
+			fileRef = CD5D7AA6D0DE6F11093177FE;
+		};
+		8563FC0E433A55DE4647783C = {
+			isa = PBXGroup;
+			children = (
+				F0ECC6FB8982DFCEED00128D,
+				B44A91DA17868C2EE5FDAEC0,
+				DEBCAD722352A2B66BA57100,
+				40703BB6BD0C94AE4C5DFEF7,
+				1827ED6B449C6654ABF34300,
+			);
+			sourceTree = "<group>";
+			name = AdBlock;
+		};
+		8592673262E03A572FC7173A = {
+			isa = PBXBuildFile;
+			fileRef = 16C41EAA8F4ED1E9212C2528;
+		};
+		874032D5D15FEA943DC0A393 = {
+			isa = PBXBuildFile;
+			fileRef = BE9E05F76158F82A0C0F6301;
+		};
+		884C1590D6177BFCD92C60F6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2981AB4FFDDFAB66EF3AE6,
+				606D079EBA910A7B75F11387,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AA71F8889F31AE907BF075C = {
+			isa = PBXBuildFile;
+			fileRef = 9FEED9D442A27CC12CCE81F8;
+		};
+		8AED2F0465E483478C7D4F42 = {
+			isa = PBXBuildFile;
+			fileRef = F7B1E7220A4532A2144AE701;
+		};
+		946E5F04715E5129EE1552A9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Shorts/ShortsScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		9689C2D21E8B4CBE462E9097 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			path = Weiktube/Resources/Filters;
+			sourceTree = SOURCE_ROOT;
+		};
+		96D1CAFFA38891BAC7AE9072 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9898B36CE8B1E02FA870074E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/WebKit/WebSurface.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		994730CAD22EC6E2C4148805 = {
+			isa = PBXTargetDependency;
+			target = DA002081807298519FD0C2C5;
+			targetProxy = 6744C828A29AB6F350E1CC55;
+		};
+		99A84A66BFC37E8872953F49 = {
+			isa = PBXBuildFile;
+			fileRef = 16C41EAA8F4ED1E9212C2528;
+		};
+		9B0271AF469B4EC114E1AEF0 = {
+			isa = PBXBuildFile;
+			fileRef = 1F04993028E0D4790EA8F188;
+		};
+		9B33902BB7D54B777B891F21 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B3F7352276B67AB85C3C1AF = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				499A2234370F354233D3FCC8,
+				76270A1280B61A514BF3B109,
+				100024A4560BE23C6CFF2984,
+				D1B1DE5AEDBB71D4A3DFDFA0,
+				27E621C6BC85602D31E21562,
+				E818F6D4D13913DC5E3A4674,
+				78741E8F0F3079DECE593467,
+				3F3D7467E2BA18A8A2415D15,
+				4A4F2D785C0D811D83C8B918,
+				9B5D0E9DFAAFD1EE1DBD9092,
+				2D0A9B5F7281653785C76A31,
+				1C71E36CC60D406F49AF1F29,
+				1122220A030A6015144FE6AB,
+				2D9CC07172F53E7FEF39CFD0,
+				A416F7FBD43E536C8602C3BE,
+				B97ACB2C18BD6FCD14F6ADFC,
+				DC574052F61A093562C04142,
+				D811D84B79F295EA09847596,
+				DF2AC54A34F98183C94EE1FC,
+				2843FF8DEDB96103CCA37238,
+				AE400AAA3858293AB380956D,
+				8011B1589B71CC6544C2C1F0,
+				6B2A8D6026C69054B8FC8F21,
+				6402697DA76D7985BFB31E0A,
+				5FCFACD6F88E0B2A693E494D,
+				5EA5C81A69492B48A81558E3,
+				A370A1C1F99DE05C3C9C5B7C,
+				F88C0C4D604621BB67EB937E,
+				34824C99F1CEA60D509D105D,
+				8592673262E03A572FC7173A,
+				1F726B4415C08C31FDFDB537,
+				25BC844E99E3820968D412D4,
+				DAFC94613AA982E94CEC8ABB,
+				4A9DDECBCC08930269A4168C,
+				2AC7CC52DEDC184DE6A64C7A,
+				C4FCA2139A57B2025FA4F5F2,
+				581735095D183CF6BDF769D4,
+				ADA62213E82DFBCB8FD20BC3,
+				829066727679FD931316B036,
+				B3A0403848C1FADEDC57B38F,
+				69B5D0AD332FF9A2D45B2548,
+				638049D49CE05B386DE3411A,
+				F3D2177167E783EA3AD05AA8,
+				B9E25E2931F7B10CE81CAA57,
+				1B0E547FCB1FD6AC0BE5ED62,
+				A4447117B31B25633BF6E0B9,
+				6CA19327CB9AD1184B194A65,
+				5C3ABA19161D5279161DF9C7,
+				8AA71F8889F31AE907BF075C,
+				60A535F1F9B530AD781A306E,
+				874032D5D15FEA943DC0A393,
+				0992786E541C7EA3BBAD4DC2,
+				2370B5EE67B7416792F839D8,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B5D0E9DFAAFD1EE1DBD9092 = {
+			isa = PBXBuildFile;
+			fileRef = DEBCAD722352A2B66BA57100;
+		};
+		9C614ED0D900B9105D4E2A2B = {
+			isa = PBXGroup;
+			children = (
+				D8FD34C808A9EDBC2F588513,
+				7AD9AFD0359B513FBB692D4D,
+			);
+			sourceTree = "<group>";
+			name = Core;
+		};
+		9EB259900E1967EFDF8C07BF = {
+			isa = PBXFileReference;
+			lastKnownFileType = net.daringfireball.markdown;
+			path = CHANGELOG.md;
+			sourceTree = SOURCE_ROOT;
+		};
+		9FEED9D442A27CC12CCE81F8 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/SponsorBlock/SponsorBlockSettingsScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		A21401BBA10EA93377B32C81 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			path = LICENSE;
+			sourceTree = SOURCE_ROOT;
+		};
+		A25035F4F4B6986D46D1706B = {
+			isa = PBXGroup;
+			children = (
+				C76FDF06D5491B427949F0BF,
+				BEFFC379AB9D22E12B01EC01,
+				6D988942492CB5E11E9AE910,
+				C5B8D065022F753D9A11143C,
+				044FCE4575FC61659F41364F,
+				282E1F7116E77CC673B488ED,
+			);
+			sourceTree = "<group>";
+			name = Player;
+		};
+		A2546DB62D7B02961B85F8C3 = {
+			isa = PBXBuildFile;
+			fileRef = 4A25B68CBA69BD9468504E03;
+		};
+		A25BD3989E26189A2F504E06 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/App/RootView.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		A370A1C1F99DE05C3C9C5B7C = {
+			isa = PBXBuildFile;
+			fileRef = 558054BA6F00D48D577039A2;
+		};
+		A416F7FBD43E536C8602C3BE = {
+			isa = PBXBuildFile;
+			fileRef = B4E152C3592EF0718F131331;
+		};
+		A44032292D4F796D7B3768E1 = {
+			isa = PBXGroup;
+			children = (
+				CD32AF4546317CBF53796642,
+				DE0D7725F7B1BE121B6BC244,
+				C2E74E4888F50B67C6A4E328,
+				E63846582EBF136377CE99D6,
+				5C16D594F53284B9DE1456E5,
+			);
+			sourceTree = "<group>";
+			name = scripts;
+		};
+		A4447117B31B25633BF6E0B9 = {
+			isa = PBXBuildFile;
+			fileRef = 946E5F04715E5129EE1552A9;
+		};
+		A682AC3D4109C5987884B262 = {
+			isa = PBXBuildFile;
+			fileRef = A21401BBA10EA93377B32C81;
+		};
+		A8002906E8C0A0FDF8E8651F = {
+			isa = PBXTargetDependency;
+			target = B04F2B8A4E23E4ABC945F6AB;
+			targetProxy = 2E6EB900207356AA926A69EC;
+		};
+		A86532467A0B5E816ECC7743 = {
+			isa = PBXGroup;
+			children = (
+				FF103B945168BC41077F0FE2,
+				BFD6791D9C64C7A4CDF4B440,
+				A44032292D4F796D7B3768E1,
+				E1DF343A2118BCE7E4BBD209,
+				5B7BEA185406AE417379A65B,
+				58997C6D0D88C8154669F90B,
+				3041848C28DE814BD7F618B0,
+				2A4D1D0ABE72A21F27909A9B,
+				9EB259900E1967EFDF8C07BF,
+				1ED47459373CDB2649A18FB4,
+				A21401BBA10EA93377B32C81,
+				3398B0D255678C8ADADF3C8B,
+				C9526517D112DF211F511373,
+				F2324857489121F376DEFB8B,
+				CA9E1AC0B4FF49AD16D05825,
+				5AF45081E6F3D1FB0E80198E,
+			);
+			sourceTree = "<group>";
+		};
+		A8D9D8C12FE863EFAD542C47 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Diagnostics/DiagnosticsStore.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		A9CB3CD8B1FF2989C2369C31 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			path = Weiktube/Info.plist;
+			sourceTree = SOURCE_ROOT;
+		};
+		AA5CF30F84A29085619747C6 = {
+			isa = PBXBuildFile;
+			fileRef = 01989AC34F1DE6E2147BE815;
+		};
+		AAADFE48B38D860DFBDF3E0C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Account/AccountPolicy.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		AD375C1F9EBB54D0BF5988A3 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Prepare configured app Info.plist";
+			alwaysOutOfDate = 1;
+			inputPaths = (
+				"$(SRCROOT)/Weiktube/Info.plist",
+				"$(SRCROOT)/scripts/prepare-info.py",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Weiktube-Info.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -eu\n/usr/bin/env python3 \"$SRCROOT/scripts/prepare-info.py\" --input \"$SRCROOT/Weiktube/Info.plist\" --output \"$DERIVED_FILE_DIR/Weiktube-Info.plist\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADA62213E82DFBCB8FD20BC3 = {
+			isa = PBXBuildFile;
+			fileRef = 282E1F7116E77CC673B488ED;
+		};
+		AE09BE0B03136925D67E88C4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				SDKROOT = iphoneos;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+			};
+			name = Debug;
+			baseConfigurationReference = CE0B5CBDF097F15CEECD1324;
+		};
+		AE31A2EB08AF775A6BCC578A = {
+			isa = PBXTargetDependency;
+			target = DA002081807298519FD0C2C5;
+			targetProxy = E8E6540448A037C18C174709;
+		};
+		AE400AAA3858293AB380956D = {
+			isa = PBXBuildFile;
+			fileRef = A8D9D8C12FE863EFAD542C47;
+		};
+		AFA3D31C3310BCC1F40844A4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Account/AccountScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		AFAB96C88410DBF6292BB2F7 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = WeiktubeUITests.xctest;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B037ABADC1ED4BF4E8DE5BE3 = {
+			isa = PBXGroup;
+			children = (
+				0A6FBAE83F44EF1BBF196FD6,
+				FED09F05415C428B30874FE9,
+				9FEED9D442A27CC12CCE81F8,
+			);
+			sourceTree = "<group>";
+			name = SponsorBlock;
+		};
+		B04F2B8A4E23E4ABC945F6AB = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35D2661200FD76F29302C02E;
+			buildPhases = (
+				D959CF3590363682535B508D,
+				9B33902BB7D54B777B891F21,
+				96D1CAFFA38891BAC7AE9072,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = 0E581A5F251E682E95FE9BD9;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B3A0403848C1FADEDC57B38F = {
+			isa = PBXBuildFile;
+			fileRef = D5F2F4AEF6E18ECC0FC27A80;
+		};
+		B44A91DA17868C2EE5FDAEC0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/AdBlock/AdBlockService.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		B4E152C3592EF0718F131331 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/App/WeiktubeApp.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		B8819D8DDA8C86186260741C = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8C90E46D689835F78639B77 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Networking/YouTubeHTTPTransport.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		B97ACB2C18BD6FCD14F6ADFC = {
+			isa = PBXBuildFile;
+			fileRef = 5F08F6B5BB1B50F8E3C6E3E4;
+		};
+		B9E25E2931F7B10CE81CAA57 = {
+			isa = PBXBuildFile;
+			fileRef = 755C1BE821371D1882321B7F;
+		};
+		BB2981AB4FFDDFAB66EF3AE6 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = WeiktubeTests;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WEIKTUBE_BUNDLE_ID).tests";
+				GENERATE_INFOPLIST_FILE = YES;
+				TEST_TARGET_NAME = Weiktube;
+				SKIP_INSTALL = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weiktube.app/Weiktube";
+			};
+			name = Debug;
+		};
+		BB7E5B1C4FBA56DBFD3820F5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = WeiktubeUITests;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WEIKTUBE_BUNDLE_ID).uitests";
+				GENERATE_INFOPLIST_FILE = YES;
+				TEST_TARGET_NAME = Weiktube;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BD1F3331427FA848774BF55B = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A682AC3D4109C5987884B262,
+				3FECC2EC03A344AAF0A4A993,
+				0915445C627ED5EF4B84C207,
+				69D86696C50083D465E53BA6,
+				7858A8D0C52BEE1987D8CCF6,
+				0F6E9E9F66D3A21078389F4B,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE614E18836F4B2F4293575C = {
+			isa = PBXBuildFile;
+			fileRef = F3A964BE60E74AC5FFC4C306;
+		};
+		BE67CD97919FA9DBF3AE61E5 = {
+			isa = PBXGroup;
+			children = (
+				6F0D7C92DE4C782E63F86507,
+				558054BA6F00D48D577039A2,
+				B8C90E46D689835F78639B77,
+				C2A8007AEADA0F86CA579929,
+			);
+			sourceTree = "<group>";
+			name = Networking;
+		};
+		BE9E05F76158F82A0C0F6301 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/WebKit/MediaSnapshot.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		BEFFC379AB9D22E12B01EC01 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Player/PlaybackOwnership.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		BF0699B01BC1195A1FCA6E46 = {
+			isa = PBXGroup;
+			children = (
+				3EEFEAF92562DE3AB6CAB373,
+			);
+			sourceTree = "<group>";
+			name = workflows;
+		};
+		BFD6791D9C64C7A4CDF4B440 = {
+			isa = PBXGroup;
+			children = (
+				35AF3D0DEEF205075344708C,
+				CE0B5CBDF097F15CEECD1324,
+				79DFE9F67CBDF795A17593E2,
+				377C6A6F60365FD2BE2FD5C5,
+			);
+			sourceTree = "<group>";
+			name = Config;
+		};
+		C2A8007AEADA0F86CA579929 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Networking/YouTubeModels.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		C2E74E4888F50B67C6A4E328 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = "scripts/prepare-info.py";
+			sourceTree = SOURCE_ROOT;
+		};
+		C408C25D9F2989FFEC4C9206 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE614E18836F4B2F4293575C,
+				9B0271AF469B4EC114E1AEF0,
+				73EFF01090179DCB99AF1475,
+				0402004B6044628DD6531AB6,
+				CD4DE8D7C4D32DF42F5A79FC,
+				6AE0B96DBD73EE568B8C6879,
+				AA5CF30F84A29085619747C6,
+				1284C18B1E3A7D447C2C8696,
+				E90CC9118E20F179ABF91679,
+				6B2C2DCB5C39B20F66A54486,
+				8AED2F0465E483478C7D4F42,
+				EC16D8D5172D2D4ECAF6EF20,
+				32B5D69FE041AD787AB2D969,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4FCA2139A57B2025FA4F5F2 = {
+			isa = PBXBuildFile;
+			fileRef = C5B8D065022F753D9A11143C;
+		};
+		C5B8D065022F753D9A11143C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Player/PlayerCoordinator.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		C76FDF06D5491B427949F0BF = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Player/NativePlayback.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		C806A862C78001D9C72F87B4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/PlaybackRestorationTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		C885293D5368DE6DAC565D0B = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.entitlements;
+			path = ShareExtension/ShareExtension.entitlements;
+			sourceTree = SOURCE_ROOT;
+		};
+		C9526517D112DF211F511373 = {
+			isa = PBXFileReference;
+			lastKnownFileType = net.daringfireball.markdown;
+			path = README.md;
+			sourceTree = SOURCE_ROOT;
+		};
+		CA9E1AC0B4FF49AD16D05825 = {
+			isa = PBXFileReference;
+			lastKnownFileType = net.daringfireball.markdown;
+			path = "THIRD-PARTY-NOTICES.md";
+			sourceTree = SOURCE_ROOT;
+		};
+		CC4795D709E5239D2B2A57B1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeUITests/WeiktubeUITests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		CD32AF4546317CBF53796642 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = "scripts/generate-icons.py";
+			sourceTree = SOURCE_ROOT;
+		};
+		CD4DE8D7C4D32DF42F5A79FC = {
+			isa = PBXBuildFile;
+			fileRef = 42F035D5D5F2103CE14B7CF4;
+		};
+		CD5D7AA6D0DE6F11093177FE = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Playlists/PlaylistsScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		CE0B5CBDF097F15CEECD1324 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xcconfig;
+			path = Config/Debug.xcconfig;
+			sourceTree = SOURCE_ROOT;
+		};
+		CF17348D1C12E972EE7ADB2D = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = ShareExtension;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(WEIKTUBE_BUNDLE_ID).share";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CF858814AF423BEDD6FABB3B = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/WebKit/WebSession.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		D17CBCE09402A9722CED5828 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xml;
+			path = Weiktube/PrivacyInfo.xcprivacy;
+			sourceTree = SOURCE_ROOT;
+		};
+		D1B1DE5AEDBB71D4A3DFDFA0 = {
+			isa = PBXBuildFile;
+			fileRef = 6CA145E110041AD9582BA8A8;
+		};
+		D1D85E05C3E4BF2BF0BF6E06 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Settings/ReleaseChecker.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		D3F2E57E7E50A4F90A558166 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/History/HistoryScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		D49722A0A60037BC82CA1A9C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Navigation/YouTubeLinkRouter.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		D5F2F4AEF6E18ECC0FC27A80 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/ReturnYouTubeDislike/ReturnDislikeService.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		D7E10EAD1D0D9AF2E2FD30ED = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D811D84B79F295EA09847596 = {
+			isa = PBXBuildFile;
+			fileRef = D8FD34C808A9EDBC2F588513;
+		};
+		D8FD34C808A9EDBC2F588513 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Core/PlayerPresentationState.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		D959CF3590363682535B508D = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				084E126073713F83D9DFBA83,
+				71F005E0BC16BCB05AB69ACA,
+				99A84A66BFC37E8872953F49,
+				A2546DB62D7B02961B85F8C3,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D962E1BDBED93437C5A94770 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Settings/AppSettings.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA002081807298519FD0C2C5 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16527856847DEDC53FAC77C7;
+			buildPhases = (
+				AD375C1F9EBB54D0BF5988A3,
+				9B3F7352276B67AB85C3C1AF,
+				0CAEF2B6D7379994426D8748,
+				BD1F3331427FA848774BF55B,
+				6BB38BEBF9DBC164126925F5,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8002906E8C0A0FDF8E8651F,
+			);
+			name = Weiktube;
+			productName = Weiktube;
+			productReference = 131BC7A265EBE23F3F59E12B;
+			productType = "com.apple.product-type.application";
+		};
+		DAFC94613AA982E94CEC8ABB = {
+			isa = PBXBuildFile;
+			fileRef = C76FDF06D5491B427949F0BF;
+		};
+		DC574052F61A093562C04142 = {
+			isa = PBXBuildFile;
+			fileRef = 75F222FAED080FF5D2708EAC;
+		};
+		DE0D7725F7B1BE121B6BC244 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = "scripts/generate-project.py";
+			sourceTree = SOURCE_ROOT;
+		};
+		DEBCAD722352A2B66BA57100 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/AdBlock/FilterPackage.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		DF2AC54A34F98183C94EE1FC = {
+			isa = PBXBuildFile;
+			fileRef = 7AD9AFD0359B513FBB692D4D;
+		};
+		DF6F182E5FA1F5C10EF1006E = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/ReleaseMetadataTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		E012FE2E0CA97A5057003E5B = {
+			isa = PBXBuildFile;
+			fileRef = CC4795D709E5239D2B2A57B1;
+		};
+		E1A01440FD6FB34EFDF56B33 = {
+			isa = PBXGroup;
+			children = (
+				BE9E05F76158F82A0C0F6301,
+				CF858814AF423BEDD6FABB3B,
+				9898B36CE8B1E02FA870074E,
+			);
+			sourceTree = "<group>";
+			name = WebKit;
+		};
+		E1DF343A2118BCE7E4BBD209 = {
+			isa = PBXGroup;
+			children = (
+				52F4412859ED8C14C506FEF5,
+				C885293D5368DE6DAC565D0B,
+				FE0CB5323D2566B5FFA6A0AD,
+			);
+			sourceTree = "<group>";
+			name = ShareExtension;
+		};
+		E2DB17EE5B6C0AC75FC53944 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Subscriptions/SubscriptionsScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		E562B77BB726D447820F802F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Home/ShieldBrowserScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		E63846582EBF136377CE99D6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = "scripts/select-simulator.py";
+			sourceTree = SOURCE_ROOT;
+		};
+		E74F589F13D9B302EDE2855A = {
+			isa = PBXBuildFile;
+			fileRef = 0E581A5F251E682E95FE9BD9;
+			settings = {
+				ATTRIBUTES = (
+					RemoveHeadersOnCopy,
+				);
+			};
+		};
+		E818F6D4D13913DC5E3A4674 = {
+			isa = PBXBuildFile;
+			fileRef = 3689BAFF0F0B60801AF5E4B4;
+		};
+		E8E6540448A037C18C174709 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1E57C28FAED53AA695BAFE;
+			proxyType = 1;
+			remoteGlobalIDString = DA002081807298519FD0C2C5;
+			remoteInfo = Weiktube;
+		};
+		E90CC9118E20F179ABF91679 = {
+			isa = PBXBuildFile;
+			fileRef = DF6F182E5FA1F5C10EF1006E;
+		};
+		EA4B1DC92DF01C657FCF3D01 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE09BE0B03136925D67E88C4,
+				4365913C4A83B005A0D469F1,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA63784B91AA067D8435F03F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/History/HistoryStore.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		EBE1DDE0E2EC74CB520CCF9F = {
+			isa = PBXGroup;
+			children = (
+				D5F2F4AEF6E18ECC0FC27A80,
+				768983DAEE3123ADA68789BB,
+			);
+			sourceTree = "<group>";
+			name = ReturnYouTubeDislike;
+		};
+		EC16D8D5172D2D4ECAF6EF20 = {
+			isa = PBXBuildFile;
+			fileRef = 178D7C8F23C9D47F05D9E422;
+		};
+		F0ECC6FB8982DFCEED00128D = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/AdBlock/AdBlockScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		F1AB737524FC99A24D9B9C52 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/Settings/SettingsScreen.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		F2324857489121F376DEFB8B = {
+			isa = PBXFileReference;
+			lastKnownFileType = net.daringfireball.markdown;
+			path = TESTING.md;
+			sourceTree = SOURCE_ROOT;
+		};
+		F3A964BE60E74AC5FFC4C306 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/AccountPolicyTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		F3D2177167E783EA3AD05AA8 = {
+			isa = PBXBuildFile;
+			fileRef = D1D85E05C3E4BF2BF0BF6E06;
+		};
+		F48E2A5F4D63FF9819C0A835 = {
+			isa = PBXGroup;
+			children = (
+				16C41EAA8F4ED1E9212C2528,
+				2F28593450ADDB552DA4E592,
+				4A25B68CBA69BD9468504E03,
+			);
+			sourceTree = "<group>";
+			name = Persistence;
+		};
+		F7B1E7220A4532A2144AE701 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/SharedLinkInboxTests.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		F88C0C4D604621BB67EB937E = {
+			isa = PBXBuildFile;
+			fileRef = B8C90E46D689835F78639B77;
+		};
+		FE0CB5323D2566B5FFA6A0AD = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = ShareExtension/ShareViewController.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		FED09F05415C428B30874FE9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Weiktube/SponsorBlock/SponsorBlockService.swift;
+			sourceTree = SOURCE_ROOT;
+		};
+		FF103B945168BC41077F0FE2 = {
+			isa = PBXGroup;
+			children = (
+				BF0699B01BC1195A1FCA6E46,
+			);
+			sourceTree = "<group>";
+			name = .github;
+		};
+	};
+	rootObject = 5A1E57C28FAED53AA695BAFE;
+}

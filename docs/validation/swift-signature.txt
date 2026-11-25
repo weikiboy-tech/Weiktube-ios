@@ -1,0 +1,6 @@
+gpg: Signature made Fri Nov 20 01:36:47 2026 CET
+gpg:                using RSA key EF80A866B47A981F
+gpg: Good signature from "Swift 6.x Release Signing Key <swift-infrastructure@forums.swift.org>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 52BB 7E3D E28A 71BE 22EC  05FF EF80 A866 B47A 981F
