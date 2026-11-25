@@ -80,6 +80,10 @@ final class WebSession: NSObject, ObservableObject, WKNavigationDelegate {
                 Task { @MainActor [weak self] in self?.canGoBack = value.newValue ?? false }
             }
         ]
+    }
+
+    private func prepareFirstDocument() {
+        guard configurationTask == nil else { return }
         configurationTask = Task { [weak self] in
             guard let self else { return }
             await adBlock.configure(controller: webView.configuration.userContentController)
@@ -98,7 +102,11 @@ final class WebSession: NSObject, ObservableObject, WKNavigationDelegate {
         }
         self.expectedVideoID = expectedVideoID
         selectRecoverySource(url)
-        guard ready else { pendingURL = url; return }
+        guard ready else {
+            pendingURL = url
+            prepareFirstDocument()
+            return
+        }
         loadSelectedDocument(url)
     }
 
@@ -115,6 +123,8 @@ final class WebSession: NSObject, ObservableObject, WKNavigationDelegate {
     func setSuspended(_ value: Bool) async {
         guard !destroyed else { return }
         suspended = value
+        // An unused tab has no document or audible owner. Apply this state before its first navigation.
+        guard configurationTask != nil else { return }
         suspensionRevision += 1
         let revision = suspensionRevision
         let previous = suspensionTask
@@ -383,10 +393,12 @@ final class WebSession: NSObject, ObservableObject, WKNavigationDelegate {
         documentProbeTask?.cancel()
         let previous = suspensionTask
         let view = webView
-        suspensionTask = Task { @MainActor in
-            await previous?.value
-            await view.setAllMediaPlaybackSuspended(true)
-            await view.closeAllMediaPresentations()
+        if configurationTask != nil {
+            suspensionTask = Task { @MainActor in
+                await previous?.value
+                await view.setAllMediaPlaybackSuspended(true)
+                await view.closeAllMediaPresentations()
+            }
         }
         webView.stopLoading()
         webView.configuration.userContentController.removeScriptMessageHandler(forName: "weiktube", contentWorld: Self.world)
