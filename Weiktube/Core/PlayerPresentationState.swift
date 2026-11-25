@@ -91,6 +91,16 @@ struct PlayerPresentationState: Equatable, Sendable {
     }
 }
 
+enum MiniPlayerLayout {
+    static func size(in available: CGSize, aspectRatio: CGFloat) -> CGSize {
+        let aspect = aspectRatio.isFinite && aspectRatio > 0 ? aspectRatio : 16.0 / 9.0
+        let widthLimit = max(1, min(196, available.width - 24))
+        let heightLimit = max(1, min(196, available.height - 24))
+        let width = min(widthLimit, heightLimit * aspect)
+        return CGSize(width: width, height: width / aspect)
+    }
+}
+
 enum PlayerGestureLimits {
     static let zoom = 1.0...8.0
     static let seekSteps = [5, 10, 15, 20, 30]

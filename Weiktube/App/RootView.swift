@@ -17,8 +17,8 @@ struct RootView:View {
         GeometryReader { geometry in
             let bottom:CGFloat=player.isFullscreen ? 0:60
             let expandedHeight=max(240,geometry.size.height-bottom)
-            let miniWidth=min(196,geometry.size.width-24)
-            let miniHeight=miniWidth / max(1,player.aspect)
+            let miniSize = MiniPlayerLayout.size(in: CGSize(width: geometry.size.width, height: geometry.size.height - bottom), aspectRatio: player.aspect)
+            let miniWidth = miniSize.width, miniHeight = miniSize.height
             let fraction=player.isMini ? CGFloat(1):player.dragFraction
             let panelWidth=geometry.size.width+(miniWidth-geometry.size.width)*fraction
             let panelHeight=expandedHeight+(miniHeight-expandedHeight)*fraction
@@ -32,7 +32,7 @@ struct RootView:View {
                 }
                 if player.hasPlayer {
                     PlayerPanel(player:player,sponsor:app.sponsor,dislikes:app.dislikes,
-                                logicalSize:CGSize(width:geometry.size.width,height:max(1,expandedHeight-100)),
+                                miniWidth: miniWidth, logicalSize:CGSize(width:geometry.size.width,height:max(1,expandedHeight-100)),
                                 onActions:{player.pause(reason: .videoActions);app.showActions=true;app.reconcilePlayback()})
                         .frame(width:panelWidth,height:panelHeight)
                         .offset(x:panelX,y:panelY)

@@ -6,10 +6,12 @@ import WebKit
 struct PlaybackSurface: UIViewRepresentable {
     @ObservedObject var coordinator: PlayerCoordinator
     let logicalSize: CGSize
+    let miniWidth: CGFloat
     func makeUIView(context: Context) -> PlaybackContainer { PlaybackContainer(coordinator: coordinator) }
     func updateUIView(_ view: PlaybackContainer, context: Context) {
         view.coordinator = coordinator
         view.logicalSize = logicalSize
+        view.miniWidth = miniWidth
         view.showNative(coordinator.isNative)
         view.setNeedsLayout()
     }
@@ -19,12 +21,14 @@ struct PlaybackSurface: UIViewRepresentable {
 @MainActor
 final class PlaybackContainer: UIView, UIGestureRecognizerDelegate {
     weak var coordinator: PlayerCoordinator?
+    var miniWidth: CGFloat = 196
     var logicalSize = CGSize(width: 390, height: 220)
     private weak var attached: UIView?
     private var nativeView: NativeVideoView?
     private var pinchStart = 1.0
     private var scale = 1.0
     private var panLocation = CGPoint.zero
+    private var panStartHeight: CGFloat = 1
     private var previousTranslation: CGFloat = 0
     private var volumeShown = false
     private var singleFingerBlocked = false
@@ -74,10 +78,9 @@ final class PlaybackContainer: UIView, UIGestureRecognizerDelegate {
         guard let attached else { return }
         let width = max(1, logicalSize.width), height = max(1, logicalSize.height)
         let baseScale = min(bounds.width / width, bounds.height / height)
-        let miniWidth = min(196, max(1,width - 24))
         let progress = min(1,max(0,(width - bounds.width) / max(1,width - miniWidth)))
         var mediaRect = coordinator?.snapshot.viewportRect ?? .zero
-        if mediaRect.isEmpty {
+        if coordinator?.isNative == true || mediaRect.isEmpty {
             let aspect = coordinator?.aspect ?? (16/9)
             let mediaWidth = min(width,height * aspect), mediaHeight = min(height,width / aspect)
             mediaRect = CGRect(x:(width-mediaWidth)/2/width,y:(height-mediaHeight)/2/height,width:mediaWidth/width,height:mediaHeight/height)
@@ -148,9 +151,10 @@ final class PlaybackContainer: UIView, UIGestureRecognizerDelegate {
         guard let coordinator else { return }
         if gesture.state == .began {
             panLocation = gesture.location(in: self); previousTranslation = 0; volumeShown = false
+            panStartHeight = max(1, bounds.height)
             coordinator.hold(false)
         }
-        let translation = gesture.translation(in: self).y
+        let translation = gesture.translation(in: window).y
         if gesture.state == .changed {
             if coordinator.isFullscreen {
                 if panLocation.x < bounds.midX {
@@ -159,13 +163,13 @@ final class PlaybackContainer: UIView, UIGestureRecognizerDelegate {
                     volumeShown = true; coordinator.showVolume = true
                     coordinator.showFeedback("Lautstärke mit dem Systemregler anpassen")
                 }
-            } else { coordinator.dragFraction = min(1,max(0,translation / max(1,bounds.height))) }
+            } else { coordinator.dragFraction = min(1,max(0,translation / panStartHeight)) }
             previousTranslation = translation
         }
         if [.ended,.cancelled,.failed].contains(gesture.state) {
             if !coordinator.isFullscreen {
                 let finish = gesture.state == .ended && (Double(translation) >= PlayerGestureLimits.minimizeDistance ||
-                    (Double(translation) >= PlayerGestureLimits.minimizeFlingDistance && Double(gesture.velocity(in:self).y) >= PlayerGestureLimits.minimizeFlingVelocity))
+                    (Double(translation) >= PlayerGestureLimits.minimizeFlingDistance && Double(gesture.velocity(in:window).y) >= PlayerGestureLimits.minimizeFlingVelocity))
                 withAnimation(.easeInOut(duration: UIAccessibility.isReduceMotionEnabled ? 0 : 0.18)) {
                     if finish { coordinator.minimize() } else { coordinator.dragFraction = 0 }
                 }

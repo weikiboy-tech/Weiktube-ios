@@ -115,6 +115,17 @@ final class PlayerPresentationTests: XCTestCase {
         XCTAssertFalse(state.manualFullscreenExitLatched)
     }
 
+    func testMiniPlayerPreservesPortraitAndLandscapeVideoInCompactWindows() {
+        for size in [CGSize(width: 390, height: 740), CGSize(width: 320, height: 160)] {
+            for aspect: CGFloat in [9.0 / 16.0, 1, 16.0 / 9.0] {
+                let mini = MiniPlayerLayout.size(in: size, aspectRatio: aspect)
+                XCTAssertEqual(mini.width / mini.height, aspect, accuracy: 0.0001)
+                XCTAssertLessThanOrEqual(mini.height, min(196, size.height - 24))
+                XCTAssertLessThanOrEqual(mini.width, min(196, size.width - 24))
+            }
+        }
+    }
+
     func testZoomClampingHandlesNonFiniteInput() {
         XCTAssertEqual(PlayerGestureLimits.clampedZoom(0.5), 1)
         XCTAssertEqual(PlayerGestureLimits.clampedZoom(2.5), 2.5)

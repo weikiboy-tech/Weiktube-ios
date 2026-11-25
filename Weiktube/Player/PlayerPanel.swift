@@ -6,6 +6,7 @@ struct PlayerPanel: View {
     @ObservedObject var player: PlayerCoordinator
     @ObservedObject var sponsor: SponsorBlockService
     @ObservedObject var dislikes: ReturnDislikeService
+    let miniWidth: CGFloat
     let logicalSize: CGSize
     var onActions: () -> Void
     @State private var sliderPosition = 0.0
@@ -19,7 +20,7 @@ struct PlayerPanel: View {
     var body: some View {
         VStack(spacing:0) {
             ZStack {
-                PlaybackSurface(coordinator:player,logicalSize:logicalSize)
+                PlaybackSurface(coordinator:player,logicalSize:logicalSize,miniWidth:miniWidth)
                 if let error=player.errorMessage {
                     VStack(spacing:10) {
                         Text(error).font(.subheadline).multilineTextAlignment(.center)
