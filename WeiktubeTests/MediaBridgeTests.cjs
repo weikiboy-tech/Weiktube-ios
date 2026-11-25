@@ -311,6 +311,12 @@ async function run() {
     f.windowEvent('pageshow', {persisted: true}); check(f.observers[0].active, 'bfcache restore reinstalls the observer');
   }
   {
+    const f = fixture({role: 'shorts'}); const v = f.video();
+    v.readyState = 1; v.currentSrc = 'https://media.example.org/local.mp4';
+    f.activate(); f.notify(); f.notify();
+    check(v.playCalls === 1 && !v.paused, 'iPhone metadata-only preload starts a sourced Short once');
+  }
+  {
     const hidden = fixture({role: 'shorts', url: 'https://m.youtube.com/shorts/abcdefghijk', hidden: true});
     const video = hidden.video(); hidden.activate(); check(video.playCalls === 0, 'Hidden Short is never auto-started');
     const blocked = fixture({role: 'shorts', url: 'https://m.youtube.com/shorts/abcdefghijk'});

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 import XCTest
 import WebKit
+import Combine
 @testable import Weiktube
 
 final class AdBlockTests: XCTestCase {
@@ -39,6 +40,28 @@ final class AdBlockTests: XCTestCase {
         XCTAssertFalse(DomainListParser.matches("youtube.com.evil.org", domain: "youtube.com"))
         XCTAssertTrue(DomainListParser.matches("www.youtube.com", domain: "youtube.com"))
     }
+    @MainActor
+    func testLocalFilterScreenActuallyBlocksItsImageAndHidesItsAd() async throws {
+        let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
+        let window = UIWindow(windowScene: scene)
+        let controller = UIViewController()
+        window.rootViewController = controller
+        window.makeKeyAndVisible()
+        let fixture = ShieldSelfTest()
+        let viewSubscription = fixture.$webView.compactMap { $0 }.sink { view in
+            view.frame = controller.view.bounds
+            view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            controller.view.addSubview(view)
+        }
+        defer { viewSubscription.cancel(); fixture.stop(); window.isHidden = true }
+        fixture.run()
+        let deadline = Date().addingTimeInterval(30)
+        while fixture.running && Date() < deadline {
+            try await Task.sleep(for: .milliseconds(50))
+        }
+        XCTAssertTrue(fixture.status.hasPrefix("Bestanden:"), fixture.status)
+    }
+
     @MainActor
     func testRulesCompileOnTheActualWebKitEngine() async throws {
         let json = try WebKitRuleCompiler.rules(snapshot: snapshot(), preferences: .init(), appDomain: "com.weiktube.ios")

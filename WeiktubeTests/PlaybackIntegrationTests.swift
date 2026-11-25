@@ -71,28 +71,6 @@ final class PlaybackIntegrationTests: XCTestCase {
     }
 
     func testWebKitBridgeOperatesOnDecodedInlineVideo() async throws {
-        let bridge = try String(contentsOf: XCTUnwrap(Bundle.main.url(forResource: "MediaBridge", withExtension: "js")), encoding: .utf8)
-        let config = WKWebViewConfiguration()
-        config.websiteDataStore = .nonPersistent()
-        config.allowsInlineMediaPlayback = true
-        config.mediaTypesRequiringUserActionForPlayback = []
-        config.userContentController.addUserScript(WKUserScript(source: bridge, injectionTime: .atDocumentEnd, forMainFrameOnly: true, in: .defaultClient))
-        let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
-        let window = UIWindow(windowScene: scene)
-        let controller = UIViewController()
-        window.rootViewController = controller
-        window.makeKeyAndVisible()
-        controller.view.layoutIfNeeded()
-        defer { window.isHidden = true }
-        let view = WKWebView(frame: controller.view.bounds, configuration: config)
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        controller.view.addSubview(view)
-        let encoded = try Data(contentsOf: clip()).base64EncodedString()
-        let html = "<meta name='viewport' content='width=device-width'><video playsinline muted preload='auto' width='250' height='140' src='data:video/mp4;base64,\(encoded)'></video>"
-        let delegate = LoadedPage()
-        view.navigationDelegate = delegate
-        view.loadHTMLString(html, baseURL: URL(string: "https://m.youtube.com/watch?v=abcdefghijk"))
-        await fulfillment(of: [delegate.finished], timeout: 20)
         let script = """
           const bridge = window.WeiktubeMedia;
           const video = document.querySelector('video');
@@ -112,9 +90,66 @@ final class PlaybackIntegrationTests: XCTestCase {
           const seek = await bridge.command('seek', {...args, seconds: 3});
           return held && released && video.paused && seek.ok && Math.abs(video.currentTime - 3) < 0.15;
           """
-        let result = try await view.callAsyncJavaScript(script, arguments: [:], in: nil, contentWorld: .defaultClient)
+        let result = try await evaluateClip(script: script)
         XCTAssertEqual(result as? Bool, true)
-        withExtendedLifetime(delegate) {}
+    }
+
+    func testShortsSwitchPausesPreviousVideoPreservesMuteAndSeeksCurrentVideo() async throws {
+        let script = """
+          const bridge = window.WeiktubeMedia, [first, next] = document.querySelectorAll('video');
+          const args = {generation: 3, token: 'shorts-test'};
+          const until = async (label, check) => {
+            const end = Date.now() + 15000;
+            while (!check()) {
+              if (Date.now() >= end) throw new Error(label);
+              await new Promise(resolve => setTimeout(resolve, 50));
+            }
+          };
+          bridge.activate({...args, role:'shorts', suspended:false, userMuted:false, originalControls:true});
+          await until('first Short did not start', () => !first.paused && first.currentTime > 0);
+          if (first.muted || !next.paused) return false;
+          bridge.command('mute', {...args, value:true});
+          first.hidden = true;
+          history.replaceState(null, '', '/shorts/lmnopqrstuv');
+          next.scrollIntoView();
+          window.dispatchEvent(new Event('yt-navigate-finish'));
+          await until('next Short did not start', () => !next.paused && next.currentTime > 0);
+          if (!first.paused || !next.muted) return false;
+          bridge.command('pause', args);
+          const seek = await bridge.command('seek', {...args, seconds:3});
+          return seek.ok && next.paused && Math.abs(next.currentTime - 3) < 0.15 && first.paused;
+          """
+        let result = try await evaluateClip(script: script, twoShorts: true)
+        XCTAssertEqual(result as? Bool, true)
+    }
+
+    private func evaluateClip(script: String, twoShorts: Bool = false) async throws -> Any? {
+        let bridge = try String(contentsOf: XCTUnwrap(Bundle.main.url(forResource: "MediaBridge", withExtension: "js")), encoding: .utf8)
+        let config = WKWebViewConfiguration()
+        config.websiteDataStore = .nonPersistent()
+        config.allowsInlineMediaPlayback = true
+        config.mediaTypesRequiringUserActionForPlayback = []
+        config.userContentController.addUserScript(WKUserScript(source: bridge, injectionTime: .atDocumentEnd, forMainFrameOnly: true, in: .defaultClient))
+        let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
+        let window = UIWindow(windowScene: scene)
+        let controller = UIViewController()
+        window.rootViewController = controller
+        window.makeKeyAndVisible()
+        controller.view.layoutIfNeeded()
+        defer { window.isHidden = true }
+        let view = WKWebView(frame: controller.view.bounds, configuration: config)
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        controller.view.addSubview(view)
+        let encoded = try Data(contentsOf: clip()).base64EncodedString()
+        let oneVideo = "<meta name='viewport' content='width=device-width'><video playsinline muted preload='auto' width='250' height='140' src='data:video/mp4;base64,\(encoded)'></video>"
+        let html = twoShorts ? oneVideo + "<div style='height:150vh'></div>" + oneVideo : oneVideo
+        let route = twoShorts ? "shorts/abcdefghijk" : "watch?v=abcdefghijk"
+        let delegate = LoadedPage()
+        view.navigationDelegate = delegate
+        view.loadHTMLString(html, baseURL: URL(string: "https://m.youtube.com/\(route)"))
+        await fulfillment(of: [delegate.finished], timeout: 20)
+        defer { withExtendedLifetime(delegate) {} }
+        return try await view.callAsyncJavaScript(script, arguments: [:], in: nil, contentWorld: .defaultClient)
     }
 }
 

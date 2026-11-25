@@ -161,7 +161,7 @@ enum WebKitRuleCompiler {
             }
             // WebKit content filters accept a list of top URLs but no regex alternation.
             let accountPaths = ["signin", "login", "logout", "account", "o/oauth", "servicelogin"]
-            let accountURLs = accountPaths.map { "^https://([a-z0-9-]+\\.)*youtube\\.com/" + $0 }
+            let accountURLs = ["^https://consent\\.youtube\\.com/", "^https://consent\\.google\\.com/", "^https://accounts\\.google\\.com/"] + accountPaths.map { "^https://([a-z0-9-]+\\.)*youtube\\.com/" + $0 }
             rules.append(["trigger": ["url-filter": ".*", "if-top-url": accountURLs],
                           "action": ["type": "ignore-previous-rules"]])
         }

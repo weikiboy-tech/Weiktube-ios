@@ -66,7 +66,9 @@
     for (const v of document.querySelectorAll('video')) if ((v !== video || suspended) && !v.paused) v.pause();
   }
   function tryPlay(video, explicit = false) {
-    if (!video || suspended || advertisement(video) || (!explicit && video.readyState < 2)) return false;
+    if (!video || suspended || advertisement(video)) return false;
+    // A selected source can wait at HAVE_METADATA until play() starts loading frames.
+    if (!explicit && video.readyState < 2 && !video.currentSrc && !video.getAttribute('src')) return false;
     const key = identity(video);
     const playToken = context?.token, playGeneration = context?.generation;
     if (!explicit && attempted === key) return false;
