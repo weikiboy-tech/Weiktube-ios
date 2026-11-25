@@ -109,6 +109,7 @@ jobs:
           set -o pipefail
           xcodebuild test-without-building -project Weiktube.xcodeproj -scheme Weiktube \
             -destination "$DESTINATION" -derivedDataPath build/DerivedData \
+            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120 \
             -parallel-testing-enabled NO -only-testing:WeiktubeTests/LiveYouTubeTests \
             -resultBundlePath artifacts/Weiktube-LiveYouTube.xcresult \
             2>&1 | tee artifacts/live-youtube.log
