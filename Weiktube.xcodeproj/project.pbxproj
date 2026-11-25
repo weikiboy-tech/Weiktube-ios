@@ -349,6 +349,12 @@
 			sourceTree = "<group>";
 			name = WeiktubeUITests;
 		};
+		30EEFBC9FF8F0F41112DC88B = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = "WeiktubeTests/player-fixture.mp4";
+			sourceTree = SOURCE_ROOT;
+		};
 		32B5D69FE041AD787AB2D969 = {
 			isa = PBXBuildFile;
 			fileRef = 7AFFD3BC862ACACC9BE97FC4;
@@ -550,7 +556,9 @@
 				0E64AD9A37013D385F9FA62C,
 				42F035D5D5F2103CE14B7CF4,
 				0EEC9292E1D83A712E6EDE22,
+				BA900DF3418F816FE8825C33,
 				C806A862C78001D9C72F87B4,
+				30EEFBC9FF8F0F41112DC88B,
 				01989AC34F1DE6E2147BE815,
 				503078599EAF2A53B4DB80C0,
 				DF6F182E5FA1F5C10EF1006E,
@@ -561,6 +569,10 @@
 			);
 			sourceTree = "<group>";
 			name = WeiktubeTests;
+		};
+		58A185E9194E7DAC543BEFB5 = {
+			isa = PBXBuildFile;
+			fileRef = 30EEFBC9FF8F0F41112DC88B;
 		};
 		5A1E57C28FAED53AA695BAFE = {
 			isa = PBXProject;
@@ -1349,6 +1361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58A185E9194E7DAC543BEFB5,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1365,6 +1378,12 @@
 		B9E25E2931F7B10CE81CAA57 = {
 			isa = PBXBuildFile;
 			fileRef = 755C1BE821371D1882321B7F;
+		};
+		BA900DF3418F816FE8825C33 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = WeiktubeTests/PlaybackIntegrationTests.swift;
+			sourceTree = SOURCE_ROOT;
 		};
 		BB2981AB4FFDDFAB66EF3AE6 = {
 			isa = XCBuildConfiguration;
@@ -1467,6 +1486,10 @@
 			sourceTree = "<group>";
 			name = Config;
 		};
+		C0BC9086B7C7D1CE7202A1E7 = {
+			isa = PBXBuildFile;
+			fileRef = BA900DF3418F816FE8825C33;
+		};
 		C2A8007AEADA0F86CA579929 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.swift;
@@ -1488,6 +1511,7 @@
 				73EFF01090179DCB99AF1475,
 				0402004B6044628DD6531AB6,
 				CD4DE8D7C4D32DF42F5A79FC,
+				C0BC9086B7C7D1CE7202A1E7,
 				6AE0B96DBD73EE568B8C6879,
 				AA5CF30F84A29085619747C6,
 				1284C18B1E3A7D447C2C8696,

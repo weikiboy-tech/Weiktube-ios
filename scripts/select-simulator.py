@@ -12,19 +12,22 @@ import sys
 def main() -> int:
     result = subprocess.run(["xcrun", "simctl", "list", "devices", "available", "--json"], check=True, capture_output=True, text=True)
     inventory = json.loads(result.stdout)
+    family = os.environ.get("SIMULATOR_FAMILY", "iPhone")
+    sdk = subprocess.check_output(["xcrun", "--sdk", "iphonesimulator", "--show-sdk-version"], text=True)
+    sdk_version = tuple(map(int, sdk.strip().split(".")[:2]))
     candidates = []
     for runtime, devices in inventory.get("devices", {}).items():
         match = re.search(r"\.iOS-(\d+)-(\d+)(?:-(\d+))?$", runtime)
         if not match:
             continue
         version = tuple(int(part or 0) for part in match.groups())
-        if version[0] < 17:
+        if version[0] < 17 or version[:2] > sdk_version:
             continue
         for device in devices:
-            if device.get("isAvailable") and device.get("name", "").startswith("iPhone"):
+            if device.get("isAvailable") and device.get("name", "").startswith(family):
                 candidates.append((version, device.get("state") == "Booted", device["name"], device["udid"]))
     if not candidates:
-        print("No available iPhone simulator with iOS 17 or later is installed. Install an iOS runtime in Xcode Settings > Components.", file=sys.stderr)
+        print(f"No available {family} runtime between 17.0 and SDK {sdk.strip()}", file=sys.stderr)
         return 1
     version, _, name, identifier = sorted(candidates)[-1]
     destination = f"platform=iOS Simulator,id={identifier}"

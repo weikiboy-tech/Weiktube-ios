@@ -7,7 +7,7 @@ import WebKit
 final class ShieldSelfTest: NSObject, ObservableObject, WKScriptMessageHandler {
     @Published private(set) var status = "Noch nicht ausgeführt"
     @Published private(set) var running = false
-    private(set) var webView: WKWebView?
+    @Published private(set) var webView: WKWebView?
     private var timeout: Task<Void,Never>?
     private var revision = 0
     func run() {

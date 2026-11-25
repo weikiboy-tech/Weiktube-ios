@@ -31,7 +31,7 @@ final class ShieldBrowserModel:NSObject,ObservableObject,WKNavigationDelegate {
               let host=url.host?.lowercased(),host.contains("."),host.count<=253 else{return false}
         return !["localhost","127.0.0.1","0.0.0.0"].contains(host) && !host.hasSuffix(".local") && !host.hasSuffix(".localhost")
     }
-    func webView(_ webView:WKWebView,decidePolicyFor navigationAction:WKNavigationAction,decisionHandler:@escaping(WKNavigationActionPolicy)->Void) {
+    func webView(_ webView:WKWebView,decidePolicyFor navigationAction:WKNavigationAction,decisionHandler:@escaping @MainActor @Sendable (WKNavigationActionPolicy)->Void) {
         guard let url=navigationAction.request.url,Self.allowed(url),url.host != "accounts.google.com" else{
             status="Diese Navigation wird nicht unterstützt. Google-Anmeldung erfolgt über die native Kontoansicht."
             decisionHandler(.cancel);return

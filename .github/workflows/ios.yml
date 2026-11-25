@@ -39,6 +39,12 @@ jobs:
           node Weiktube/AdBlock/VendorSource/vendor-adblock.mjs --check
 
   simulator:
+    strategy:
+      fail-fast: false
+      matrix:
+        family: [iPhone, iPad]
+    env:
+      SIMULATOR_FAMILY: ${{ matrix.family }}
     runs-on: macos-15
     needs: source-checks
     timeout-minutes: 40
@@ -55,7 +61,7 @@ jobs:
         run: |
           set -o pipefail
           swift test --parallel 2>&1 | tee artifacts/swift-package-tests.log
-      - name: Select an installed iPhone simulator dynamically
+      - name: Select a compatible simulator for this device family
         id: simulator
         run: python3 scripts/select-simulator.py
       - name: Build app and extension; run XCTest and offline UI tests
@@ -99,7 +105,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Weiktube-unsignedSimulator-${{ github.sha }}
+          name: Weiktube-${{ matrix.family }}-Simulator-${{ github.sha }}
           path: artifacts/
           retention-days: 14
           if-no-files-found: warn

@@ -61,7 +61,7 @@ def file_type(path: str) -> str:
     if (ROOT / path).is_dir():
         return "folder.assetcatalog" if path.endswith(".xcassets") else "folder"
     return {
-        ".swift": "sourcecode.swift", ".js": "sourcecode.javascript", ".cjs": "sourcecode.javascript",
+        ".mp4": "file", ".swift": "sourcecode.swift", ".js": "sourcecode.javascript", ".cjs": "sourcecode.javascript",
         ".py": "text.script.python", ".plist": "text.plist.xml", ".entitlements": "text.plist.entitlements",
         ".xcprivacy": "text.xml", ".xcconfig": "text.xcconfig", ".md": "net.daringfireball.markdown",
         ".yml": "text.yaml", ".json": "text.json", ".png": "image.png",
@@ -73,7 +73,8 @@ def make_project() -> dict:
     project_id = stable_id("project", "Weiktube")
     inventories = source_inventory()
     resources = resource_inventory()
-    displayed = set(resources)
+    test_resources = ["WeiktubeTests/player-fixture.mp4"]
+    displayed = set(resources + test_resources)
     for values in inventories.values():
         displayed.update(values)
     for directory in ("Config", "scripts", "ShareExtension"):
@@ -171,7 +172,7 @@ def make_project() -> dict:
     target_attributes = {}
     for target in TARGETS:
         phases = [build_phase(target, "Sources", inventories[target]), build_phase(target, "Frameworks", []),
-                  build_phase(target, "Resources", resources if target == "Weiktube" else [])]
+                  build_phase(target, "Resources", resources if target == "Weiktube" else test_resources if target == "WeiktubeTests" else [])]
         settings = {
             "PRODUCT_NAME": "$(TARGET_NAME)", "PRODUCT_MODULE_NAME": target,
             "TARGETED_DEVICE_FAMILY": "1,2", "SUPPORTED_PLATFORMS": "iphoneos iphonesimulator",

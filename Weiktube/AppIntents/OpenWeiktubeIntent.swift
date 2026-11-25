@@ -3,9 +3,9 @@ import AppIntents
 import Foundation
 
 struct OpenWeiktubeIntent:AppIntent {
-    static var title:LocalizedStringResource="In Weiktube öffnen"
-    static var description=IntentDescription("Öffnet einen YouTube-Link oder ein unterstütztes öffentliches HTTPS-Video in Weiktube.")
-    static var openAppWhenRun=true
+    static let title:LocalizedStringResource="In Weiktube öffnen"
+    static let description: IntentDescription? = IntentDescription("Öffnet einen YouTube-Link oder ein unterstütztes öffentliches HTTPS-Video in Weiktube.")
+    static let openAppWhenRun=true
     @Parameter(title:"Video-Link") var url:URL
     func perform() async throws -> some IntentResult {
         guard let route=YouTubeLinkRouter.route(url) else {throw WeiktubeIntentError.unsupportedLink}
