@@ -91,7 +91,8 @@ final class PlaybackContainer: UIView, UIGestureRecognizerDelegate {
         attached.center = CGPoint(x: bounds.midX-offsetX, y: bounds.midY-offsetY)
         attached.transform = CGAffineTransform(scaleX: factor, y: factor)
     }
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard [pinch, pan, doubleTap, hold].contains(gestureRecognizer) else { return super.gestureRecognizerShouldBegin(gestureRecognizer) }
         guard let coordinator, !coordinator.isMini, !coordinator.isPiP else { return false }
         guard !UIAccessibility.isVoiceOverRunning else { return false }
         let point = gestureRecognizer.location(in: self)

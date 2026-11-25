@@ -58,12 +58,6 @@ jobs:
       - name: Select an installed iPhone simulator dynamically
         id: simulator
         run: python3 scripts/select-simulator.py
-      - name: Boot selected simulator
-        env:
-          SIMULATOR_ID: ${{ steps.simulator.outputs.simulator_id }}
-        run: |
-          xcrun simctl boot "$SIMULATOR_ID" 2>/dev/null || true
-          xcrun simctl bootstatus "$SIMULATOR_ID" -b
       - name: Build app and extension; run XCTest and offline UI tests
         env:
           DESTINATION: ${{ steps.simulator.outputs.destination }}

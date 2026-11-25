@@ -172,7 +172,7 @@ struct PlayerPanel: View {
     }
 }
 private struct PlayerControlsHeight:PreferenceKey {
-    static var defaultValue:CGFloat=100
+    static let defaultValue:CGFloat=100
     static func reduce(value:inout CGFloat,nextValue:()->CGFloat){value=nextValue()}
 }
 struct SystemVolumeControl:UIViewRepresentable {
